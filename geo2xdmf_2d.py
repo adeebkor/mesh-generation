@@ -40,7 +40,7 @@ gmsh_quadrangle4 = cell_perm_gmsh(CellType.quadrilateral, 4)
 cells = cells[:, gmsh_quadrangle4]
 
 mesh = create_mesh(MPI.COMM_WORLD, cells, x[:, :2], domain)
-mesh.name = "sound_soft"
+mesh.name = "sound_hard"
 
 gmsh_line2 = cell_perm_gmsh(CellType.interval, 2)
 marked_facets = marked_facets[:, gmsh_line2]
@@ -48,10 +48,10 @@ marked_facets = marked_facets[:, gmsh_line2]
 entities, values = distribute_entity_data(mesh, 1, marked_facets, facet_values)
 mesh.topology.create_connectivity(1, 0)
 mt = create_meshtags(mesh, 1, create_adjacencylist(entities), np.int32(values))
-mt.name = "sound_soft_surface"
+mt.name = "sound_hard_surface"
 
 with XDMFFile(MPI.COMM_WORLD, "mesh.xdmf", "w") as file:
     file.write_mesh(mesh)
     mesh.topology.create_connectivity(1, 2)
     file.write_meshtags(
-        mt, geometry_xpath="/Xdmf/Domain/Grid[@Name='sound_soft']/Geometry")
+        mt, geometry_xpath="/Xdmf/Domain/Grid[@Name='sound_hard']/Geometry")

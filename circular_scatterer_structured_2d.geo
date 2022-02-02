@@ -80,6 +80,7 @@ Transfinite Line {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16} = densi
 Physical Curve(1) = {7, 8};
 Physical Curve(2) = {3, 4};
 Physical Curve(3) = {1, 2, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16};
+// Physical Curve(4) = {9, 10, 11, 12, 13, 14, 15, 16};
 
 Physical Surface(1) = {2, 4, 6, 8, 10, 12, 14, 16};
 
