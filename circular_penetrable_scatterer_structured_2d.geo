@@ -136,10 +136,10 @@ Transfinite Line {37, 38, 39, 40, 41, 42, 43, 44} = density3;
 
 Physical Curve(1) = {7, 8};
 Physical Curve(2) = {3, 4};
-Physical Curve(3) = {1, 2, 5, 6};
+// Physical Curve(3) = {1, 2, 5, 6};
 
 Physical Surface(1) = {2, 4, 6, 8, 10, 12, 14, 16};
-Physical Surface(2) = {18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40};
+// Physical Surface(2) = {18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40};
 
 Transfinite Surface "*";
 Recombine Surface "*";
