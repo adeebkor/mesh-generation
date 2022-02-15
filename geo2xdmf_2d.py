@@ -10,7 +10,7 @@ from dolfinx.io import (cell_perm_gmsh, extract_gmsh_geometry,
 from dolfinx.mesh import CellType, create_mesh, create_meshtags
 
 # Initialization
-fname = "circular_penetrable_scatterer_structured_2d.geo"
+fname = "rectangle_2d.geo"
 gmsh.initialize()
 gmsh.open(fname)
 
@@ -41,7 +41,7 @@ gmsh_quadrangle4 = cell_perm_gmsh(CellType.quadrilateral, 4)
 cells = cells[:, gmsh_quadrangle4]
 
 mesh = create_mesh(MPI.COMM_WORLD, cells, x[:, :2], domain)
-mesh.name = "penetrable"
+mesh.name = "rectangle"
 
 gmsh_line2 = cell_perm_gmsh(CellType.interval, 2)
 marked_facets = marked_facets[:, gmsh_line2]
@@ -49,10 +49,12 @@ marked_facets = marked_facets[:, gmsh_line2]
 entities, values = distribute_entity_data(mesh, 1, marked_facets, facet_values)
 mesh.topology.create_connectivity(1, 0)
 mt = create_meshtags(mesh, 1, create_adjacencylist(entities), np.int32(values))
-mt.name = "penetrable_surface"
+mt.name = "rectangle_boundaries"
 
 with XDMFFile(MPI.COMM_WORLD, "mesh.xdmf", "w") as file:
     file.write_mesh(mesh)
     mesh.topology.create_connectivity(1, 2)
     file.write_meshtags(
-        mt, geometry_xpath="/Xdmf/Domain/Grid[@Name='penetrable']/Geometry")
+        mt, geometry_xpath="/Xdmf/Domain/Grid[@Name='{}']/Geometry".format(
+            mesh.name
+        ))
