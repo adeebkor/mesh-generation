@@ -5,7 +5,7 @@ L = 0.1;
 R = 0.03;
 lmbda = c0 / f0;
 
-epw = 4;
+epw = 2;
 nw = L / lmbda;
 nx = epw * nw + 1;
 
