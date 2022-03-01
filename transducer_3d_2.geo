@@ -2,10 +2,10 @@ c0 = 1500;
 f0 = 0.5e6;
 
 lmbda = c0 / f0;
-L = 0.1;
-R = 0.035;
+L = 0.15;
+R = 0.05;
 
-epw = 4;
+epw = 3;
 
 p_r = 0.032;
 f_l = 0.064;
@@ -486,170 +486,17 @@ Transfinite Line {80, 81, 85, 92, 93, 97, 96, 82} = density3;
 Transfinite Line {106, 107, 108, 109, 110, 111, 112, 113} = density4;
 Transfinite Line {114, 115, 116, 117, 118, 119, 120, 121, 122} = density4;
 
-// Extra layer
-Point(54) = {R * Cos(0.00*Pi), R * Sin(0.00*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(55) = {R * Cos(0.25*Pi), R * Sin(0.25*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(56) = {R * Cos(0.50*Pi), R * Sin(0.50*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(57) = {R * Cos(0.75*Pi), R * Sin(0.75*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(58) = {R * Cos(1.00*Pi), R * Sin(1.00*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(59) = {R * Cos(1.25*Pi), R * Sin(1.25*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(60) = {R * Cos(1.50*Pi), R * Sin(1.50*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(61) = {R * Cos(1.75*Pi), R * Sin(1.75*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(62) = {R * Cos(0.00*Pi), R * Sin(0.00*Pi), L, 1.0};
-Point(63) = {R * Cos(0.25*Pi), R * Sin(0.25*Pi), L, 1.0};
-Point(64) = {R * Cos(0.50*Pi), R * Sin(0.50*Pi), L, 1.0};
-Point(65) = {R * Cos(0.75*Pi), R * Sin(0.75*Pi), L, 1.0};
-Point(66) = {R * Cos(1.00*Pi), R * Sin(1.00*Pi), L, 1.0};
-Point(67) = {R * Cos(1.25*Pi), R * Sin(1.25*Pi), L, 1.0};
-Point(68) = {R * Cos(1.50*Pi), R * Sin(1.50*Pi), L, 1.0};
-Point(69) = {R * Cos(1.75*Pi), R * Sin(1.75*Pi), L, 1.0};
-
-Line(223) = {2, 54};
-Line(224) = {3, 55};
-Line(225) = {4, 56};
-Line(226) = {5, 57};
-Line(227) = {6, 58};
-Line(228) = {7, 59};
-Line(229) = {8, 60};
-Line(230) = {9, 61};
-Circle(231) = {54, 1, 55};
-Circle(232) = {55, 1, 56};
-Circle(233) = {56, 1, 57};
-Circle(234) = {57, 1, 58};
-Circle(235) = {58, 1, 59};
-Circle(236) = {59, 1, 60};
-Circle(237) = {60, 1, 61};
-Circle(238) = {61, 1, 54};
-Line(239) = {38, 62};
-Line(240) = {39, 63};
-Line(241) = {40, 64};
-Line(242) = {41, 65};
-Line(243) = {42, 66};
-Line(244) = {43, 67};
-Line(245) = {44, 68};
-Line(246) = {45, 69};
-Circle(247) = {62, 37, 63};
-Circle(248) = {63, 37, 64};
-Circle(249) = {64, 37, 65};
-Circle(250) = {65, 37, 66};
-Circle(251) = {66, 37, 67};
-Circle(252) = {67, 37, 68};
-Circle(253) = {68, 37, 69};
-Circle(254) = {69, 37, 62};
-Line(255) = {54, 62};
-Line(256) = {55, 63};
-Line(257) = {56, 64};
-Line(258) = {57, 65};
-Line(259) = {58, 66};
-Line(260) = {59, 67};
-Line(261) = {60, 68};
-Line(262) = {61, 69};
-
-Line Loop(301) = {223, 231, -224, 24};
-Ruled Surface(302) = {301};
-Line Loop(303) = {224, 232, -225, 23};
-Ruled Surface(304) = {303};
-Line Loop(305) = {225, 233, -226, 22};
-Ruled Surface(306) = {305};
-Line Loop(307) = {226, 234, -227, 21};
-Ruled Surface(308) = {307};
-Line Loop(309) = {227, 235, -228, 28};
-Ruled Surface(310) = {309};
-Line Loop(311) = {228, 236, -229, 27};
-Ruled Surface(312) = {311};
-Line Loop(313) = {229, 237, -230, 26};
-Ruled Surface(314) = {313};
-Line Loop(315) = {230, 238, -223, 25};
-Ruled Surface(316) = {315};
-
-Line Loop(317) = {231, 256, -247, -255};
-Ruled Surface(318) = {317};
-Line Loop(319) = {232, 257, -248, -256};
-Ruled Surface(320) = {319};
-Line Loop(321) = {233, 258, -249, -257};
-Ruled Surface(322) = {321};
-Line Loop(323) = {234, 259, -250, -258};
-Ruled Surface(324) = {323};
-Line Loop(325) = {235, 260, -251, -259};
-Ruled Surface(326) = {325};
-Line Loop(327) = {236, 261, -252, -260};
-Ruled Surface(328) = {327};
-Line Loop(329) = {237, 262, -253, -261};
-Ruled Surface(330) = {329};
-Line Loop(331) = {238, 255, -254, -262};
-Ruled Surface(332) = {331};
-
-Line Loop(333) = {239, 247, -240, 101};
-Ruled Surface(334) = {333};
-Line Loop(335) = {240, 248, -241, 100};
-Ruled Surface(336) = {335};
-Line Loop(337) = {241, 249, -242, 99};
-Ruled Surface(338) = {337};
-Line Loop(339) = {242, 250, -243, 98};
-Ruled Surface(340) = {339};
-Line Loop(341) = {243, 251, -244, 105};
-Ruled Surface(342) = {341};
-Line Loop(343) = {244, 252, -245, 104};
-Ruled Surface(344) = {343};
-Line Loop(345) = {245, 253, -246, 103};
-Ruled Surface(346) = {345};
-Line Loop(347) = {246, 254, -239, 102};
-Ruled Surface(348) = {347};
-
-Line Loop(349) = {223, 255, -239, -119};
-Ruled Surface(350) = {349};
-Line Loop(351) = {224, 256, -240, -118};
-Ruled Surface(352) = {351};
-Line Loop(353) = {225, 257, -241, -117};
-Ruled Surface(354) = {353};
-Line Loop(355) = {226, 258, -242, -116};
-Ruled Surface(356) = {355};
-Line Loop(357) = {227, 259, -243, -115};
-Ruled Surface(358) = {357};
-Line Loop(359) = {228, 260, -244, -122};
-Ruled Surface(360) = {359};
-Line Loop(361) = {229, 261, -245, -121};
-Ruled Surface(362) = {361};
-Line Loop(363) = {230, 262, -246, -120};
-Ruled Surface(364) = {363};
-
-Surface Loop(401) = {302, 318, 334, 264, 350, 352};
-Volume(402) = {401};
-Surface Loop(403) = {304, 320, 336, 266, 352, 354};
-Volume(404) = {403};
-Surface Loop(405) = {306, 322, 338, 268, 354, 356};
-Volume(406) = {405};
-Surface Loop(407) = {308, 324, 340, 270, 356, 358};
-Volume(408) = {407};
-Surface Loop(409) = {310, 326, 342, 278, 358, 360};
-Volume(410) = {409};
-Surface Loop(411) = {312, 328, 344, 276, 360, 362};
-Volume(412) = {411};
-Surface Loop(413) = {314, 330, 346, 274, 362, 364};
-Volume(414) = {413};
-Surface Loop(415) = {316, 332, 348, 272, 364, 350};
-Volume(416) = {415};
-
-density5 = epw * (R - p_r) / lmbda;
-
-Transfinite Line {223, 224, 225, 226, 227, 228, 229, 230,
-                  239, 240, 241, 242, 243, 244, 245, 246} = density5;
-Transfinite Line {231, 232, 233, 234, 235, 236, 237, 238,
-                  247, 248, 249, 250, 251, 252, 253, 254} = density2;
-Transfinite Line {255, 256, 257, 258, 259, 260, 261, 262} = density4;
-
-Physical Surface(1) = {192, 194, 196, 198, 168, 170, 172, 174,
-                       176, 178, 180, 182};
-Physical Surface(2) = {318, 320, 322, 324, 326, 328, 330, 332,
-                       334, 336, 338, 340, 342, 344, 346, 348,
-                       208, 210, 212, 214, 216, 218, 220, 222,
-                       200, 202, 204, 206,
-                       302, 304, 306, 308, 310, 312, 314, 316};
-// Physical Surface(3) = {302, 304, 306, 308, 310, 312, 314, 316};
-Physical Volume(1) = {202, 204, 206, 208, 210, 212, 214, 216, 218, 220,
-                      222, 224, 226, 228, 230, 280, 282, 284, 286, 288,
-                      290, 292, 294, 296, 298, 300, 302, 402, 404, 406,
-                      408, 410, 412, 414, 416};
+Physical Surface(1) = {168, 170, 172, 174, 176, 178, 180, 182,
+                       192, 194, 196, 198};
+Physical Surface(2) = {200, 202, 204, 206,
+                       208, 210, 212, 214, 216, 218, 220, 222};
+Physical Surface(3) = {264, 266, 268, 270, 272, 274, 276, 278};
+Physical Volume(1) = {200, 202, 204, 206, 208,
+                      210, 212, 214, 216, 218,
+                      220, 222, 224, 226, 228,
+                      230, 280, 282, 284, 286,
+                      288, 290, 292, 294, 296,
+                      298, 300, 302};
 
 Transfinite Surface "*";
 Recombine Surface "*";

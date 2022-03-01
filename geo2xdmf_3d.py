@@ -10,7 +10,7 @@ from dolfinx.io import (cell_perm_gmsh, extract_gmsh_geometry,
 from dolfinx.mesh import CellType, create_mesh, create_meshtags
 
 # Initialization
-fname = "transducer_3d.geo"
+fname = "transducer_3d_1.geo"
 gmsh.initialize()
 gmsh.open(fname)
 
