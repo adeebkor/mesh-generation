@@ -7,10 +7,10 @@ from dolfinx.graph import create_adjacencylist
 from dolfinx.io import (cell_perm_gmsh, extract_gmsh_geometry,
                         ufl_mesh_from_gmsh, distribute_entity_data,
                         extract_gmsh_topology_and_markers, XDMFFile)
-from dolfinx.mesh import CellType, create_mesh, create_meshtags
+from dolfinx.mesh import CellType, create_mesh, meshtags_from_entities
 
 # Initialization
-fname = "transducer_3d_1.geo"
+fname = "planar_3d.geo"
 gmsh.initialize()
 gmsh.open(fname)
 
@@ -41,18 +41,18 @@ gmsh_hexahedron8 = cell_perm_gmsh(CellType.hexahedron, 8)
 cells = cells[:, gmsh_hexahedron8]
 
 mesh = create_mesh(MPI.COMM_WORLD, cells, x, domain)
-mesh.name = "transducer3d"
+mesh.name = "planar3d"
 
 gmsh_quadrangle4 = cell_perm_gmsh(CellType.quadrilateral, 4)
 marked_facets = marked_facets[:, gmsh_quadrangle4]
 
 entities, values = distribute_entity_data(mesh, 2, marked_facets, facet_values)
 mesh.topology.create_connectivity(2, 0)
-mt = create_meshtags(mesh, 2, create_adjacencylist(entities), np.int32(values))
-mt.name = "transducer3d_boundaries"
+mt = meshtags_from_entities(mesh, 2, create_adjacencylist(entities), np.int32(values))
+mt.name = "planar3d_boundaries"
 
 with XDMFFile(MPI.COMM_WORLD, "mesh.xdmf", "w") as file:
     file.write_mesh(mesh)
     mesh.topology.create_connectivity(2, 3)
     file.write_meshtags(
-        mt, geometry_xpath="/Xdmf/Domain/Grid[@Name='transducer3d']/Geometry")
+        mt, geometry_xpath="/Xdmf/Domain/Grid[@Name='planar3d']/Geometry")
