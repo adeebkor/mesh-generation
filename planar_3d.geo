@@ -1,11 +1,12 @@
 c0 = 1500;
-f0 = 1e6;
+f0 = 500000;
 
 lmbda = c0 / f0;
-L = 0.1;
-R = 0.05;
+N = 15;
+L = 0.12 + N*lmbda;
+R = 0.035 + N*lmbda;
 
-epw = 2;
+epw = 3;
 nw = L / lmbda;
 nx = epw * nw + 1;
 
