@@ -7,10 +7,10 @@ from dolfinx.graph import create_adjacencylist
 from dolfinx.io import (cell_perm_gmsh, extract_gmsh_geometry,
                         ufl_mesh_from_gmsh, distribute_entity_data,
                         extract_gmsh_topology_and_markers, XDMFFile)
-from dolfinx.mesh import CellType, create_mesh, create_meshtags
+from dolfinx.mesh import CellType, create_mesh, meshtags_from_entities
 
 # Initialization
-source_type = "transducer"
+source_type = "planar"
 fname = f"{source_type}_3d.geo"
 gmsh.initialize()
 gmsh.open(fname)
@@ -49,7 +49,8 @@ marked_facets = marked_facets[:, gmsh_quadrangle4]
 
 entities, values = distribute_entity_data(mesh, 2, marked_facets, facet_values)
 mesh.topology.create_connectivity(2, 0)
-mt = create_meshtags(mesh, 2, create_adjacencylist(entities), np.int32(values))
+mt = meshtags_from_entities(
+    mesh, 2, create_adjacencylist(entities), np.int32(values))
 mt.name = f"{source_type}3d_boundaries"
 
 with XDMFFile(MPI.COMM_WORLD, "mesh.xdmf", "w") as file:
