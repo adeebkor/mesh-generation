@@ -6,7 +6,7 @@ N = 15;
 L = 0.12 + N*lmbda;
 R = 0.035 + N*lmbda;
 
-epw = 3;
+epw = 2.0;
 nw = L / lmbda;
 nx = epw * nw + 1;
 
