@@ -11,7 +11,7 @@ from dolfinx.mesh import CellType, create_mesh, meshtags_from_entities
 
 # Initialization
 source_type = "planar"
-fname = f"{source_type}_3d_0.geo"
+fname = f"{source_type}_3d_1.geo"
 gmsh.initialize()
 gmsh.open(fname)
 
