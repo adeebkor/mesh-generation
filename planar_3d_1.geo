@@ -5,7 +5,7 @@ lmbda = c0 / f0;
 N = 15;
 R = 0.035 + N*lmbda;
 
-epw = 2.0;
+epw = 2.39;
 p_r = 0.01;
 
 // Volume 1 
