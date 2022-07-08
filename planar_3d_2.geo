@@ -1,3 +1,5 @@
+// Heterogenous domain
+
 c0 = 1500;
 f0 = 500000;
 

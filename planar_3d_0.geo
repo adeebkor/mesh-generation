@@ -1,3 +1,5 @@
+// Homogenous domain
+
 c0 = 1500;
 f0 = 500000;
 
@@ -6,7 +8,7 @@ N = 15;
 L = 0.12 + N*lmbda;
 R = 0.035 + N*lmbda;
 
-epw = 2.0;
+epw = 2.39;
 nw = L / lmbda;
 nx = epw * nw + 1;
 
