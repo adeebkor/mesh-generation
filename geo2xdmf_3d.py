@@ -22,8 +22,8 @@ if MPI.COMM_WORLD.rank == 0:
     gmsh_cell_id = MPI.COMM_WORLD.bcast(
         gmsh.model.mesh.getElementType("Hexahedron", 1), root=0)
     topologies = extract_gmsh_topology_and_markers(gmsh.model)
-    cells = topologies[gmsh_cell_id]["topology"]
-    cell_data = topologies[gmsh_cell_id]["cell_data"]
+    cells = topologies[gmsh_cell_id]["topology"].astype(np.int64)
+    cell_data = topologies[gmsh_cell_id]["cell_data"].astype(np.int32)
 
     num_nodes = MPI.COMM_WORLD.bcast(cells.shape[1], root=0)
     gmsh_facet_id = gmsh.model.mesh.getElementType("Quadrangle", 1)
