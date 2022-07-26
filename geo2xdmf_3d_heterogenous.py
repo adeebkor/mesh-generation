@@ -1,4 +1,3 @@
-from math import dist
 import numpy as np
 import gmsh
 

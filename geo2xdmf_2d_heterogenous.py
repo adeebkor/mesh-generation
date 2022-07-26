@@ -10,7 +10,7 @@ from dolfinx.io import (cell_perm_gmsh, extract_gmsh_geometry,
 from dolfinx.mesh import CellType, create_mesh, meshtags_from_entities
 
 # Initialization
-fname = "rectangle_2d.geo"
+fname = "planar_2d_1.geo"
 gmsh.initialize()
 gmsh.open(fname)
 
@@ -21,8 +21,8 @@ if MPI.COMM_WORLD.rank == 0:
     gmsh_cell_id = MPI.COMM_WORLD.bcast(
         gmsh.model.mesh.getElementType("Quadrangle", 1), root=0)
     topologies = extract_gmsh_topology_and_markers(gmsh.model)
-    cells = topologies[gmsh_cell_id]["topology"]
-    cell_data = topologies[gmsh_cell_id]["cell_data"]
+    cells = topologies[gmsh_cell_id]["topology"].astype(np.int64)
+    cell_data = topologies[gmsh_cell_id]["cell_data"].astype(np.int32)
 
     num_nodes = MPI.COMM_WORLD.bcast(cells.shape[1], root=0)
     gmsh_facet_id = gmsh.model.mesh.getElementType("Line", 1)
@@ -41,21 +41,13 @@ gmsh_quadrangle4 = cell_perm_gmsh(CellType.quadrilateral, 4)
 cells = cells[:, gmsh_quadrangle4]
 
 mesh = create_mesh(MPI.COMM_WORLD, cells, x[:, :2], domain)
-mesh.name = "rectangle"
+mesh.name = f"planar2d"
 
 gmsh_line2 = cell_perm_gmsh(CellType.interval, 2)
 marked_facets = marked_facets[:, gmsh_line2]
 
-entities, values = distribute_entity_data(mesh, 1, marked_facets, facet_values)
-mesh.topology.create_connectivity(1, 0)
-mt = meshtags_from_entities(
-    mesh, 1, create_adjacencylist(entities), np.int32(values))
-mt.name = "rectangle_boundaries"
-
-with XDMFFile(MPI.COMM_WORLD, "mesh.xdmf", "w") as file:
-    file.write_mesh(mesh)
-    mesh.topology.create_connectivity(1, 2)
-    file.write_meshtags(
-        mt, geometry_xpath="/Xdmf/Domain/Grid[@Name='{}']/Geometry".format(
-            mesh.name
-        ))
+print(cells.shape)
+entity_cells, value_cells = distribute_entity_data(mesh, 2, cells, cell_data)
+# mesh.topology.create_connectivity(2, 0)
+# mt_cells = meshtags_from_entities(
+#     mesh, 2, create_adjacencylist(entity_cells), np.int32(value_cells))
