@@ -1,2 +1,2 @@
-mesh.xdmf
-mesh.h5
+*.xdmf
+*.h5
