@@ -10,7 +10,7 @@ from dolfinx.io import (cell_perm_gmsh, extract_gmsh_geometry,
 from dolfinx.mesh import CellType, create_mesh, meshtags_from_entities
 
 # Initialization
-fname = "planar_2d_latest.geo"
+fname = "planar_2d_2.geo"
 gmsh.initialize()
 gmsh.open(fname)
 
