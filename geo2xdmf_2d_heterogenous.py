@@ -10,7 +10,7 @@ from dolfinx.io import (cell_perm_gmsh, extract_gmsh_geometry,
 from dolfinx.mesh import CellType, create_mesh, meshtags_from_entities
 
 # Initialization
-fname = "planar_2d_1.geo"
+fname = "planar_2d_latest.geo"
 gmsh.initialize()
 gmsh.open(fname)
 
@@ -46,8 +46,25 @@ mesh.name = f"planar2d"
 gmsh_line2 = cell_perm_gmsh(CellType.interval, 2)
 marked_facets = marked_facets[:, gmsh_line2]
 
-print(cells.shape)
 entity_cells, value_cells = distribute_entity_data(mesh, 2, cells, cell_data)
-# mesh.topology.create_connectivity(2, 0)
-# mt_cells = meshtags_from_entities(
-#     mesh, 2, create_adjacencylist(entity_cells), np.int32(value_cells))
+mesh.topology.create_connectivity(2, 0)
+mt_cells = meshtags_from_entities(
+    mesh, 2, create_adjacencylist(entity_cells), np.int32(value_cells))
+mt_cells.name = f"planar2d_regions"
+
+entity_facets, value_facets = distribute_entity_data(
+    mesh, 1, marked_facets, facet_values)
+mesh.topology.create_connectivity(1, 0)
+mt_facets = meshtags_from_entities(
+    mesh, 1, create_adjacencylist(entity_facets), np.int32(value_facets))
+mt_facets.name = f"planar2d_boundaries"
+
+with XDMFFile(MPI.COMM_WORLD, "mesh.xdmf", "w") as fmesh:
+    fmesh.write_mesh(mesh)
+    mesh.topology.create_connectivity(1, 2)
+    fmesh.write_meshtags(
+        mt_cells,
+        geometry_xpath=f"/Xdmf/Domain/Grid[@Name='planar2d']/Geometry")
+    fmesh.write_meshtags(
+        mt_facets,
+        geometry_xpath=f"/Xdmf/Domain/Grid[@Name='planar2d']/Geometry")
