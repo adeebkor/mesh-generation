@@ -1,41 +1,53 @@
-c0 = 1.0;
-f0 = 10.0;
+// ----------------------------------------------------------------------------
+//
+// Gmsh GEO file
+//
+// Domain with a penetrable circular scatterer
+// - Structured quadrilateral mesh
+//
+// ----------------------------------------------------------------------------
 
-L = 1.0;
-lmbda = c0 / f0;
+speedOfSound = 1.0;
+sourceFrequency = 10.0;
 
-epw = 8;
-nw = L / lmbda;
-nx = epw * nw + 1;
+domainLength = 1.0;
+wavelength = speedOfSound / sourceFrequency;
 
-sr = 0.05;
-sr_half = sr / 2;
+numElementPerWavelength = 8;
+numPoints = numElementPerWavelength * domainLength / wavelength + 1;
+
+scattererRadius = 0.05;
+scattererHalfRadius = scattererRadius / 2;
+
+// ------------------------------------------------------------------------- //
+// Domain                                                                    //
+// ------------------------------------------------------------------------- //
 
 Point(1) = {-0.5, -0.5, 0., 1.0};
 Point(2) = {0.5, -0.5, 0., 1.0};
 Point(3) = {0.5, 0.5, 0., 1.0};
 Point(4) = {-0.5, 0.5, 0., 1.0};
 Point(5) = {0.0, 0.0, 0., 1.0};
-Point(6) = {sr * Cos(Pi), sr * Sin(Pi), 0., 1.0};
-Point(7) = {sr * Cos(5/4*Pi), sr * Sin(5/4*Pi), 0., 1.0};
-Point(8) = {sr * Cos(3/2*Pi), sr * Sin(3/2*Pi), 0., 1.0};
-Point(9) = {sr * Cos(7/4*Pi), sr * Sin(7/4*Pi), 0., 1.0};
-Point(10) = {sr, 0.0, 0., 1.0};
-Point(11) = {sr * Cos(1/4*Pi), sr * Sin(1/4*Pi), 0., 1.0};
-Point(12) = {sr * Cos(1/2*Pi), sr * Sin(1/2*Pi), 0., 1.0};
-Point(13) = {sr * Cos(3/4*Pi), sr * Sin(3/4*Pi), 0., 1.0};
+Point(6) = {scattererRadius * Cos(Pi), scattererRadius * Sin(Pi), 0., 1.0};
+Point(7) = {scattererRadius * Cos(5/4*Pi), scattererRadius * Sin(5/4*Pi), 0., 1.0};
+Point(8) = {scattererRadius * Cos(3/2*Pi), scattererRadius * Sin(3/2*Pi), 0., 1.0};
+Point(9) = {scattererRadius * Cos(7/4*Pi), scattererRadius * Sin(7/4*Pi), 0., 1.0};
+Point(10) = {scattererRadius, 0.0, 0., 1.0};
+Point(11) = {scattererRadius * Cos(1/4*Pi), scattererRadius * Sin(1/4*Pi), 0., 1.0};
+Point(12) = {scattererRadius * Cos(1/2*Pi), scattererRadius * Sin(1/2*Pi), 0., 1.0};
+Point(13) = {scattererRadius * Cos(3/4*Pi), scattererRadius * Sin(3/4*Pi), 0., 1.0};
 Point(14) = {0, -0.5, 0., 1.0};
 Point(15) = {0.5, 0., 0., 1.0};
 Point(16) = {0., 0.5, 0., 1.0};
 Point(17) = {-0.5, 0., 0., 1.0};
-Point(18) = {sr_half * Cos(Pi), sr_half * Sin(Pi), 0., 1.0};
-Point(19) = {sr_half * Cos(5/4*Pi), sr_half * Sin(5/4*Pi), 0., 1.0};
-Point(20) = {sr_half * Cos(3/2*Pi), sr_half * Sin(3/2*Pi), 0., 1.0};
-Point(21) = {sr_half * Cos(7/4*Pi), sr_half * Sin(7/4*Pi), 0., 1.0};
-Point(22) = {sr_half, 0., 0., 1.0};
-Point(23) = {sr_half * Cos(1/4*Pi), sr_half * Sin(1/4*Pi), 0., 1.0};
-Point(24) = {sr_half * Cos(1/2*Pi), sr_half * Sin(1/2*Pi), 0., 1.0};
-Point(25) = {sr_half * Cos(3/4*Pi), sr_half * Sin(3/4*Pi), 0., 1.0};
+Point(18) = {scattererHalfRadius * Cos(Pi), scattererHalfRadius * Sin(Pi), 0., 1.0};
+Point(19) = {scattererHalfRadius * Cos(5/4*Pi), scattererHalfRadius * Sin(5/4*Pi), 0., 1.0};
+Point(20) = {scattererHalfRadius * Cos(3/2*Pi), scattererHalfRadius * Sin(3/2*Pi), 0., 1.0};
+Point(21) = {scattererHalfRadius * Cos(7/4*Pi), scattererHalfRadius * Sin(7/4*Pi), 0., 1.0};
+Point(22) = {scattererHalfRadius, 0., 0., 1.0};
+Point(23) = {scattererHalfRadius * Cos(1/4*Pi), scattererHalfRadius * Sin(1/4*Pi), 0., 1.0};
+Point(24) = {scattererHalfRadius * Cos(1/2*Pi), scattererHalfRadius * Sin(1/2*Pi), 0., 1.0};
+Point(25) = {scattererHalfRadius * Cos(3/4*Pi), scattererHalfRadius * Sin(3/4*Pi), 0., 1.0};
 
 Line(1) = {1, 14};
 Line(2) = {14, 2};
@@ -125,14 +137,9 @@ Curve Loop(39) = {35, 36, -17, 20};
 Plane Surface(40) = {39};
 
 
-density1 = nx * 4;
-density2 = nx / 4;
-density3 = nx / 4;
-
-Transfinite Line {21, 22, 23, 24, 25, 26, 27, 28} = density1;
-Transfinite Line {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
-                  17, 18, 19, 20, 29, 30, 31, 32, 33, 34, 35, 36} = density2;
-Transfinite Line {37, 38, 39, 40, 41, 42, 43, 44} = density3;
+// ----------------------- //
+// Tag curves and surfaces //
+// ----------------------- //
 
 Physical Curve(1) = {7, 8};
 Physical Curve(2) = {3, 4};
@@ -141,6 +148,17 @@ Physical Curve(2) = {3, 4};
 Physical Surface(1) = {2, 4, 6, 8, 10, 12, 14, 16};
 Physical Surface(2) = {18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40};
 
+// =============== //
+// Set transfinite //
+// =============== //
+
+numPoints1 = numPoints * 4;
+numPoints2 = numPoints / 4;
+
+Transfinite Line {21, 22, 23, 24, 25, 26, 27, 28} = numPoints1;
+Transfinite Line {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+                  17, 18, 19, 20, 29, 30, 31, 32, 33, 34, 35, 36} = numPoints2;
+Transfinite Line {37, 38, 39, 40, 41, 42, 43, 44} = numPoints2;
+
 Transfinite Surface "*";
 Recombine Surface "*";
-

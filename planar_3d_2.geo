@@ -1,76 +1,87 @@
-// Heterogenous domain
+// ------------------------------------------------------------------------- //
+//
+// Gmsh GEO file
+//
+// Heterogenous domain for 3D circular planar problem 2
+// 
+// - structured mesh
+//
+// Copyright (C) 2021 Adeeb Arif Kor
+// ------------------------------------------------------------------------- //
 
-c0 = 1500;
-f0 = 500000;
+speedOfSound = 1500;
+sourceFrequency = 500000;
 
-lmbda = c0 / f0;
-N = 15;
-R = 0.035 + N*lmbda;
+wavelength = speedOfSound / sourceFrequency;
+numExtraWavelength = 15;
+domainRadius = 0.035 + numExtraWavelength*wavelength;
 
-epw = 2.39;
-p_r = 0.01;
+numElementPerWavelength = 2.39;
+sourceRadius = 0.01;
 
-// Volume 1 
+// ------------------------------------------------------------------------- //
+// Volume 1                                                                  //
+// ------------------------------------------------------------------------- //
 
-L0 = 0.026;
+lengthLayer1 = 0.026;
 
 Point(1) = {0., 0., 0., 1.0};
-Point(2) = {p_r * Cos(Pi), p_r * Sin(Pi), 0., 1.0};
-Point(3) = {p_r * Cos(5/4*Pi), p_r * Sin(5/4*Pi), 0., 1.0};
-Point(4) = {p_r * Cos(3/2*Pi), p_r * Sin(3/2*Pi), 0., 1.0};
-Point(5) = {p_r * Cos(7/4*Pi), p_r * Sin(7/4*Pi), 0., 1.0};
-Point(6) = {p_r, 0., 0., 1.0};
-Point(7) = {p_r * Cos(1/4*Pi), p_r * Sin(1/4*Pi), 0., 1.0};
-Point(8) = {p_r * Cos(1/2*Pi), p_r * Sin(1/2*Pi), 0., 1.0};
-Point(9) = {p_r * Cos(3/4*Pi), p_r * Sin(3/4*Pi), 0., 1.0};
+Point(2) = {sourceRadius * Cos(Pi), sourceRadius * Sin(Pi), 0., 1.0};
+Point(3) = {sourceRadius * Cos(5/4*Pi), sourceRadius * Sin(5/4*Pi), 0., 1.0};
+Point(4) = {sourceRadius * Cos(3/2*Pi), sourceRadius * Sin(3/2*Pi), 0., 1.0};
+Point(5) = {sourceRadius * Cos(7/4*Pi), sourceRadius * Sin(7/4*Pi), 0., 1.0};
+Point(6) = {sourceRadius, 0., 0., 1.0};
+Point(7) = {sourceRadius * Cos(1/4*Pi), sourceRadius * Sin(1/4*Pi), 0., 1.0};
+Point(8) = {sourceRadius * Cos(1/2*Pi), sourceRadius * Sin(1/2*Pi), 0., 1.0};
+Point(9) = {sourceRadius * Cos(3/4*Pi), sourceRadius * Sin(3/4*Pi), 0., 1.0};
 
-Point(10) = {R, 0., 0., 1.0};
-Point(11) = {R * Cos(Pi), R * Sin(Pi), 0., 1.0};
-Point(12) = {R * Cos(5/4*Pi), R * Sin(5/4*Pi), 0., 1.0};
-Point(13) = {R * Cos(3/2*Pi), R * Sin(3/2*Pi), 0., 1.0};
-Point(14) = {R * Cos(7/4*Pi), R * Sin(7/4*Pi), 0., 1.0};
-Point(15) = {R, 0., 0., 1.0};
-Point(16) = {R * Cos(1/4*Pi), R * Sin(1/4*Pi), 0., 1.0};
-Point(17) = {R * Cos(1/2*Pi), R * Sin(1/2*Pi), 0., 1.0};
-Point(18) = {R * Cos(3/4*Pi), R * Sin(3/4*Pi), 0., 1.0};
+Point(10) = {domainRadius, 0., 0., 1.0};
+Point(11) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi), 0., 1.0};
+Point(12) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi), 0., 1.0};
+Point(13) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi), 0., 1.0};
+Point(14) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi), 0., 1.0};
+Point(15) = {domainRadius, 0., 0., 1.0};
+Point(16) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), 0., 1.0};
+Point(17) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), 0., 1.0};
+Point(18) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), 0., 1.0};
 
-Point(19) = {p_r / 2 * Cos(Pi), p_r / 2 * Sin(Pi), 0., 1.0};
-Point(20) = {p_r / 2 * Cos(5/4*Pi), p_r / 2 * Sin(5/4*Pi), 0., 1.0};
-Point(21) = {p_r / 2 * Cos(3/2*Pi), p_r / 2 * Sin(3/2*Pi), 0., 1.0};
-Point(22) = {p_r / 2 * Cos(7/4*Pi), p_r / 2 * Sin(7/4*Pi), 0., 1.0};
-Point(23) = {p_r / 2, 0., 0., 1.0};
-Point(24) = {p_r / 2 * Cos(1/4*Pi), p_r / 2 * Sin(1/4*Pi), 0., 1.0};
-Point(25) = {p_r / 2 * Cos(1/2*Pi), p_r / 2 * Sin(1/2*Pi), 0., 1.0};
-Point(26) = {p_r / 2 * Cos(3/4*Pi), p_r / 2 * Sin(3/4*Pi), 0., 1.0};
+Point(19) = {sourceRadius / 2 * Cos(Pi), sourceRadius / 2 * Sin(Pi), 0., 1.0};
+Point(20) = {sourceRadius / 2 * Cos(5/4*Pi), sourceRadius / 2 * Sin(5/4*Pi), 0., 1.0};
+Point(21) = {sourceRadius / 2 * Cos(3/2*Pi), sourceRadius / 2 * Sin(3/2*Pi), 0., 1.0};
+Point(22) = {sourceRadius / 2 * Cos(7/4*Pi), sourceRadius / 2 * Sin(7/4*Pi), 0., 1.0};
+Point(23) = {sourceRadius / 2, 0., 0., 1.0};
+Point(24) = {sourceRadius / 2 * Cos(1/4*Pi), sourceRadius / 2 * Sin(1/4*Pi), 0., 1.0};
+Point(25) = {sourceRadius / 2 * Cos(1/2*Pi), sourceRadius / 2 * Sin(1/2*Pi), 0., 1.0};
+Point(26) = {sourceRadius / 2 * Cos(3/4*Pi), sourceRadius / 2 * Sin(3/4*Pi), 0., 1.0};
 
-Point(27) = {0., 0., L0, 1.0};
-Point(28) = {p_r * Cos(Pi), p_r * Sin(Pi), L0, 1.0};
-Point(29) = {p_r * Cos(5/4*Pi), p_r * Sin(5/4*Pi), L0, 1.0};
-Point(30) = {p_r * Cos(3/2*Pi), p_r * Sin(3/2*Pi), L0, 1.0};
-Point(31) = {p_r * Cos(7/4*Pi), p_r * Sin(7/4*Pi), L0, 1.0};
-Point(32) = {p_r, 0., L0, 1.0};
-Point(33) = {p_r * Cos(1/4*Pi), p_r * Sin(1/4*Pi), L0, 1.0};
-Point(34) = {p_r * Cos(1/2*Pi), p_r * Sin(1/2*Pi), L0, 1.0};
-Point(35) = {p_r * Cos(3/4*Pi), p_r * Sin(3/4*Pi), L0, 1.0};
+Point(27) = {0., 0., lengthLayer1, 1.0};
+Point(28) = {sourceRadius * Cos(Pi), sourceRadius * Sin(Pi), lengthLayer1, 1.0};
+Point(29) = {sourceRadius * Cos(5/4*Pi), sourceRadius * Sin(5/4*Pi), lengthLayer1, 1.0};
+Point(30) = {sourceRadius * Cos(3/2*Pi), sourceRadius * Sin(3/2*Pi), lengthLayer1, 1.0};
+Point(31) = {sourceRadius * Cos(7/4*Pi), sourceRadius * Sin(7/4*Pi), lengthLayer1, 1.0};
+Point(32) = {sourceRadius, 0., lengthLayer1, 1.0};
+Point(33) = {sourceRadius * Cos(1/4*Pi), sourceRadius * Sin(1/4*Pi), lengthLayer1, 1.0};
+Point(34) = {sourceRadius * Cos(1/2*Pi), sourceRadius * Sin(1/2*Pi), lengthLayer1, 1.0};
+Point(35) = {sourceRadius * Cos(3/4*Pi), sourceRadius * Sin(3/4*Pi), lengthLayer1, 1.0};
 
-Point(36) = {R, 0., L0, 1.0};
-Point(37) = {R * Cos(Pi), R * Sin(Pi), L0, 1.0};
-Point(38) = {R * Cos(5/4*Pi), R * Sin(5/4*Pi), L0, 1.0};
-Point(39) = {R * Cos(3/2*Pi), R * Sin(3/2*Pi), L0, 1.0};
-Point(40) = {R * Cos(7/4*Pi), R * Sin(7/4*Pi), L0, 1.0};
-Point(41) = {R, 0., L0, 1.0};
-Point(42) = {R * Cos(1/4*Pi), R * Sin(1/4*Pi), L0, 1.0};
-Point(43) = {R * Cos(1/2*Pi), R * Sin(1/2*Pi), L0, 1.0};
-Point(44) = {R * Cos(3/4*Pi), R * Sin(3/4*Pi), L0, 1.0};
+Point(36) = {domainRadius, 0., lengthLayer1, 1.0};
+Point(37) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi), lengthLayer1, 1.0};
+Point(38) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi), lengthLayer1, 1.0};
+Point(39) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi), lengthLayer1, 1.0};
+Point(40) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi), lengthLayer1, 1.0};
+Point(41) = {domainRadius, 0., lengthLayer1, 1.0};
+Point(42) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), lengthLayer1, 1.0};
+Point(43) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), lengthLayer1, 1.0};
+Point(44) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), lengthLayer1, 1.0};
 
-Point(45) = {p_r / 2 * Cos(Pi), p_r / 2 * Sin(Pi), L0, 1.0};
-Point(46) = {p_r / 2 * Cos(5/4*Pi), p_r / 2 * Sin(5/4*Pi), L0, 1.0};
-Point(47) = {p_r / 2 * Cos(3/2*Pi), p_r / 2 * Sin(3/2*Pi), L0, 1.0};
-Point(48) = {p_r / 2 * Cos(7/4*Pi), p_r / 2 * Sin(7/4*Pi), L0, 1.0};
-Point(49) = {p_r / 2, 0., L0, 1.0};
-Point(50) = {p_r / 2 * Cos(1/4*Pi), p_r / 2 * Sin(1/4*Pi), L0, 1.0};
-Point(51) = {p_r / 2 * Cos(1/2*Pi), p_r / 2 * Sin(1/2*Pi), L0, 1.0};
-Point(52) = {p_r / 2 * Cos(3/4*Pi), p_r / 2 * Sin(3/4*Pi), L0, 1.0};
+Point(45) = {sourceRadius / 2 * Cos(Pi), sourceRadius / 2 * Sin(Pi), lengthLayer1, 1.0};
+Point(46) = {sourceRadius / 2 * Cos(5/4*Pi), sourceRadius / 2 * Sin(5/4*Pi), lengthLayer1, 1.0};
+Point(47) = {sourceRadius / 2 * Cos(3/2*Pi), sourceRadius / 2 * Sin(3/2*Pi), lengthLayer1, 1.0};
+Point(48) = {sourceRadius / 2 * Cos(7/4*Pi), sourceRadius / 2 * Sin(7/4*Pi), lengthLayer1, 1.0};
+Point(49) = {sourceRadius / 2, 0., lengthLayer1, 1.0};
+Point(50) = {sourceRadius / 2 * Cos(1/4*Pi), sourceRadius / 2 * Sin(1/4*Pi), lengthLayer1, 1.0};
+Point(51) = {sourceRadius / 2 * Cos(1/2*Pi), sourceRadius / 2 * Sin(1/2*Pi), lengthLayer1, 1.0};
+Point(52) = {sourceRadius / 2 * Cos(3/4*Pi), sourceRadius / 2 * Sin(3/4*Pi), lengthLayer1, 1.0};
 
 Line(1) = {1, 19};
 Line(2) = {1, 21};
@@ -407,38 +418,40 @@ Volume(206) = {205};
 Surface Loop(207) = {112, 144, 128, 114, 40, 80};
 Volume(208) = {207};
 
-// Volume 2
+// ------------------------------------------------------------------------- //
+// Volume 2                                                                  //
+// ------------------------------------------------------------------------- //
 
-L1 = L0 + 0.004;
+lengthLayer2 = lengthLayer1 + 0.004;
 
-Point(53) = {0., 0., L1, 1.0};
-Point(54) = {p_r * Cos(Pi), p_r * Sin(Pi), L1, 1.0};
-Point(55) = {p_r * Cos(5/4*Pi), p_r * Sin(5/4*Pi), L1, 1.0};
-Point(56) = {p_r * Cos(3/2*Pi), p_r * Sin(3/2*Pi), L1, 1.0};
-Point(57) = {p_r * Cos(7/4*Pi), p_r * Sin(7/4*Pi), L1, 1.0};
-Point(58) = {p_r, 0., L1, 1.0};
-Point(59) = {p_r * Cos(1/4*Pi), p_r * Sin(1/4*Pi), L1, 1.0};
-Point(60) = {p_r * Cos(1/2*Pi), p_r * Sin(1/2*Pi), L1, 1.0};
-Point(61) = {p_r * Cos(3/4*Pi), p_r * Sin(3/4*Pi), L1, 1.0};
+Point(53) = {0., 0., lengthLayer2, 1.0};
+Point(54) = {sourceRadius * Cos(Pi), sourceRadius * Sin(Pi), lengthLayer2, 1.0};
+Point(55) = {sourceRadius * Cos(5/4*Pi), sourceRadius * Sin(5/4*Pi), lengthLayer2, 1.0};
+Point(56) = {sourceRadius * Cos(3/2*Pi), sourceRadius * Sin(3/2*Pi), lengthLayer2, 1.0};
+Point(57) = {sourceRadius * Cos(7/4*Pi), sourceRadius * Sin(7/4*Pi), lengthLayer2, 1.0};
+Point(58) = {sourceRadius, 0., lengthLayer2, 1.0};
+Point(59) = {sourceRadius * Cos(1/4*Pi), sourceRadius * Sin(1/4*Pi), lengthLayer2, 1.0};
+Point(60) = {sourceRadius * Cos(1/2*Pi), sourceRadius * Sin(1/2*Pi), lengthLayer2, 1.0};
+Point(61) = {sourceRadius * Cos(3/4*Pi), sourceRadius * Sin(3/4*Pi), lengthLayer2, 1.0};
 
-Point(62) = {R, 0., L1, 1.0};
-Point(63) = {R * Cos(Pi), R * Sin(Pi), L1, 1.0};
-Point(64) = {R * Cos(5/4*Pi), R * Sin(5/4*Pi), L1, 1.0};
-Point(65) = {R * Cos(3/2*Pi), R * Sin(3/2*Pi), L1, 1.0};
-Point(66) = {R * Cos(7/4*Pi), R * Sin(7/4*Pi), L1, 1.0};
-Point(67) = {R, 0., L1, 1.0};
-Point(68) = {R * Cos(1/4*Pi), R * Sin(1/4*Pi), L1, 1.0};
-Point(69) = {R * Cos(1/2*Pi), R * Sin(1/2*Pi), L1, 1.0};
-Point(70) = {R * Cos(3/4*Pi), R * Sin(3/4*Pi), L1, 1.0};
+Point(62) = {domainRadius, 0., lengthLayer2, 1.0};
+Point(63) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi), lengthLayer2, 1.0};
+Point(64) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi), lengthLayer2, 1.0};
+Point(65) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi), lengthLayer2, 1.0};
+Point(66) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi), lengthLayer2, 1.0};
+Point(67) = {domainRadius, 0., lengthLayer2, 1.0};
+Point(68) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), lengthLayer2, 1.0};
+Point(69) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), lengthLayer2, 1.0};
+Point(70) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), lengthLayer2, 1.0};
 
-Point(71) = {p_r / 2 * Cos(Pi), p_r / 2 * Sin(Pi), L1, 1.0};
-Point(72) = {p_r / 2 * Cos(5/4*Pi), p_r / 2 * Sin(5/4*Pi), L1, 1.0};
-Point(73) = {p_r / 2 * Cos(3/2*Pi), p_r / 2 * Sin(3/2*Pi), L1, 1.0};
-Point(74) = {p_r / 2 * Cos(7/4*Pi), p_r / 2 * Sin(7/4*Pi), L1, 1.0};
-Point(75) = {p_r / 2, 0., L1, 1.0};
-Point(76) = {p_r / 2 * Cos(1/4*Pi), p_r / 2 * Sin(1/4*Pi), L1, 1.0};
-Point(77) = {p_r / 2 * Cos(1/2*Pi), p_r / 2 * Sin(1/2*Pi), L1, 1.0};
-Point(78) = {p_r / 2 * Cos(3/4*Pi), p_r / 2 * Sin(3/4*Pi), L1, 1.0};
+Point(71) = {sourceRadius / 2 * Cos(Pi), sourceRadius / 2 * Sin(Pi), lengthLayer2, 1.0};
+Point(72) = {sourceRadius / 2 * Cos(5/4*Pi), sourceRadius / 2 * Sin(5/4*Pi), lengthLayer2, 1.0};
+Point(73) = {sourceRadius / 2 * Cos(3/2*Pi), sourceRadius / 2 * Sin(3/2*Pi), lengthLayer2, 1.0};
+Point(74) = {sourceRadius / 2 * Cos(7/4*Pi), sourceRadius / 2 * Sin(7/4*Pi), lengthLayer2, 1.0};
+Point(75) = {sourceRadius / 2, 0., lengthLayer2, 1.0};
+Point(76) = {sourceRadius / 2 * Cos(1/4*Pi), sourceRadius / 2 * Sin(1/4*Pi), lengthLayer2, 1.0};
+Point(77) = {sourceRadius / 2 * Cos(1/2*Pi), sourceRadius / 2 * Sin(1/2*Pi), lengthLayer2, 1.0};
+Point(78) = {sourceRadius / 2 * Cos(3/4*Pi), sourceRadius / 2 * Sin(3/4*Pi), lengthLayer2, 1.0};
 
 Line(201) = {53, 71};
 Line(202) = {53, 73};
@@ -689,38 +702,40 @@ Volume(366) = {365};
 Surface Loop(367) = {272, 304, 288, 274, 80, 240};
 Volume(368) = {367};
 
-// Volume 3
+// ------------------------------------------------------------------------- //
+// Volume 3                                                                  //
+// ------------------------------------------------------------------------- //
 
-L2 = L1 + 0.0015;
+lengthLayer3 = lengthLayer2 + 0.0015;
 
-Point(79) = {0., 0., L2, 1.0};
-Point(80) = {p_r * Cos(Pi), p_r * Sin(Pi), L2, 1.0};
-Point(81) = {p_r * Cos(5/4*Pi), p_r * Sin(5/4*Pi), L2, 1.0};
-Point(82) = {p_r * Cos(3/2*Pi), p_r * Sin(3/2*Pi), L2, 1.0};
-Point(83) = {p_r * Cos(7/4*Pi), p_r * Sin(7/4*Pi), L2, 1.0};
-Point(84) = {p_r, 0., L2, 1.0};
-Point(85) = {p_r * Cos(1/4*Pi), p_r * Sin(1/4*Pi), L2, 1.0};
-Point(86) = {p_r * Cos(1/2*Pi), p_r * Sin(1/2*Pi), L2, 1.0};
-Point(87) = {p_r * Cos(3/4*Pi), p_r * Sin(3/4*Pi), L2, 1.0};
+Point(79) = {0., 0., lengthLayer3, 1.0};
+Point(80) = {sourceRadius * Cos(Pi), sourceRadius * Sin(Pi), lengthLayer3, 1.0};
+Point(81) = {sourceRadius * Cos(5/4*Pi), sourceRadius * Sin(5/4*Pi), lengthLayer3, 1.0};
+Point(82) = {sourceRadius * Cos(3/2*Pi), sourceRadius * Sin(3/2*Pi), lengthLayer3, 1.0};
+Point(83) = {sourceRadius * Cos(7/4*Pi), sourceRadius * Sin(7/4*Pi), lengthLayer3, 1.0};
+Point(84) = {sourceRadius, 0., lengthLayer3, 1.0};
+Point(85) = {sourceRadius * Cos(1/4*Pi), sourceRadius * Sin(1/4*Pi), lengthLayer3, 1.0};
+Point(86) = {sourceRadius * Cos(1/2*Pi), sourceRadius * Sin(1/2*Pi), lengthLayer3, 1.0};
+Point(87) = {sourceRadius * Cos(3/4*Pi), sourceRadius * Sin(3/4*Pi), lengthLayer3, 1.0};
 
-Point(88) = {R, 0., L2, 1.0};
-Point(89) = {R * Cos(Pi), R * Sin(Pi), L2, 1.0};
-Point(90) = {R * Cos(5/4*Pi), R * Sin(5/4*Pi), L2, 1.0};
-Point(91) = {R * Cos(3/2*Pi), R * Sin(3/2*Pi), L2, 1.0};
-Point(92) = {R * Cos(7/4*Pi), R * Sin(7/4*Pi), L2, 1.0};
-Point(93) = {R, 0., L2, 1.0};
-Point(94) = {R * Cos(1/4*Pi), R * Sin(1/4*Pi), L2, 1.0};
-Point(95) = {R * Cos(1/2*Pi), R * Sin(1/2*Pi), L2, 1.0};
-Point(96) = {R * Cos(3/4*Pi), R * Sin(3/4*Pi), L2, 1.0};
+Point(88) = {domainRadius, 0., lengthLayer3, 1.0};
+Point(89) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi), lengthLayer3, 1.0};
+Point(90) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi), lengthLayer3, 1.0};
+Point(91) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi), lengthLayer3, 1.0};
+Point(92) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi), lengthLayer3, 1.0};
+Point(93) = {domainRadius, 0., lengthLayer3, 1.0};
+Point(94) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), lengthLayer3, 1.0};
+Point(95) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), lengthLayer3, 1.0};
+Point(96) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), lengthLayer3, 1.0};
 
-Point(97) = {p_r / 2 * Cos(Pi), p_r / 2 * Sin(Pi), L2, 1.0};
-Point(98) = {p_r / 2 * Cos(5/4*Pi), p_r / 2 * Sin(5/4*Pi), L2, 1.0};
-Point(99) = {p_r / 2 * Cos(3/2*Pi), p_r / 2 * Sin(3/2*Pi), L2, 1.0};
-Point(100) = {p_r / 2 * Cos(7/4*Pi), p_r / 2 * Sin(7/4*Pi), L2, 1.0};
-Point(101) = {p_r / 2, 0., L2, 1.0};
-Point(102) = {p_r / 2 * Cos(1/4*Pi), p_r / 2 * Sin(1/4*Pi), L2, 1.0};
-Point(103) = {p_r / 2 * Cos(1/2*Pi), p_r / 2 * Sin(1/2*Pi), L2, 1.0};
-Point(104) = {p_r / 2 * Cos(3/4*Pi), p_r / 2 * Sin(3/4*Pi), L2, 1.0};
+Point(97) = {sourceRadius / 2 * Cos(Pi), sourceRadius / 2 * Sin(Pi), lengthLayer3, 1.0};
+Point(98) = {sourceRadius / 2 * Cos(5/4*Pi), sourceRadius / 2 * Sin(5/4*Pi), lengthLayer3, 1.0};
+Point(99) = {sourceRadius / 2 * Cos(3/2*Pi), sourceRadius / 2 * Sin(3/2*Pi), lengthLayer3, 1.0};
+Point(100) = {sourceRadius / 2 * Cos(7/4*Pi), sourceRadius / 2 * Sin(7/4*Pi), lengthLayer3, 1.0};
+Point(101) = {sourceRadius / 2, 0., lengthLayer3, 1.0};
+Point(102) = {sourceRadius / 2 * Cos(1/4*Pi), sourceRadius / 2 * Sin(1/4*Pi), lengthLayer3, 1.0};
+Point(103) = {sourceRadius / 2 * Cos(1/2*Pi), sourceRadius / 2 * Sin(1/2*Pi), lengthLayer3, 1.0};
+Point(104) = {sourceRadius / 2 * Cos(3/4*Pi), sourceRadius / 2 * Sin(3/4*Pi), lengthLayer3, 1.0};
 
 Line(401) = {79, 97};
 Line(402) = {79, 99};
@@ -971,38 +986,40 @@ Volume(566) = {565};
 Surface Loop(567) = {472, 504, 488, 474, 240, 440};
 Volume(568) = {567};
 
-// Volume 4
+// ------------------------------------------------------------------------- //
+// Volume 4                                                                  //
+// ------------------------------------------------------------------------- //
 
-L3 = L2 + 0.004;
+lengthLayer4 = lengthLayer3 + 0.004;
 
-Point(105) = {0., 0., L3, 1.0};
-Point(106) = {p_r * Cos(Pi), p_r * Sin(Pi), L3, 1.0};
-Point(107) = {p_r * Cos(5/4*Pi), p_r * Sin(5/4*Pi), L3, 1.0};
-Point(108) = {p_r * Cos(3/2*Pi), p_r * Sin(3/2*Pi), L3, 1.0};
-Point(109) = {p_r * Cos(7/4*Pi), p_r * Sin(7/4*Pi), L3, 1.0};
-Point(110) = {p_r, 0., L3, 1.0};
-Point(111) = {p_r * Cos(1/4*Pi), p_r * Sin(1/4*Pi), L3, 1.0};
-Point(112) = {p_r * Cos(1/2*Pi), p_r * Sin(1/2*Pi), L3, 1.0};
-Point(113) = {p_r * Cos(3/4*Pi), p_r * Sin(3/4*Pi), L3, 1.0};
+Point(105) = {0., 0., lengthLayer4, 1.0};
+Point(106) = {sourceRadius * Cos(Pi), sourceRadius * Sin(Pi), lengthLayer4, 1.0};
+Point(107) = {sourceRadius * Cos(5/4*Pi), sourceRadius * Sin(5/4*Pi), lengthLayer4, 1.0};
+Point(108) = {sourceRadius * Cos(3/2*Pi), sourceRadius * Sin(3/2*Pi), lengthLayer4, 1.0};
+Point(109) = {sourceRadius * Cos(7/4*Pi), sourceRadius * Sin(7/4*Pi), lengthLayer4, 1.0};
+Point(110) = {sourceRadius, 0., lengthLayer4, 1.0};
+Point(111) = {sourceRadius * Cos(1/4*Pi), sourceRadius * Sin(1/4*Pi), lengthLayer4, 1.0};
+Point(112) = {sourceRadius * Cos(1/2*Pi), sourceRadius * Sin(1/2*Pi), lengthLayer4, 1.0};
+Point(113) = {sourceRadius * Cos(3/4*Pi), sourceRadius * Sin(3/4*Pi), lengthLayer4, 1.0};
 
-Point(114) = {R, 0., L3, 1.0};
-Point(115) = {R * Cos(Pi), R * Sin(Pi), L3, 1.0};
-Point(116) = {R * Cos(5/4*Pi), R * Sin(5/4*Pi), L3, 1.0};
-Point(117) = {R * Cos(3/2*Pi), R * Sin(3/2*Pi), L3, 1.0};
-Point(118) = {R * Cos(7/4*Pi), R * Sin(7/4*Pi), L3, 1.0};
-Point(119) = {R, 0., L3, 1.0};
-Point(120) = {R * Cos(1/4*Pi), R * Sin(1/4*Pi), L3, 1.0};
-Point(121) = {R * Cos(1/2*Pi), R * Sin(1/2*Pi), L3, 1.0};
-Point(122) = {R * Cos(3/4*Pi), R * Sin(3/4*Pi), L3, 1.0};
+Point(114) = {domainRadius, 0., lengthLayer4, 1.0};
+Point(115) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi), lengthLayer4, 1.0};
+Point(116) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi), lengthLayer4, 1.0};
+Point(117) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi), lengthLayer4, 1.0};
+Point(118) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi), lengthLayer4, 1.0};
+Point(119) = {domainRadius, 0., lengthLayer4, 1.0};
+Point(120) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), lengthLayer4, 1.0};
+Point(121) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), lengthLayer4, 1.0};
+Point(122) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), lengthLayer4, 1.0};
 
-Point(123) = {p_r / 2 * Cos(Pi), p_r / 2 * Sin(Pi), L3, 1.0};
-Point(124) = {p_r / 2 * Cos(5/4*Pi), p_r / 2 * Sin(5/4*Pi), L3, 1.0};
-Point(125) = {p_r / 2 * Cos(3/2*Pi), p_r / 2 * Sin(3/2*Pi), L3, 1.0};
-Point(126) = {p_r / 2 * Cos(7/4*Pi), p_r / 2 * Sin(7/4*Pi), L3, 1.0};
-Point(127) = {p_r / 2, 0., L3, 1.0};
-Point(128) = {p_r / 2 * Cos(1/4*Pi), p_r / 2 * Sin(1/4*Pi), L3, 1.0};
-Point(129) = {p_r / 2 * Cos(1/2*Pi), p_r / 2 * Sin(1/2*Pi), L3, 1.0};
-Point(130) = {p_r / 2 * Cos(3/4*Pi), p_r / 2 * Sin(3/4*Pi), L3, 1.0};
+Point(123) = {sourceRadius / 2 * Cos(Pi), sourceRadius / 2 * Sin(Pi), lengthLayer4, 1.0};
+Point(124) = {sourceRadius / 2 * Cos(5/4*Pi), sourceRadius / 2 * Sin(5/4*Pi), lengthLayer4, 1.0};
+Point(125) = {sourceRadius / 2 * Cos(3/2*Pi), sourceRadius / 2 * Sin(3/2*Pi), lengthLayer4, 1.0};
+Point(126) = {sourceRadius / 2 * Cos(7/4*Pi), sourceRadius / 2 * Sin(7/4*Pi), lengthLayer4, 1.0};
+Point(127) = {sourceRadius / 2, 0., lengthLayer4, 1.0};
+Point(128) = {sourceRadius / 2 * Cos(1/4*Pi), sourceRadius / 2 * Sin(1/4*Pi), lengthLayer4, 1.0};
+Point(129) = {sourceRadius / 2 * Cos(1/2*Pi), sourceRadius / 2 * Sin(1/2*Pi), lengthLayer4, 1.0};
+Point(130) = {sourceRadius / 2 * Cos(3/4*Pi), sourceRadius / 2 * Sin(3/4*Pi), lengthLayer4, 1.0};
 
 Line(601) = {105, 123};
 Line(602) = {105, 125};
@@ -1253,38 +1270,40 @@ Volume(766) = {765};
 Surface Loop(767) = {672, 704, 688, 674, 440, 640};
 Volume(768) = {767};
 
-// Volume 5
+// ------------------------------------------------------------------------- //
+// Volume 5                                                                  //
+// ------------------------------------------------------------------------- //
 
-L4 = L3 + 0.001;
+lengthLayer5 = lengthLayer4 + 0.001;
 
-Point(131) = {0., 0., L4, 1.0};
-Point(132) = {p_r * Cos(Pi), p_r * Sin(Pi), L4, 1.0};
-Point(133) = {p_r * Cos(5/4*Pi), p_r * Sin(5/4*Pi), L4, 1.0};
-Point(134) = {p_r * Cos(3/2*Pi), p_r * Sin(3/2*Pi), L4, 1.0};
-Point(135) = {p_r * Cos(7/4*Pi), p_r * Sin(7/4*Pi), L4, 1.0};
-Point(136) = {p_r, 0., L4, 1.0};
-Point(137) = {p_r * Cos(1/4*Pi), p_r * Sin(1/4*Pi), L4, 1.0};
-Point(138) = {p_r * Cos(1/2*Pi), p_r * Sin(1/2*Pi), L4, 1.0};
-Point(139) = {p_r * Cos(3/4*Pi), p_r * Sin(3/4*Pi), L4, 1.0};
+Point(131) = {0., 0., lengthLayer5, 1.0};
+Point(132) = {sourceRadius * Cos(Pi), sourceRadius * Sin(Pi), lengthLayer5, 1.0};
+Point(133) = {sourceRadius * Cos(5/4*Pi), sourceRadius * Sin(5/4*Pi), lengthLayer5, 1.0};
+Point(134) = {sourceRadius * Cos(3/2*Pi), sourceRadius * Sin(3/2*Pi), lengthLayer5, 1.0};
+Point(135) = {sourceRadius * Cos(7/4*Pi), sourceRadius * Sin(7/4*Pi), lengthLayer5, 1.0};
+Point(136) = {sourceRadius, 0., lengthLayer5, 1.0};
+Point(137) = {sourceRadius * Cos(1/4*Pi), sourceRadius * Sin(1/4*Pi), lengthLayer5, 1.0};
+Point(138) = {sourceRadius * Cos(1/2*Pi), sourceRadius * Sin(1/2*Pi), lengthLayer5, 1.0};
+Point(139) = {sourceRadius * Cos(3/4*Pi), sourceRadius * Sin(3/4*Pi), lengthLayer5, 1.0};
 
-Point(140) = {R, 0., L4, 1.0};
-Point(141) = {R * Cos(Pi), R * Sin(Pi), L4, 1.0};
-Point(142) = {R * Cos(5/4*Pi), R * Sin(5/4*Pi), L4, 1.0};
-Point(143) = {R * Cos(3/2*Pi), R * Sin(3/2*Pi), L4, 1.0};
-Point(144) = {R * Cos(7/4*Pi), R * Sin(7/4*Pi), L4, 1.0};
-Point(145) = {R, 0., L4, 1.0};
-Point(146) = {R * Cos(1/4*Pi), R * Sin(1/4*Pi), L4, 1.0};
-Point(147) = {R * Cos(1/2*Pi), R * Sin(1/2*Pi), L4, 1.0};
-Point(148) = {R * Cos(3/4*Pi), R * Sin(3/4*Pi), L4, 1.0};
+Point(140) = {domainRadius, 0., lengthLayer5, 1.0};
+Point(141) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi), lengthLayer5, 1.0};
+Point(142) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi), lengthLayer5, 1.0};
+Point(143) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi), lengthLayer5, 1.0};
+Point(144) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi), lengthLayer5, 1.0};
+Point(145) = {domainRadius, 0., lengthLayer5, 1.0};
+Point(146) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), lengthLayer5, 1.0};
+Point(147) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), lengthLayer5, 1.0};
+Point(148) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), lengthLayer5, 1.0};
 
-Point(149) = {p_r / 2 * Cos(Pi), p_r / 2 * Sin(Pi), L4, 1.0};
-Point(150) = {p_r / 2 * Cos(5/4*Pi), p_r / 2 * Sin(5/4*Pi), L4, 1.0};
-Point(151) = {p_r / 2 * Cos(3/2*Pi), p_r / 2 * Sin(3/2*Pi), L4, 1.0};
-Point(152) = {p_r / 2 * Cos(7/4*Pi), p_r / 2 * Sin(7/4*Pi), L4, 1.0};
-Point(153) = {p_r / 2, 0., L4, 1.0};
-Point(154) = {p_r / 2 * Cos(1/4*Pi), p_r / 2 * Sin(1/4*Pi), L4, 1.0};
-Point(155) = {p_r / 2 * Cos(1/2*Pi), p_r / 2 * Sin(1/2*Pi), L4, 1.0};
-Point(156) = {p_r / 2 * Cos(3/4*Pi), p_r / 2 * Sin(3/4*Pi), L4, 1.0};
+Point(149) = {sourceRadius / 2 * Cos(Pi), sourceRadius / 2 * Sin(Pi), lengthLayer5, 1.0};
+Point(150) = {sourceRadius / 2 * Cos(5/4*Pi), sourceRadius / 2 * Sin(5/4*Pi), lengthLayer5, 1.0};
+Point(151) = {sourceRadius / 2 * Cos(3/2*Pi), sourceRadius / 2 * Sin(3/2*Pi), lengthLayer5, 1.0};
+Point(152) = {sourceRadius / 2 * Cos(7/4*Pi), sourceRadius / 2 * Sin(7/4*Pi), lengthLayer5, 1.0};
+Point(153) = {sourceRadius / 2, 0., lengthLayer5, 1.0};
+Point(154) = {sourceRadius / 2 * Cos(1/4*Pi), sourceRadius / 2 * Sin(1/4*Pi), lengthLayer5, 1.0};
+Point(155) = {sourceRadius / 2 * Cos(1/2*Pi), sourceRadius / 2 * Sin(1/2*Pi), lengthLayer5, 1.0};
+Point(156) = {sourceRadius / 2 * Cos(3/4*Pi), sourceRadius / 2 * Sin(3/4*Pi), lengthLayer5, 1.0};
 
 Line(801) = {131, 149};
 Line(802) = {131, 151};
@@ -1535,38 +1554,40 @@ Volume(966) = {965};
 Surface Loop(967) = {872, 904, 888, 874, 640, 840};
 Volume(968) = {967};
 
-// Volume 6
+// ------------------------------------------------------------------------- //
+// Volume 6                                                                  //
+// ------------------------------------------------------------------------- //
 
-L5 = 0.12 + N*lmbda;
+lengthLayer6 = 0.12 + numExtraWavelength*wavelength;
 
-Point(157) = {0., 0., L5, 1.0};
-Point(158) = {p_r * Cos(Pi), p_r * Sin(Pi), L5, 1.0};
-Point(159) = {p_r * Cos(5/4*Pi), p_r * Sin(5/4*Pi), L5, 1.0};
-Point(160) = {p_r * Cos(3/2*Pi), p_r * Sin(3/2*Pi), L5, 1.0};
-Point(161) = {p_r * Cos(7/4*Pi), p_r * Sin(7/4*Pi), L5, 1.0};
-Point(162) = {p_r, 0., L5, 1.0};
-Point(163) = {p_r * Cos(1/4*Pi), p_r * Sin(1/4*Pi), L5, 1.0};
-Point(164) = {p_r * Cos(1/2*Pi), p_r * Sin(1/2*Pi), L5, 1.0};
-Point(165) = {p_r * Cos(3/4*Pi), p_r * Sin(3/4*Pi), L5, 1.0};
+Point(157) = {0., 0., lengthLayer6, 1.0};
+Point(158) = {sourceRadius * Cos(Pi), sourceRadius * Sin(Pi), lengthLayer6, 1.0};
+Point(159) = {sourceRadius * Cos(5/4*Pi), sourceRadius * Sin(5/4*Pi), lengthLayer6, 1.0};
+Point(160) = {sourceRadius * Cos(3/2*Pi), sourceRadius * Sin(3/2*Pi), lengthLayer6, 1.0};
+Point(161) = {sourceRadius * Cos(7/4*Pi), sourceRadius * Sin(7/4*Pi), lengthLayer6, 1.0};
+Point(162) = {sourceRadius, 0., lengthLayer6, 1.0};
+Point(163) = {sourceRadius * Cos(1/4*Pi), sourceRadius * Sin(1/4*Pi), lengthLayer6, 1.0};
+Point(164) = {sourceRadius * Cos(1/2*Pi), sourceRadius * Sin(1/2*Pi), lengthLayer6, 1.0};
+Point(165) = {sourceRadius * Cos(3/4*Pi), sourceRadius * Sin(3/4*Pi), lengthLayer6, 1.0};
 
-Point(166) = {R, 0., L5, 1.0};
-Point(167) = {R * Cos(Pi), R * Sin(Pi), L5, 1.0};
-Point(168) = {R * Cos(5/4*Pi), R * Sin(5/4*Pi), L5, 1.0};
-Point(169) = {R * Cos(3/2*Pi), R * Sin(3/2*Pi), L5, 1.0};
-Point(170) = {R * Cos(7/4*Pi), R * Sin(7/4*Pi), L5, 1.0};
-Point(171) = {R, 0., L5, 1.0};
-Point(172) = {R * Cos(1/4*Pi), R * Sin(1/4*Pi), L5, 1.0};
-Point(173) = {R * Cos(1/2*Pi), R * Sin(1/2*Pi), L5, 1.0};
-Point(174) = {R * Cos(3/4*Pi), R * Sin(3/4*Pi), L5, 1.0};
+Point(166) = {domainRadius, 0., lengthLayer6, 1.0};
+Point(167) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi), lengthLayer6, 1.0};
+Point(168) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi), lengthLayer6, 1.0};
+Point(169) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi), lengthLayer6, 1.0};
+Point(170) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi), lengthLayer6, 1.0};
+Point(171) = {domainRadius, 0., lengthLayer6, 1.0};
+Point(172) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), lengthLayer6, 1.0};
+Point(173) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), lengthLayer6, 1.0};
+Point(174) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), lengthLayer6, 1.0};
 
-Point(175) = {p_r / 2 * Cos(Pi), p_r / 2 * Sin(Pi), L5, 1.0};
-Point(176) = {p_r / 2 * Cos(5/4*Pi), p_r / 2 * Sin(5/4*Pi), L5, 1.0};
-Point(177) = {p_r / 2 * Cos(3/2*Pi), p_r / 2 * Sin(3/2*Pi), L5, 1.0};
-Point(178) = {p_r / 2 * Cos(7/4*Pi), p_r / 2 * Sin(7/4*Pi), L5, 1.0};
-Point(179) = {p_r / 2, 0., L5, 1.0};
-Point(180) = {p_r / 2 * Cos(1/4*Pi), p_r / 2 * Sin(1/4*Pi), L5, 1.0};
-Point(181) = {p_r / 2 * Cos(1/2*Pi), p_r / 2 * Sin(1/2*Pi), L5, 1.0};
-Point(182) = {p_r / 2 * Cos(3/4*Pi), p_r / 2 * Sin(3/4*Pi), L5, 1.0};
+Point(175) = {sourceRadius / 2 * Cos(Pi), sourceRadius / 2 * Sin(Pi), lengthLayer6, 1.0};
+Point(176) = {sourceRadius / 2 * Cos(5/4*Pi), sourceRadius / 2 * Sin(5/4*Pi), lengthLayer6, 1.0};
+Point(177) = {sourceRadius / 2 * Cos(3/2*Pi), sourceRadius / 2 * Sin(3/2*Pi), lengthLayer6, 1.0};
+Point(178) = {sourceRadius / 2 * Cos(7/4*Pi), sourceRadius / 2 * Sin(7/4*Pi), lengthLayer6, 1.0};
+Point(179) = {sourceRadius / 2, 0., lengthLayer6, 1.0};
+Point(180) = {sourceRadius / 2 * Cos(1/4*Pi), sourceRadius / 2 * Sin(1/4*Pi), lengthLayer6, 1.0};
+Point(181) = {sourceRadius / 2 * Cos(1/2*Pi), sourceRadius / 2 * Sin(1/2*Pi), lengthLayer6, 1.0};
+Point(182) = {sourceRadius / 2 * Cos(3/4*Pi), sourceRadius / 2 * Sin(3/4*Pi), lengthLayer6, 1.0};
 
 Line(1001) = {157, 175};
 Line(1002) = {157, 177};
@@ -1817,7 +1838,10 @@ Volume(1166) = {1165};
 Surface Loop(1167) = {1072, 1104, 1088, 1074, 840, 1040};
 Volume(1168) = {1167};
 
-// Tag surfaces
+// ------------------------ //
+// Tag surfaces and volumes //
+// ------------------------ //
+
 Physical Surface(1) = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24};
 Physical Surface(2) = {130, 132, 134, 136, 138, 140, 142, 144,
                        290, 292, 294, 296, 298, 300, 302, 304,
@@ -1830,7 +1854,6 @@ Physical Surface(2) = {130, 132, 134, 136, 138, 140, 142, 144,
                        1026, 1028, 1030, 1032, 1034, 1036, 1038, 1040};
 Physical Surface(3) = {26, 28, 30, 32, 34, 36, 38, 40};
 
-// Tag volumes
 Physical Volume(1) = {170, 172, 174, 176, 178, 180, 182, 184, 186,
                       188, 190, 192, 194, 196, 198, 200, 202, 204,
                       206, 208};
@@ -1850,82 +1873,86 @@ Physical Volume(6) = {1130, 1132, 1134, 1136, 1138, 1140, 1142, 1144, 1146,
                       1148, 1150, 1152, 1154, 1156, 1158, 1160, 1162, 1164,
                       1166, 1168};
 
-nw1 = L0 / lmbda;
-nx1 = epw * nw1 + 1;
-nw2 = (L1 - L0) / lmbda;
-nx2 = epw * nw2 + 1;
-nw3 = (L2 - L1) / lmbda;
-nx3 = epw * nw3 + 1;
-nw4 = (L3 - L2) / lmbda;
-nx4 = epw * nw4 + 1;
-nw5 = (L4 - L3) / lmbda;
-nx5 = epw * nw5 + 1;
-nw6 = (L5 - L4) / lmbda;
-nx6 = epw * nw6 + 1;
+// --------------- //
+// Set transfinite //
+// --------------- //
 
-density1 = nx1 * p_r / L0;
-density2 = nx1 * (R - p_r) / L0;
+numWavesLayer1 = lengthLayer1 / wavelength;
+numPoints1 = numElementPerWavelength * numWavesLayer1 + 1;
+numWavesLayer2 = (lengthLayer2 - lengthLayer1) / wavelength;
+numPoints2 = numElementPerWavelength * numWavesLayer2 + 1;
+numWavesLayer3 = (lengthLayer3 - lengthLayer2) / wavelength;
+numPoints3 = numElementPerWavelength * numWavesLayer3 + 1;
+numWavesLayer4 = (lengthLayer4 - lengthLayer3) / wavelength;
+numPoints4 = numElementPerWavelength * numWavesLayer4 + 1;
+numWavesLayer5 = (lengthLayer5 - lengthLayer4) / wavelength;
+numPoints5 = numElementPerWavelength * numWavesLayer5 + 1;
+numWavesLayer6 = (lengthLayer6 - lengthLayer5) / wavelength;
+numPoints6 = numElementPerWavelength * numWavesLayer6 + 1;
+
+numPoints7 = numPoints1 * sourceRadius / lengthLayer1;
+numPoints8 = numPoints1 * (domainRadius - sourceRadius) / lengthLayer1;
 
 Transfinite Line {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
                   13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
                   23, 24, 25, 26, 27, 28, 37, 38, 39, 40,
-                  41, 42, 43, 44} = density1;
-Transfinite Line {29, 30, 31, 32, 33, 34, 35, 36} = density2;
+                  41, 42, 43, 44} = numPoints7;
+Transfinite Line {29, 30, 31, 32, 33, 34, 35, 36} = numPoints8;
 
 Transfinite Line {45, 46, 47, 48, 49, 50, 51, 52, 53, 54,
                   55, 56, 57, 58, 59, 60, 61, 62, 63, 64,
                   65, 66, 67, 68, 69, 70, 71, 72, 81, 82,
-                  83, 84, 85, 86, 87, 88} = density1;
-Transfinite Line {73, 74, 75, 76, 77, 78, 79, 80} = density2;
+                  83, 84, 85, 86, 87, 88} = numPoints7;
+Transfinite Line {73, 74, 75, 76, 77, 78, 79, 80} = numPoints8;
 
 Transfinite Line {201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 
                   211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 
                   221, 222, 223, 224, 225, 226, 227, 228, 237, 238, 
-                  239, 240, 241, 242, 243, 244} = density1;
-Transfinite Line {229, 230, 231, 232, 233, 234, 235, 236} = density2;
+                  239, 240, 241, 242, 243, 244} = numPoints7;
+Transfinite Line {229, 230, 231, 232, 233, 234, 235, 236} = numPoints8;
 
 Transfinite Line {401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 
                   411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 
                   421, 422, 423, 424, 425, 426, 427, 428, 437, 438, 
-                  439, 440, 441, 442, 443, 444} = density1;
-Transfinite Line {429, 430, 431, 432, 433, 434, 435, 436} = density2;
+                  439, 440, 441, 442, 443, 444} = numPoints7;
+Transfinite Line {429, 430, 431, 432, 433, 434, 435, 436} = numPoints8;
 
 Transfinite Line {601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 
                   611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 
                   621, 622, 623, 624, 625, 626, 627, 628, 637, 638, 
-                  639, 640, 641, 642, 643, 644} = density1;
-Transfinite Line {629, 630, 631, 632, 633, 634, 635, 636} = density2;
+                  639, 640, 641, 642, 643, 644} = numPoints7;
+Transfinite Line {629, 630, 631, 632, 633, 634, 635, 636} = numPoints8;
 
 Transfinite Line {801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 
                   811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 
                   821, 822, 823, 824, 825, 826, 827, 828, 837, 838, 
-                  839, 840, 841, 842, 843, 844} = density1;
-Transfinite Line {829, 830, 831, 832, 833, 834, 835, 836} = density2;
+                  839, 840, 841, 842, 843, 844} = numPoints7;
+Transfinite Line {829, 830, 831, 832, 833, 834, 835, 836} = numPoints8;
 
 Transfinite Line {1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 
                   1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 
                   1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1037, 1038, 
-                  1039, 1040, 1041, 1042, 1043, 1044} = density1;
-Transfinite Line {1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036} = density2;
+                  1039, 1040, 1041, 1042, 1043, 1044} = numPoints7;
+Transfinite Line {1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036} = numPoints8;
 
 Transfinite Line {89, 90, 91, 92, 93, 94, 95, 96,
                   97, 98, 99, 100, 101, 102, 103, 104,
-                  105, 106, 107, 108, 109, 110, 111, 112, 113} = nx1;
+                  105, 106, 107, 108, 109, 110, 111, 112, 113} = numPoints1;
 Transfinite Line {245, 246, 247, 248, 249, 250, 251, 252, 253,
                   254, 255, 256, 257, 258, 259, 260, 261, 262,
-                  263, 264, 265, 266, 267, 268, 269} = nx2;
+                  263, 264, 265, 266, 267, 268, 269} = numPoints2;
 Transfinite Line {445, 446, 447, 448, 449, 450, 451, 452, 453,
                   454, 455, 456, 457, 458, 459, 460, 461, 462,
-                  463, 464, 465, 466, 467, 468, 469} = nx3;
+                  463, 464, 465, 466, 467, 468, 469} = numPoints3;
 Transfinite Line {645, 646, 647, 648, 649, 650, 651, 652, 653,
                   654, 655, 656, 657, 658, 659, 660, 661, 662,
-                  663, 664, 665, 666, 667, 668, 669} = nx4;
+                  663, 664, 665, 666, 667, 668, 669} = numPoints4;
 Transfinite Line {845, 846, 847, 848, 849, 850, 851, 852, 853,
                   854, 855, 856, 857, 858, 859, 860, 861, 862,
-                  863, 864, 865, 866, 867, 868, 869} = nx5;
+                  863, 864, 865, 866, 867, 868, 869} = numPoints5;
 Transfinite Line {1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053,
                   1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062,
-                  1063, 1064, 1065, 1066, 1067, 1068, 1069} = nx6;
+                  1063, 1064, 1065, 1066, 1067, 1068, 1069} = numPoints6;
 
 Transfinite Surface "*";
 Recombine Surface "*";

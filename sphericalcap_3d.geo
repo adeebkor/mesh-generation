@@ -1,60 +1,74 @@
-c0 = 1500;
-f0 = 0.5e6;
+// ------------------------------------------------------------------------- //
+//
+// Gmsh GEO file
+//
+// Spherical cap geometry
+// - This is based on the example from http://matveichev.blogspot.com/2013/12/building-hexagonal-meshes-with-gmsh.html
+//
+// ------------------------------------------------------------------------- //
 
-lmbda = c0 / f0;
+speedOfSound = 1500;
+sourceFrequency = 0.5e6;
 
-epw = 4;
+wavelength = speedOfSound / sourceFrequency;
 
-p_r = 0.032;
-f_l = 0.064;
+numElementPerWavelength = 2;
 
-alpha = Asin(p_r / f_l);
+sourceRadius = 0.032;
+focalLength = 0.064;
 
-// Spherical cap
-Point(1) = {0.0, 0.0, f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(2) = {p_r * Cos(0.00*Pi), p_r * Sin(0.00*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(3) = {p_r * Cos(0.25*Pi), p_r * Sin(0.25*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(4) = {p_r * Cos(0.50*Pi), p_r * Sin(0.50*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(5) = {p_r * Cos(0.75*Pi), p_r * Sin(0.75*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(6) = {p_r * Cos(1.00*Pi), p_r * Sin(1.00*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(7) = {p_r * Cos(1.25*Pi), p_r * Sin(1.25*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(8) = {p_r * Cos(1.50*Pi), p_r * Sin(1.50*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(9) = {p_r * Cos(1.75*Pi), p_r * Sin(1.75*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(10) = {p_r / 2 * Cos(0.00*Pi), p_r / 2 * Sin(0.00*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(11) = {p_r / 2 * Cos(0.25*Pi), p_r / 2 * Sin(0.25*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(12) = {p_r / 2 * Cos(0.50*Pi), p_r / 2 * Sin(0.50*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(13) = {p_r / 2 * Cos(0.75*Pi), p_r / 2 * Sin(0.75*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(14) = {p_r / 2 * Cos(1.00*Pi), p_r / 2 * Sin(1.00*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(15) = {p_r / 2 * Cos(1.25*Pi), p_r / 2 * Sin(1.25*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(16) = {p_r / 2 * Cos(1.50*Pi), p_r / 2 * Sin(1.50*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(17) = {p_r / 2 * Cos(1.75*Pi), p_r / 2 * Sin(1.75*Pi), f_l - Sqrt(f_l*f_l - p_r*p_r), 1.0};
-Point(18) = {0.0, 0.0, 0.6*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
-Point(19) = {0.88 * p_r / 2 * Cos(0.00*Pi), 0.88 * p_r / 2 * Sin(0.00*Pi), 0.66*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
-Point(20) = {0.88 * p_r / 2 * Cos(0.25*Pi), 0.88 * p_r / 2 * Sin(0.25*Pi), 0.66*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
-Point(21) = {0.88 * p_r / 2 * Cos(0.50*Pi), 0.88 * p_r / 2 * Sin(0.50*Pi), 0.66*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
-Point(22) = {0.88 * p_r / 2 * Cos(0.75*Pi), 0.88 * p_r / 2 * Sin(0.75*Pi), 0.66*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
-Point(23) = {0.88 * p_r / 2 * Cos(1.00*Pi), 0.88 * p_r / 2 * Sin(1.00*Pi), 0.66*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
-Point(24) = {0.88 * p_r / 2 * Cos(1.25*Pi), 0.88 * p_r / 2 * Sin(1.25*Pi), 0.66*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
-Point(25) = {0.88 * p_r / 2 * Cos(1.50*Pi), 0.88 * p_r / 2 * Sin(1.50*Pi), 0.66*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
-Point(26) = {0.88 * p_r / 2 * Cos(1.75*Pi), 0.88 * p_r / 2 * Sin(1.75*Pi), 0.66*(f_l - Sqrt(f_l*f_l - p_r*p_r)), 1.0};
+alpha = Asin(sourceRadius / focalLength);
 
-cr1 = f_l - f_l*Cos(alpha/2);
-cr2 = f_l * Sin(alpha/2);
 
-Point(27) = {-cr2, 0.0, cr1, 1.0};
-Point(29) = {0.0, -cr2, cr1, 1.0};
-Point(31) = {cr2, 0.0, cr1, 1.0};
-Point(33) = {0.0, cr2, cr1, 1.0};
+// ------------------------------------------------------------------------- //
+// Spherical cap                                                             //
+// ------------------------------------------------------------------------- //
 
-cr3 = 1.22 * cr1;
-cr4 = Sqrt(0.5 * (-cr3*cr3 + 2*f_l*cr3));
-Point(28) = {-cr4, -cr4, cr3, 1.0};
-Point(30) = {cr4, -cr4, cr3, 1.0};
-Point(32) = {cr4, cr4, cr3, 1.0};
-Point(34) = {-cr4, cr4, cr3, 1.0};
+Point(1) = {0.0, 0.0, focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(2) = {sourceRadius * Cos(0.00*Pi), sourceRadius * Sin(0.00*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(3) = {sourceRadius * Cos(0.25*Pi), sourceRadius * Sin(0.25*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(4) = {sourceRadius * Cos(0.50*Pi), sourceRadius * Sin(0.50*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(5) = {sourceRadius * Cos(0.75*Pi), sourceRadius * Sin(0.75*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(6) = {sourceRadius * Cos(1.00*Pi), sourceRadius * Sin(1.00*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(7) = {sourceRadius * Cos(1.25*Pi), sourceRadius * Sin(1.25*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(8) = {sourceRadius * Cos(1.50*Pi), sourceRadius * Sin(1.50*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(9) = {sourceRadius * Cos(1.75*Pi), sourceRadius * Sin(1.75*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(10) = {sourceRadius / 2 * Cos(0.00*Pi), sourceRadius / 2 * Sin(0.00*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(11) = {sourceRadius / 2 * Cos(0.25*Pi), sourceRadius / 2 * Sin(0.25*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(12) = {sourceRadius / 2 * Cos(0.50*Pi), sourceRadius / 2 * Sin(0.50*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(13) = {sourceRadius / 2 * Cos(0.75*Pi), sourceRadius / 2 * Sin(0.75*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(14) = {sourceRadius / 2 * Cos(1.00*Pi), sourceRadius / 2 * Sin(1.00*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(15) = {sourceRadius / 2 * Cos(1.25*Pi), sourceRadius / 2 * Sin(1.25*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(16) = {sourceRadius / 2 * Cos(1.50*Pi), sourceRadius / 2 * Sin(1.50*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(17) = {sourceRadius / 2 * Cos(1.75*Pi), sourceRadius / 2 * Sin(1.75*Pi), focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius), 1.0};
+Point(18) = {0.0, 0.0, 0.6*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+Point(19) = {0.88 * sourceRadius / 2 * Cos(0.00*Pi), 0.88 * sourceRadius / 2 * Sin(0.00*Pi), 0.66*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+Point(20) = {0.88 * sourceRadius / 2 * Cos(0.25*Pi), 0.88 * sourceRadius / 2 * Sin(0.25*Pi), 0.66*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+Point(21) = {0.88 * sourceRadius / 2 * Cos(0.50*Pi), 0.88 * sourceRadius / 2 * Sin(0.50*Pi), 0.66*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+Point(22) = {0.88 * sourceRadius / 2 * Cos(0.75*Pi), 0.88 * sourceRadius / 2 * Sin(0.75*Pi), 0.66*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+Point(23) = {0.88 * sourceRadius / 2 * Cos(1.00*Pi), 0.88 * sourceRadius / 2 * Sin(1.00*Pi), 0.66*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+Point(24) = {0.88 * sourceRadius / 2 * Cos(1.25*Pi), 0.88 * sourceRadius / 2 * Sin(1.25*Pi), 0.66*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+Point(25) = {0.88 * sourceRadius / 2 * Cos(1.50*Pi), 0.88 * sourceRadius / 2 * Sin(1.50*Pi), 0.66*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+Point(26) = {0.88 * sourceRadius / 2 * Cos(1.75*Pi), 0.88 * sourceRadius / 2 * Sin(1.75*Pi), 0.66*(focalLength - Sqrt(focalLength*focalLength - sourceRadius*sourceRadius)), 1.0};
+
+circRadius1 = focalLength - focalLength*Cos(alpha/2);
+circRadius2 = focalLength * Sin(alpha/2);
+
+Point(27) = {-circRadius2, 0.0, circRadius1, 1.0};
+Point(29) = {0.0, -circRadius2, circRadius1, 1.0};
+Point(31) = {circRadius2, 0.0, circRadius1, 1.0};
+Point(33) = {0.0, circRadius2, circRadius1, 1.0};
+
+circRadius3 = 1.22 * circRadius1;
+circRadius4 = Sqrt(0.5 * (-circRadius3*circRadius3 + 2*focalLength*circRadius3));
+
+Point(28) = {-circRadius4, -circRadius4, circRadius3, 1.0};
+Point(30) = {circRadius4, -circRadius4, circRadius3, 1.0};
+Point(32) = {circRadius4, circRadius4, circRadius3, 1.0};
+Point(34) = {-circRadius4, circRadius4, circRadius3, 1.0};
 
 Point(35) = {0.0, 0.0, 0.0, 1.0};
-Point(36) = {0.0, 0.0, f_l, 1.0};
+Point(36) = {0.0, 0.0, focalLength, 1.0};
 
 Line(1) = {14, 13};
 Line(2) = {14, 15};
@@ -287,23 +301,10 @@ Volume(228) = {227};
 Surface Loop(229) = {188, 190, 152, 124, 154, 192};
 Volume(230) = {229};
 
-density2 = 2 * epw * p_r / 2 / lmbda;
-density1 = density2;
-density3 = density2;
 
-// Vertical lines and arcs
-Transfinite Line {150, 41, 42, 43, 44, 45, 46, 47, 48} = density1;
-Transfinite Line {58, 59, 60, 61, 62, 63, 64, 65} = density1;
-
-Transfinite Line {9, 10, 11, 14, 39, 30, 31, 32} = density2;
-Transfinite Line {1, 2, 7, 12, 13, 17, 18, 6} = density2;
-Transfinite Line {33, 34, 35, 36, 37, 38, 39, 40} = density2;
-Transfinite Line {21, 22, 23, 24, 25, 26, 27, 28, 29} = density2;
-Transfinite Line {66, 67, 68, 69, 70, 71, 72, 73} = density2;
-Transfinite Line {74, 75, 76, 77} = density2;
-
-Transfinite Line {49, 56, 16, 57, 15, 50, 8, 51} = density3;
-Transfinite Line {4, 52, 3, 53, 5, 54, 19, 55, 20} = density3;
+// -------------------------------- //
+// Tag curves, surfaces and volumes //
+// -------------------------------- //
 
 Physical Surface(1) = {192, 194, 196, 198, 168, 170, 172, 174,
                        176, 178, 180, 182};
@@ -312,6 +313,26 @@ Physical Volume(1) = {200, 202, 204, 206, 208,
                       210, 212, 214, 216, 218,
                       220, 222, 224, 226, 228,
                       230};
+
+
+// ============================================ //
+// Set transfinite curves, surfaces and volumes //
+// ============================================ //
+
+numPoints = 2 * numElementPerWavelength * sourceRadius / 2 / wavelength;
+
+Transfinite Line {150, 41, 42, 43, 44, 45, 46, 47, 48} = numPoints;
+Transfinite Line {58, 59, 60, 61, 62, 63, 64, 65} = numPoints;
+
+Transfinite Line {9, 10, 11, 14, 39, 30, 31, 32} = numPoints;
+Transfinite Line {1, 2, 7, 12, 13, 17, 18, 6} = numPoints;
+Transfinite Line {33, 34, 35, 36, 37, 38, 39, 40} = numPoints;
+Transfinite Line {21, 22, 23, 24, 25, 26, 27, 28, 29} = numPoints;
+Transfinite Line {66, 67, 68, 69, 70, 71, 72, 73} = numPoints;
+Transfinite Line {74, 75, 76, 77} = numPoints;
+
+Transfinite Line {49, 56, 16, 57, 15, 50, 8, 51} = numPoints;
+Transfinite Line {4, 52, 3, 53, 5, 54, 19, 55, 20} = numPoints;
 
 Transfinite Surface "*";
 Recombine Surface "*";
