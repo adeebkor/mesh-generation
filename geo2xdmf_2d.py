@@ -13,8 +13,8 @@ model_rank = 0
 
 if mesh_comm.rank == model_rank:
     gmsh.model.mesh.generate(2)
-    gmsh.model.mesh.setOrder(1)
-    gmsh.model.mesh.optimize("HighOrder")
+    # gmsh.model.mesh.setOrder(1)
+    # gmsh.model.mesh.optimize("HighOrder")
 
 msh, ct, ft = gmshio.model_to_mesh(gmsh.model, mesh_comm, model_rank, gdim=2)
 msh.name = fname
