@@ -2,7 +2,7 @@
 //
 // Gmsh GEO file
 //
-// Domain for 2D planar problem
+// Homogenous domain for 2D planar problem
 // - Structured quadrilateral mesh
 //
 // ----------------------------------------------------------------------------
@@ -51,7 +51,7 @@ Line Loop(201) = {5, 6, 7, -1};
 Ruled Surface(202) = {201};
 
 // ------------------------------------------------------------------------- //
-// Rectangle 2                                                               //
+// Rectangle 3                                                               //
 // ------------------------------------------------------------------------- //
 
 Point(7) = {0., domainRadius, 0., hmin};
