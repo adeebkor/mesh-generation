@@ -4,7 +4,7 @@ from dolfinx.io import XDMFFile, gmshio
 from mpi4py import MPI
 
 # Initialization
-fname = "planewave_2d_4"
+fname = "planar_2d_2"
 gmsh.initialize()
 gmsh.open(f"{fname}.geo")
 
