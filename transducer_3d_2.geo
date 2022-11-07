@@ -4,23 +4,23 @@
 //
 // Homogenous domain for 3D transducer problem
 // 
-// * Contains extra layer
+// - structured mesh
 // ------------------------------------------------------------------------- //
 
 speedOfSound = 1500;
-sourceFrequency = 0.5e6;
+sourceFrequency = 500000;
 
 wavelength = speedOfSound / sourceFrequency;
-domainLength = 0.12;
-domainRadius = 0.04;
+numExtraWavelength = 2;
+domainLength = 0.12 + numExtraWavelength*wavelength;
+domainRadius = 0.035 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 2;
+numElementPerWavelength = 2.39;
 
 sourceRadius = 0.032;
 focalLength = 0.064;
 
 alpha = Asin(sourceRadius / focalLength);
-
 
 // ------------------------------------------------------------------------- //
 // Spherical cap                                                             //
