@@ -2,7 +2,7 @@
 //
 // Gmsh GEO file
 //
-// Homogenous domain for 3D transducer problem
+// Homogenous domain for 3D spherical transducer problem
 // - the transducer is within the domain (not on the boundary of the domain).
 //
 // ----------------------------------------------------------------------------

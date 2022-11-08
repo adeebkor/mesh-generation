@@ -2,7 +2,7 @@
 //
 // Gmsh GEO file
 //
-// Homogenous domain for 3D transducer problem
+// Homogenous domain for 3D spherical transducer problem
 // - contains extra layer in the cylinder domain
 //
 // ----------------------------------------------------------------------------
