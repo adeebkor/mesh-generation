@@ -1,10 +1,16 @@
-// ------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------
 //
 // Gmsh GEO file
 //
 // Homogenous domain for 3D transducer problem
-// 
-// * The transducer is within the domain (not on the boundary of the domain).
+// - the transducer is within the domain (not on the boundary of the domain).
+//
+// ----------------------------------------------------------------------------
+// Copyright (C) 2022 Adeeb Arif Kor
+
+
+// ------------------------------------------------------------------------- //
+// Geometry and mesh parameters
 // ------------------------------------------------------------------------- //
 
 speedOfSound = 1500;

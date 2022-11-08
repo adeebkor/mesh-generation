@@ -3,9 +3,15 @@
 // Gmsh GEO file
 //
 // Homogenous domain for 2D planewave problem
-// - Structured quadrilateral mesh
+// - structured quadrilateral mesh
 //
 // ----------------------------------------------------------------------------
+// Copyright (C) 2022 Adeeb Arif Kor
+
+
+// ------------------------------------------------------------------------- //
+// Geometry and mesh parameters
+// ------------------------------------------------------------------------- //
 
 speedOfSound = 1500.0;
 sourceFrequency = 500000.0;

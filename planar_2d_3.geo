@@ -3,10 +3,16 @@
 // Gmsh GEO file
 //
 // Domain for 2D planar problem
-// - Structured quadrilateral mesh
-// - Sponge layer
+// - structured quadrilateral mesh
+// - sponge layer
 //
 // ----------------------------------------------------------------------------
+// Copyright (C) 2022 Adeeb Arif Kor
+
+
+// ------------------------------------------------------------------------- //
+// Geometry and mesh parameters
+// ------------------------------------------------------------------------- //
 
 speedOfSound = 1500;
 sourceFrequency = 500000;

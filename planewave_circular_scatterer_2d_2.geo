@@ -3,9 +3,15 @@
 // Gmsh GEO file
 //
 // Domain with a penetrable circular scatterer
-// - Structured quadrilateral mesh
+// - structured quadrilateral mesh
 //
 // ----------------------------------------------------------------------------
+// Copyright (C) 2022 Adeeb Arif Kor
+
+
+// ------------------------------------------------------------------------- //
+// Geometry and mesh parameters
+// ------------------------------------------------------------------------- //
 
 speedOfSound = 1.0;
 sourceFrequency = 10.0;

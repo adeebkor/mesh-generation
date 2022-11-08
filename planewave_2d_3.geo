@@ -2,12 +2,17 @@
 //
 // Gmsh GEO file
 //
-//
 // Homogenous domain for 2D planewave problem
-// - Unstructured quadrilateral mesh
-// - Sponge layer
+// - unstructured quadrilateral mesh
+// - sponge layer
 //
 // ----------------------------------------------------------------------------
+// Copyright (C) 2022 Adeeb Arif Kor
+
+
+// ------------------------------------------------------------------------- //
+// Geometry and mesh parameters
+// ------------------------------------------------------------------------- //
 
 speedOfSound = 1500.0;
 sourceFrequency = 500000.0;

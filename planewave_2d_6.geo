@@ -3,10 +3,17 @@
 // Gmsh GEO file
 //
 // Homogenous domain for 2D planewave problem
-// - Structured quadrilateral mesh
-// - The top and bottom boundary is tag as 2 instead of 3 as in
+// - structured quadrilateral mesh
+// - the top and bottom boundary is tag as 2 instead of 3 as in
 //   planewave_2d_1.geo
+//
 // ----------------------------------------------------------------------------
+// Copyright (C) 2022 Adeeb Arif Kor
+
+
+// ------------------------------------------------------------------------- //
+// Geometry and mesh parameters
+// ------------------------------------------------------------------------- //
 
 speedOfSound = 1500.0;
 sourceFrequency = 500000.0;

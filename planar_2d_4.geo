@@ -3,12 +3,18 @@
 // Gmsh GEO file
 //
 // Heterogenous domain for 2D planar problem
-// - Structured quadrilateral mesh
-// - Two different medium
-//     - Water (x < 0.03 m, x > 0.0365 m)
-//     - Bone (0.03 m < x < 0.0365 m)
+// - structured quadrilateral mesh
+// - two different medium
+//     - water (x < 0.03 m, x > 0.0365 m)
+//     - bone (0.03 m < x < 0.0365 m)
+//
 // ----------------------------------------------------------------------------
+// Copyright (C) 2022 Adeeb Arif Kor
 
+
+// ------------------------------------------------------------------------- //
+// Geometry and mesh parameters
+// ------------------------------------------------------------------------- //
 
 speedOfSound = 1500;
 sourceFrequency = 500000;

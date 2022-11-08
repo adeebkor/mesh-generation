@@ -3,7 +3,7 @@
 // Gmsh GEO file
 //
 // Spherical cap geometry
-// - This is based on the example from http://matveichev.blogspot.com/2013/12/building-hexagonal-meshes-with-gmsh.html
+// - this is based on the example from http://matveichev.blogspot.com/2013/12/building-hexagonal-meshes-with-gmsh.html
 //
 // ------------------------------------------------------------------------- //
 
