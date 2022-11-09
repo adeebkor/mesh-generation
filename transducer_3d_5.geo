@@ -5,6 +5,7 @@
 // Heterogenous domain for 3D spherical transducer problem
 // - structured mesh
 // - the bowl shaped is extended
+// - 2 different medium (water, cortical bone)
 //
 // ----------------------------------------------------------------------------
 // Copyright (C) 2022 Adeeb Arif Kor
@@ -155,6 +156,7 @@ Circle(74) = {35, 36, 31};
 Circle(75) = {35, 36, 33};
 Circle(76) = {35, 36, 27};
 Circle(77) = {35, 36, 29};
+
 Line Loop(78) = {18, -11, -14, 17};
 Ruled Surface(79) = {78};
 Line Loop(80) = {6, -11, 10, 1};
