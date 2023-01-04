@@ -20,11 +20,9 @@ wavelength = speedOfSound / sourceFrequency;
 numExtraWavelength = 15;
 domainLength = 0.12 + numExtraWavelength*wavelength;
 domainRadius = 0.035 + numExtraWavelength*wavelength;
-bufferLength = -0.03;
+bufferLength = - 0.12;
 
-numElementPerWavelength = 2.39;
-numPoints = numElementPerWavelength * domainLength / wavelength + 1;
-
+numElementPerWavelength = 2;
 sourceRadius = 0.01;
 
 // ------------------------------------------------------------------------- //
@@ -438,9 +436,12 @@ Physical Volume(1) = {170, 172, 174, 176, 178, 180, 182, 184, 186,
                       188, 190, 192, 194, 196, 198, 200, 202, 204,
                       206, 208};
 
-numPoints1 = numPoints;
-numPoints2 = numPoints * sourceRadius / (domainLength - bufferLength);
-numPoints3 = numPoints * (domainRadius - sourceRadius) / (domainLength - bufferLength);
+numWaves1 = (domainLength - bufferLength) / wavelength;
+numPoints1 = numElementPerWavelength * numWaves1 + 1;
+numWaves2 = sourceRadius / wavelength;
+numPoints2 = numElementPerWavelength * numWaves2 + 1;
+numWaves3 = (domainRadius - sourceRadius) / wavelength;
+numPoints3 = numElementPerWavelength * numWaves3 + 1;
 
 // =============== //
 // Set transfinite //
