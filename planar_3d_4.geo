@@ -16,10 +16,10 @@ speedOfSound = 1500;
 sourceFrequency = 500000;
 
 wavelength = speedOfSound / sourceFrequency;
-numExtraWavelength = 5;  // 1 to 13
+numExtraWavelength = 8;  // 1 to 13
 domainRadius = 0.035 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 2;
+numElementPerWavelength = 2.5;
 sourceRadius = 0.01;
 
 // -------- //
@@ -192,14 +192,14 @@ Circle(46) = {27, 1000, 46};
 Circle(47) = {27, 1000, 48};
 Circle(48) = {27, 1000, 50};
 
-Circle(49) = {44, 1001, 45};
-Circle(50) = {45, 1001, 46};
-Circle(51) = {46, 1001, 47};
-Circle(52) = {47, 1001, 48};
-Circle(53) = {48, 1001, 49};
-Circle(54) = {49, 1001, 50};
-Circle(55) = {50, 1001, 51};
-Circle(56) = {51, 1001, 44};
+Circle(49) = {44, 1000, 45};
+Circle(50) = {45, 1000, 46};
+Circle(51) = {46, 1000, 47};
+Circle(52) = {47, 1000, 48};
+Circle(53) = {48, 1000, 49};
+Circle(54) = {49, 1000, 50};
+Circle(55) = {50, 1000, 51};
+Circle(56) = {51, 1000, 44};
 
 Circle(57) = {44, 1000, 28};
 Circle(58) = {45, 1000, 29};
@@ -492,6 +492,7 @@ Volume(1038) = {1037};
 Surface Loop(1039) = {212, 244, 228, 214, 140, 180};
 Volume(1040) = {1039};
 
+
 // -------- //
 // Volume 2 //
 // -------- //
@@ -581,14 +582,14 @@ Circle(114) = {52, 1000, 71};
 Circle(115) = {52, 1000, 73};
 Circle(116) = {52, 1000, 75};
 
-Circle(117) = {69, 2001, 70};
-Circle(118) = {70, 2001, 71};
-Circle(119) = {71, 2001, 72};
-Circle(120) = {72, 2001, 73};
-Circle(121) = {73, 2001, 74};
-Circle(122) = {74, 2001, 75};
-Circle(123) = {75, 2001, 76};
-Circle(124) = {76, 2001, 69};
+Circle(117) = {69, 1000, 70};
+Circle(118) = {70, 1000, 71};
+Circle(119) = {71, 1000, 72};
+Circle(120) = {72, 1000, 73};
+Circle(121) = {73, 1000, 74};
+Circle(122) = {74, 1000, 75};
+Circle(123) = {75, 1000, 76};
+Circle(124) = {76, 1000, 69};
 
 Circle(125) = {69, 1000, 53};
 Circle(126) = {70, 1000, 54};
@@ -837,6 +838,7 @@ Surface Loop(2037) = {370, 402, 386, 388, 178, 338};
 Volume(2038) = {2037};
 Surface Loop(2039) = {372, 404, 388, 374, 180, 340};
 Volume(2040) = {2039};
+
 
 // -------- //
 // Volume 3 //
@@ -1130,6 +1132,7 @@ Volume(3038) = {3037};
 Surface Loop(3039) = {572, 604, 588, 574, 340, 540};
 Volume(3040) = {3039};
 
+
 // ------------------------ //
 // Tag surfaces and volumes //
 // ------------------------ //
@@ -1141,6 +1144,7 @@ Physical Surface(2) = {230, 232, 234, 236, 238, 240, 242, 244,
                        502, 504, 506, 508,
                        510, 512, 514, 516, 518, 520, 522, 524,
                        526, 528, 530, 532, 534, 536, 538, 540};
+
 Physical Surface(3) = {126, 128, 130, 132, 134, 136, 138, 140};
 
 Physical Volume(1) = {1002, 1004, 1006, 1008, 1010, 1012, 1014, 1016,
@@ -1158,11 +1162,11 @@ Physical Volume(2) = {2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016,
 // --------------- //
 
 numWavesVolume1 = 0.03 / wavelength;
-numPoints1 = numElementPerWavelength * numWavesVolume1 + 1;
+numPoints1 = 1.5 * numElementPerWavelength * numWavesVolume1 + 1;
 numWavesVolume2 = 0.0065 / wavelength;
 numPoints2 = numElementPerWavelength * numWavesVolume2 + 1;
 numWavesVolume3 = (domainLength - 0.0365) / wavelength;
-numPoints3 = numElementPerWavelength * numWavesVolume3 + 1;
+numPoints3 = 0.6 * numElementPerWavelength * numWavesVolume3 + 1;
 
 numPoints4 = numPoints1 * sourceRadius / 0.03;
 numPoints5 = numPoints1 * (domainRadius - sourceRadius) / 0.03;
