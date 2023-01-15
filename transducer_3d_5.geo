@@ -280,6 +280,7 @@ Line Loop(195) = {75, 68, 69, -76};
 Ruled Surface(196) = {195};
 Line Loop(197) = {77, -71, -70, -76};
 Ruled Surface(198) = {197};
+
 Surface Loop(199) = {134, 103, 105, 130, 124, 85};
 Volume(200) = {199};
 Surface Loop(201) = {107, 130, 121, 83, 132, 109};
@@ -410,6 +411,7 @@ Line Loop(203) = {87, 79, 84, 86};
 Ruled Surface(204) = {203};
 Line Loop(205) = {86, -91, -90, -89};
 Ruled Surface(206) = {205}; 
+
 Line Loop(207) = {93, -101, -97, -94};
 Ruled Surface(208) = {207}; 
 Line Loop(209) = {90, 93, 102, -92};
