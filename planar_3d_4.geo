@@ -16,10 +16,10 @@ speedOfSound = 1500;
 sourceFrequency = 500000;
 
 wavelength = speedOfSound / sourceFrequency;
-numExtraWavelength = 8;  // 1 to 13
+numExtraWavelength = 11;  // 1 to 13
 domainRadius = 0.035 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 2.5;
+numElementPerWavelength = 4;
 sourceRadius = 0.01;
 
 // -------- //
@@ -1162,11 +1162,11 @@ Physical Volume(2) = {2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016,
 // --------------- //
 
 numWavesVolume1 = 0.03 / wavelength;
-numPoints1 = 1.5 * numElementPerWavelength * numWavesVolume1 + 1;
+numPoints1 = numElementPerWavelength * numWavesVolume1 + 1;
 numWavesVolume2 = 0.0065 / wavelength;
-numPoints2 = numElementPerWavelength * numWavesVolume2 + 1;
+numPoints2 = 1.5 * numElementPerWavelength * numWavesVolume2 + 1;
 numWavesVolume3 = (domainLength - 0.0365) / wavelength;
-numPoints3 = 0.6 * numElementPerWavelength * numWavesVolume3 + 1;
+numPoints3 = 0.2 * numElementPerWavelength * numWavesVolume3 + 1;
 
 numPoints4 = numPoints1 * sourceRadius / 0.03;
 numPoints5 = numPoints1 * (domainRadius - sourceRadius) / 0.03;
