@@ -16,7 +16,7 @@ speedOfSound = 1500;
 sourceFrequency = 500000;
 
 wavelength = speedOfSound / sourceFrequency;
-numExtraWavelength = 11;  // 1 to 13
+numExtraWavelength = 11;  // 1 to 11
 domainRadius = 0.035 + numExtraWavelength*wavelength;
 
 numElementPerWavelength = 4;
