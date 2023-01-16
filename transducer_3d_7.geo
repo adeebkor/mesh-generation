@@ -22,7 +22,7 @@ numExtraWavelength = 2;
 domainRadius = 0.035 + numExtraWavelength*wavelength;
 domainLength = 0.12 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 1;
+numElementPerWavelength = 2.5;
 
 sourceRadius = 0.032;
 focalLength = 0.064;
