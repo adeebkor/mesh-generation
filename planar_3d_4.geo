@@ -16,10 +16,10 @@ speedOfSound = 1500;
 sourceFrequency = 500000;
 
 wavelength = speedOfSound / sourceFrequency;
-numExtraWavelength = 11;  // 1 to 11
+numExtraWavelength = 5;  // 1 to 11
 domainRadius = 0.035 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 4;
+numElementPerWavelength = 2;
 sourceRadius = 0.01;
 
 // -------- //
@@ -1161,15 +1161,12 @@ Physical Volume(2) = {2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016,
 // Set transfinite //
 // --------------- //
 
-numWavesVolume1 = 0.03 / wavelength;
-numPoints1 = numElementPerWavelength * numWavesVolume1 + 1;
-numWavesVolume2 = 0.0065 / wavelength;
-numPoints2 = 1.5 * numElementPerWavelength * numWavesVolume2 + 1;
-numWavesVolume3 = (domainLength - 0.0365) / wavelength;
-numPoints3 = 0.2 * numElementPerWavelength * numWavesVolume3 + 1;
+numPoints1 = numElementPerWavelength * 0.03 / wavelength;
+numPoints2 = numElementPerWavelength * 0.0065 / wavelength;
+numPoints3 = numElementPerWavelength * (domainLength - 0.0365) / wavelength;
 
-numPoints4 = numPoints1 * sourceRadius / 0.03;
-numPoints5 = numPoints1 * (domainRadius - sourceRadius) / 0.03;
+numPoints4 = numElementPerWavelength * sourceRadius / 2 / wavelength;
+numPoints5 = numElementPerWavelength * (domainRadius - sourceRadius) / wavelength;
 
 Transfinite Line {1, 2, 3, 4,
                   5, 6, 7, 8, 9, 10, 11, 12,
