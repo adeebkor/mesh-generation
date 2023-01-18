@@ -20,7 +20,7 @@ numExtraWavelength = 2;
 domainRadius = 0.035 + numExtraWavelength*wavelength;
 domainLength = 0.12 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 1;
+numElementPerWavelength = 2.5;
 
 sourceRadius = 0.032;
 focalLength = 0.064;
@@ -1747,7 +1747,7 @@ Transfinite Line {701, 702, 703, 704,
 Transfinite Line {713, 714, 715, 716, 717, 718, 719, 720} = numPoints1;
 
 // ------------- //
-// Extra layer 3 //
+// Extra layer 4 //
 // ------------- //
 
 Point(809) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi),
@@ -1871,6 +1871,14 @@ Surface Loop(9013) = {830, 1030, 970, 1046, 1062, 1064};
 Volume(9014) = {9013};
 Surface Loop(9015) = {832, 1032, 972, 1048, 1064, 1050};
 Volume(9016) = {9015};
+
+// ===================================== //
+// Set transfinite lines (extra layer 4) //
+// ===================================== //
+
+Transfinite Line {817, 818, 819, 820, 821, 822, 823, 824} = numPoints3;
+Transfinite Line {833, 834, 835, 836, 837, 838, 839, 840} = numPoints6;
+Transfinite Line {825, 826, 827, 828, 829, 830, 831, 832} = numPoints1;
 
 // -------- //
 // Volume 5 //
@@ -2007,32 +2015,603 @@ Ruled Surface(1122) = {1121};
 Line Loop(1123) = {916, 924, -917, -908};
 Ruled Surface(1124) = {1123};
 
-Line Loop(925) = {-505, 729, 705, -730};
-Ruled Surface(926) = {925};
-Line Loop(927) = {-506, 730, 706, -731};
-Ruled Surface(928) = {927};
-Line Loop(929) = {-507, 731, 707, -732};
-Ruled Surface(930) = {929};
-Line Loop(931) = {-508, 732, 708, -733};
-Ruled Surface(932) = {931};
-Line Loop(933) = {-509, 733, 709, -734};
-Ruled Surface(934) = {933};
-Line Loop(935) = {-510, 734, 710, -735};
-Ruled Surface(936) = {935};
-Line Loop(937) = {-511, 735, 711, -736};
-Ruled Surface(938) = {937};
-Line Loop(939) = {-512, 736, 712, -729};
-Ruled Surface(940) = {939};
+Line Loop(1125) = {-705, 929, 905, -930};
+Ruled Surface(1126) = {1125};
+Line Loop(1127) = {-706, 930, 906, -931};
+Ruled Surface(1128) = {1127};
+Line Loop(1129) = {-707, 931, 907, -932};
+Ruled Surface(1130) = {1129};
+Line Loop(1131) = {-708, 932, 908, -933};
+Ruled Surface(1132) = {1131};
+Line Loop(1133) = {-709, 933, 909, -934};
+Ruled Surface(1134) = {1133};
+Line Loop(1135) = {-710, 934, 910, -935};
+Ruled Surface(1136) = {1135};
+Line Loop(1137) = {-711, 935, 911, -936};
+Ruled Surface(1138) = {1137};
+Line Loop(1139) = {-712, 936, 912, -929};
+Ruled Surface(1140) = {1139};
 
+Line Loop(1141) = {713, 937, -913, -929};
+Ruled Surface(1142) = {1141};
+Line Loop(1143) = {714, 938, -914, -930};
+Ruled Surface(1144) = {1143};
+Line Loop(1145) = {715, 939, -915, -931};
+Ruled Surface(1146) = {1145};
+Line Loop(1147) = {716, 940, -916, -932};
+Ruled Surface(1148) = {1147};
+Line Loop(1149) = {717, 941, -917, -933};
+Ruled Surface(1150) = {1149};
+Line Loop(1151) = {718, 942, -918, -934};
+Ruled Surface(1152) = {1151};
+Line Loop(1153) = {719, 943, -919, -935};
+Ruled Surface(1154) = {1153};
+Line Loop(1155) = {720, 944, -920, -936};
+Ruled Surface(1156) = {1155};
+
+Line Loop(1157) = {721, 938, -921, -937};
+Ruled Surface(1158) = {1157};
+Line Loop(1159) = {722, 939, -922, -938};
+Ruled Surface(1160) = {1159};
+Line Loop(1161) = {723, 940, -923, -939};
+Ruled Surface(1162) = {1161};
+Line Loop(1163) = {724, 941, -924, -940};
+Ruled Surface(1164) = {1163};
+Line Loop(1165) = {725, 942, -925, -941};
+Ruled Surface(1166) = {1165};
+Line Loop(1167) = {726, 943, -926, -942};
+Ruled Surface(1168) = {1167};
+Line Loop(1169) = {727, 944, -927, -943};
+Ruled Surface(1170) = {1169};
+Line Loop(1171) = {728, 937, -928, -944};
+Ruled Surface(1172) = {1171};
+
+Line(945) = {701, 901};
+
+Line Loop(1173) = {701, 929, -901, -945};
+Ruled Surface(1174) = {1173};
+Line Loop(1175) = {702, 931, -902, -945};
+Ruled Surface(1176) = {1175};
+Line Loop(1177) = {703, 933, -903, -945};
+Ruled Surface(1178) = {1177};
+Line Loop(1179) = {704, 935, -904, -945};
+Ruled Surface(1180) = {1179};
+
+Surface Loop(10001) = {906, 1106, 1174, 1126, 1128, 1176};
+Volume(10002) = {10001};
+Surface Loop(10003) = {908, 1108, 1176, 1130, 1132, 1178};
+Volume(10004) = {10003};
+Surface Loop(10005) = {902, 1102, 1178, 1134, 1136, 1180};
+Volume(10006) = {10005};
+Surface Loop(10007) = {904, 1104, 1180, 1138, 1140, 1174};
+Volume(10008) = {10007};
+
+Surface Loop(10009) = {918, 1118, 1142, 1158, 1144, 1126};
+Volume(10010) = {10009};
+Surface Loop(10011) = {920, 1120, 1144, 1160, 1146, 1128};
+Volume(10012) = {10011};
+Surface Loop(10013) = {922, 1122, 1146, 1162, 1148, 1130};
+Volume(10014) = {10013};
+Surface Loop(10015) = {924, 1124, 1148, 1164, 1150, 1132};
+Volume(10016) = {10015};
+Surface Loop(10017) = {910, 1110, 1150, 1166, 1152, 1134};
+Volume(10018) = {10017};
+Surface Loop(10019) = {912, 1112, 1152, 1168, 1154, 1136};
+Volume(10020) = {10019};
+Surface Loop(10021) = {914, 1114, 1154, 1170, 1156, 1138};
+Volume(10022) = {10021};
+Surface Loop(10023) = {916, 1116, 1156, 1172, 1142, 1140};
+Volume(10024) = {10023};
+
+// ================================ //
+// Set transfinite lines (Volume 5) //
+// ================================ //
+
+numPoints7 = numElementPerWavelength * 0.001 / wavelength;
+
+Transfinite Line {929, 930, 931, 932, 933, 934, 935, 936,
+                  937, 938, 939, 940, 941, 942, 943, 944,
+                  945} = numPoints7;
+
+Transfinite Line {901, 902, 903, 904,
+                  905, 906, 907, 908, 909, 910, 911, 912,
+                  921, 922, 923, 924, 925, 926, 927, 928} = numPoints1;
+
+Transfinite Line {913, 914, 915, 916, 917, 918, 919, 920} = numPoints1;
+
+// ------------- //
+// Extra layer 5 //
+// ------------- //
+
+Point(1009) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi),
+              focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius),
+              1.0};
+Point(1010) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi),
+              focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius),
+              1.0};
+Point(1011) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi),
+              focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius),
+              1.0};
+Point(1012) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi),
+              focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius),
+              1.0};
+Point(1013) = {domainRadius * Cos(2*Pi), domainRadius * Sin(2*Pi),
+              focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius),
+              1.0};
+Point(1014) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi),
+              focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius),
+              1.0};
+Point(1015) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi),
+              focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius),
+              1.0};
+Point(1016) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi),
+              focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius),
+              1.0};
+
+Circle(1017) = {902, 1001, 1009};
+Circle(1018) = {903, 1001, 1010};
+Circle(1019) = {904, 1001, 1011};
+Circle(1020) = {905, 1001, 1012};
+Circle(1021) = {906, 1001, 1013};
+Circle(1022) = {907, 1001, 1014};
+Circle(1023) = {908, 1001, 1015};
+Circle(1024) = {909, 1001, 1016};
+
+Point(1018) = {0., 0., focalPoint1 - Sqrt(radiusOfCurvature5*radiusOfCurvature5 - domainRadius*domainRadius), 1.0};
+
+Circle(1025) = {1009, 1018, 1010};
+Circle(1026) = {1010, 1018, 1011};
+Circle(1027) = {1011, 1018, 1012};
+Circle(1028) = {1012, 1018, 1013};
+Circle(1029) = {1013, 1018, 1014};
+Circle(1030) = {1014, 1018, 1015};
+Circle(1031) = {1015, 1018, 1016};
+Circle(1032) = {1016, 1018, 1009};
+
+Line(1033) = {809, 1009};
+Line(1034) = {810, 1010};
+Line(1035) = {811, 1011};
+Line(1036) = {812, 1012};
+Line(1037) = {813, 1013};
+Line(1038) = {814, 1014};
+Line(1039) = {815, 1015};
+Line(1040) = {816, 1016};
+
+Line Loop(1217) = {921, 1018, -1025, -1017};
+Ruled Surface(1218) = {1217};
+Line Loop(1219) = {922, 1019, -1026, -1018};
+Ruled Surface(1220) = {1219};
+Line Loop(1221) = {923, 1020, -1027, -1019};
+Ruled Surface(1222) = {1221};
+Line Loop(1223) = {924, 1021, -1028, -1020};
+Ruled Surface(1224) = {1223};
+Line Loop(1225) = {925, 1022, -1029, -1021};
+Ruled Surface(1226) = {1225};
+Line Loop(1227) = {926, 1023, -1030, -1022};
+Ruled Surface(1228) = {1227};
+Line Loop(1229) = {927, 1024, -1031, -1023};
+Ruled Surface(1230) = {1229};
+Line Loop(1231) = {928, 1017, -1032, -1024};
+Ruled Surface(1232) = {1231};
+
+Line Loop(1233) = {825, 1034, -1025, -1033};
+Ruled Surface(1234) = {1233};
+Line Loop(1235) = {826, 1035, -1026, -1034};
+Ruled Surface(1236) = {1235};
+Line Loop(1237) = {827, 1036, -1027, -1035};
+Ruled Surface(1238) = {1237};
+Line Loop(1239) = {828, 1037, -1028, -1036};
+Ruled Surface(1240) = {1239};
+Line Loop(1241) = {829, 1038, -1029, -1037};
+Ruled Surface(1242) = {1241};
+Line Loop(1243) = {830, 1039, -1030, -1038};
+Ruled Surface(1244) = {1243};
+Line Loop(1245) = {831, 1040, -1031, -1039};
+Ruled Surface(1246) = {1245};
+Line Loop(1247) = {832, 1033, -1032, -1040};
+Ruled Surface(1248) = {1247};
+
+Line Loop(1249) = {817, 1033, -1017, -937};
+Ruled Surface(1250) = {1249};
+Line Loop(1251) = {818, 1034, -1018, -938};
+Ruled Surface(1252) = {1251};
+Line Loop(1253) = {819, 1035, -1019, -939};
+Ruled Surface(1254) = {1253};
+Line Loop(1255) = {820, 1036, -1020, -940};
+Ruled Surface(1256) = {1255};
+Line Loop(1257) = {821, 1037, -1021, -941};
+Ruled Surface(1258) = {1257};
+Line Loop(1259) = {822, 1038, -1022, -942};
+Ruled Surface(1260) = {1259};
+Line Loop(1261) = {823, 1039, -1023, -943};
+Ruled Surface(1262) = {1261};
+Line Loop(1263) = {824, 1040, -1024, -944};
+Ruled Surface(1264) = {1263};
+
+Surface Loop(11001) = {1018, 1218, 1158, 1234, 1250, 1252};
+Volume(11002) = {11001};
+Surface Loop(11003) = {1020, 1220, 1160, 1236, 1252, 1254};
+Volume(11004) = {11003};
+Surface Loop(11005) = {1022, 1222, 1162, 1238, 1254, 1256};
+Volume(11006) = {11005};
+Surface Loop(11007) = {1024, 1224, 1164, 1240, 1256, 1258};
+Volume(11008) = {11007};
+Surface Loop(11009) = {1026, 1226, 1166, 1242, 1258, 1260};
+Volume(11010) = {11009};
+Surface Loop(11011) = {1028, 1228, 1168, 1244, 1260, 1262};
+Volume(11012) = {11011};
+Surface Loop(11013) = {1030, 1230, 1170, 1246, 1262, 1264};
+Volume(11014) = {11013};
+Surface Loop(11015) = {1032, 1232, 1172, 1248, 1264, 1250};
+Volume(11016) = {11015};
 
 // ===================================== //
-// Set transfinite lines (extra layer 4) //
+// Set transfinite lines (extra layer 5) //
 // ===================================== //
 
-Transfinite Line {817, 818, 819, 820, 821, 822, 823, 824} = numPoints3;
-Transfinite Line {833, 834, 835, 836, 837, 838, 839, 840} = numPoints6;
-Transfinite Line {825, 826, 827, 828, 829, 830, 831, 832} = numPoints1;
+Transfinite Line {1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024} = numPoints3;
+Transfinite Line {1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040} = numPoints7;
+Transfinite Line {1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032} = numPoints1;
 
+// -------- //
+// Volume 6 //
+// -------- //
+
+Point(1101) = {0., 0., domainLength, 1.0};
+Point(1102) = {sourceRadius * Cos(Pi), sourceRadius * Sin(Pi), domainLength, 1.0};
+Point(1103) = {sourceRadius * Cos(5/4*Pi), sourceRadius * Sin(5/4*Pi), domainLength, 1.0};
+Point(1104) = {sourceRadius * Cos(3/2*Pi), sourceRadius * Sin(3/2*Pi), domainLength, 1.0};
+Point(1105) = {sourceRadius * Cos(7/4*Pi), sourceRadius * Sin(7/4*Pi), domainLength, 1.0};
+Point(1106) = {sourceRadius * Cos(2*Pi), sourceRadius * Sin(2*Pi), domainLength, 1.0};
+Point(1107) = {sourceRadius * Cos(1/4*Pi), sourceRadius * Sin(1/4*Pi), domainLength, 1.0};
+Point(1108) = {sourceRadius * Cos(1/2*Pi), sourceRadius * Sin(1/2*Pi), domainLength, 1.0};
+Point(1109) = {sourceRadius * Cos(3/4*Pi), sourceRadius * Sin(3/4*Pi), domainLength, 1.0};
+
+Point(1110) = {sourceRadius/2 * Cos(Pi), sourceRadius/2 * Sin(Pi), domainLength, 1.0};
+Point(1111) = {sourceRadius/2 * Cos(5/4*Pi), sourceRadius/2 * Sin(5/4*Pi), domainLength, 1.0};
+Point(1112) = {sourceRadius/2 * Cos(3/2*Pi), sourceRadius/2 * Sin(3/2*Pi), domainLength, 1.0};
+Point(1113) = {sourceRadius/2 * Cos(7/4*Pi), sourceRadius/2 * Sin(7/4*Pi), domainLength, 1.0};
+Point(1114) = {sourceRadius/2 * Cos(2*Pi), sourceRadius/2 * Sin(2*Pi), domainLength, 1.0};
+Point(1115) = {sourceRadius/2 * Cos(1/4*Pi), sourceRadius/2 * Sin(1/4*Pi), domainLength, 1.0};
+Point(1116) = {sourceRadius/2 * Cos(1/2*Pi), sourceRadius/2 * Sin(1/2*Pi), domainLength, 1.0};
+Point(1117) = {sourceRadius/2 * Cos(3/4*Pi), sourceRadius/2 * Sin(3/4*Pi), domainLength, 1.0};
+
+Line(1101) = {1101, 1110};
+Line(1102) = {1101, 1112};
+Line(1103) = {1101, 1114};
+Line(1104) = {1101, 1116};
+
+Line(1105) = {1110, 1111};
+Line(1106) = {1111, 1112};
+Line(1107) = {1112, 1113};
+Line(1108) = {1113, 1114};
+Line(1109) = {1114, 1115};
+Line(1110) = {1115, 1116};
+Line(1111) = {1116, 1117};
+Line(1112) = {1117, 1110};
+
+Line(1113) = {1110, 1102};
+Line(1114) = {1111, 1103};
+Line(1115) = {1112, 1104};
+Line(1116) = {1113, 1105};
+Line(1117) = {1114, 1106};
+Line(1118) = {1115, 1107};
+Line(1119) = {1116, 1108};
+Line(1120) = {1117, 1109};
+
+Circle(1121) = {1102, 1101, 1103};
+Circle(1122) = {1103, 1101, 1104};
+Circle(1123) = {1104, 1101, 1105};
+Circle(1124) = {1105, 1101, 1106};
+Circle(1125) = {1106, 1101, 1107};
+Circle(1126) = {1107, 1101, 1108};
+Circle(1127) = {1108, 1101, 1109};
+Circle(1128) = {1109, 1101, 1102};
+
+Line(1129) = {910, 1110};
+Line(1130) = {911, 1111};
+Line(1131) = {912, 1112};
+Line(1132) = {913, 1113};
+Line(1133) = {914, 1114};
+Line(1134) = {915, 1115};
+Line(1135) = {916, 1116};
+Line(1136) = {917, 1117};
+
+Line(1137) = {902, 1102};
+Line(1138) = {903, 1103};
+Line(1139) = {904, 1104};
+Line(1140) = {905, 1105};
+Line(1141) = {906, 1106};
+Line(1142) = {907, 1107};
+Line(1143) = {908, 1108};
+Line(1144) = {909, 1109};
+
+Line Loop(1301) = {1103, 1109, 1110, -1104};
+Ruled Surface(1302) = {1301};
+Line Loop(1303) = {1104, 1111, 1112, -1101};
+Ruled Surface(1304) = {1303};
+Line Loop(1305) = {1101, 1105, 1106, -1102};
+Ruled Surface(1306) = {1305};
+Line Loop(1307) = {1102, 1107, 1108, -1103};
+Ruled Surface(1308) = {1307};
+
+Line Loop(1309) = {1117, 1125, -1118, -1109};
+Ruled Surface(1310) = {1309};
+Line Loop(1311) = {1118, 1126, -1119, -1110};
+Ruled Surface(1312) = {1311};
+Line Loop(1313) = {1119, 1127, -1120, -1111};
+Ruled Surface(1314) = {1313};
+Line Loop(1315) = {1120, 1128, -1113, -1112};
+Ruled Surface(1316) = {1315};
+Line Loop(1317) = {1113, 1121, -1114, -1105};
+Ruled Surface(1318) = {1317};
+Line Loop(1319) = {1114, 1122, -1115, -1106};
+Ruled Surface(1320) = {1319};
+Line Loop(1321) = {1115, 1123, -1116, -1107};
+Ruled Surface(1322) = {1321};
+Line Loop(1323) = {1116, 1124, -1117, -1108};
+Ruled Surface(1324) = {1323};
+
+Line Loop(1325) = {-905, 1129, 1105, -1130};
+Ruled Surface(1326) = {1325};
+Line Loop(1327) = {-906, 1130, 1106, -1131};
+Ruled Surface(1328) = {1327};
+Line Loop(1329) = {-907, 1131, 1107, -1132};
+Ruled Surface(1330) = {1329};
+Line Loop(1331) = {-908, 1132, 1108, -1133};
+Ruled Surface(1332) = {1331};
+Line Loop(1333) = {-909, 1133, 1109, -1134};
+Ruled Surface(1334) = {1333};
+Line Loop(1335) = {-910, 1134, 1110, -1135};
+Ruled Surface(1336) = {1335};
+Line Loop(1337) = {-911, 1135, 1111, -1136};
+Ruled Surface(1338) = {1337};
+Line Loop(1339) = {-912, 1136, 1112, -1129};
+Ruled Surface(1340) = {1339};
+
+Line Loop(1341) = {913, 1137, -1113, -1129};
+Ruled Surface(1342) = {1341};
+Line Loop(1343) = {914, 1138, -1114, -1130};
+Ruled Surface(1344) = {1343};
+Line Loop(1345) = {915, 1139, -1115, -1131};
+Ruled Surface(1346) = {1345};
+Line Loop(1347) = {916, 1140, -1116, -1132};
+Ruled Surface(1348) = {1347};
+Line Loop(1349) = {917, 1141, -1117, -1133};
+Ruled Surface(1350) = {1349};
+Line Loop(1351) = {918, 1142, -1118, -1134};
+Ruled Surface(1352) = {1351};
+Line Loop(1353) = {919, 1143, -1119, -1135};
+Ruled Surface(1354) = {1353};
+Line Loop(1355) = {920, 1144, -1120, -1136};
+Ruled Surface(1356) = {1355};
+
+Line Loop(1357) = {921, 1138, -1121, -1137};
+Ruled Surface(1358) = {1357};
+Line Loop(1359) = {922, 1139, -1122, -1138};
+Ruled Surface(1360) = {1359};
+Line Loop(1361) = {923, 1140, -1123, -1139};
+Ruled Surface(1362) = {1361};
+Line Loop(1363) = {924, 1141, -1124, -1140};
+Ruled Surface(1364) = {1363};
+Line Loop(1365) = {925, 1142, -1125, -1141};
+Ruled Surface(1366) = {1365};
+Line Loop(1367) = {926, 1143, -1126, -1142};
+Ruled Surface(1368) = {1367};
+Line Loop(1369) = {927, 1144, -1127, -1143};
+Ruled Surface(1370) = {1369};
+Line Loop(1371) = {928, 1137, -1128, -1144};
+Ruled Surface(1372) = {1371};
+
+Line(1145) = {901, 1101};
+
+Line Loop(1373) = {901, 1129, -1101, -1145};
+Ruled Surface(1374) = {1373};
+Line Loop(1375) = {902, 1131, -1102, -1145};
+Ruled Surface(1376) = {1375};
+Line Loop(1377) = {903, 1133, -1103, -1145};
+Ruled Surface(1378) = {1377};
+Line Loop(1379) = {904, 1135, -1104, -1145};
+Ruled Surface(1380) = {1379};
+
+Surface Loop(12001) = {1106, 1306, 1374, 1326, 1328, 1376};
+Volume(12002) = {12001};
+Surface Loop(12003) = {1108, 1308, 1376, 1330, 1332, 1378};
+Volume(12004) = {12003};
+Surface Loop(12005) = {1102, 1302, 1378, 1334, 1336, 1380};
+Volume(12006) = {12005};
+Surface Loop(12007) = {1104, 1304, 1380, 1338, 1340, 1374};
+Volume(12008) = {12007};
+
+Surface Loop(12009) = {1118, 1318, 1342, 1358, 1344, 1326};
+Volume(12010) = {12009};
+Surface Loop(12011) = {1120, 1320, 1344, 1360, 1346, 1328};
+Volume(12012) = {12011};
+Surface Loop(12013) = {1122, 1322, 1346, 1362, 1348, 1330};
+Volume(12014) = {12013};
+Surface Loop(12015) = {1124, 1324, 1348, 1364, 1350, 1332};
+Volume(12016) = {12015};
+Surface Loop(12017) = {1110, 1310, 1350, 1366, 1352, 1334};
+Volume(12018) = {12017};
+Surface Loop(12019) = {1112, 1312, 1352, 1368, 1354, 1336};
+Volume(12020) = {12019};
+Surface Loop(12021) = {1114, 1314, 1354, 1370, 1356, 1338};
+Volume(12022) = {12021};
+Surface Loop(12023) = {1116, 1316, 1356, 1372, 1342, 1340};
+Volume(12024) = {12023};
+
+// ================================ //
+// Set transfinite lines (Volume 6) //
+// ================================ //
+
+numPoints8 = numElementPerWavelength * (domainLength - 0.0365) / wavelength;
+
+Transfinite Line {1129, 1130, 1131, 1132, 1133, 1134, 1135, 1136,
+                  1137, 1138, 1139, 1140, 1141, 1142, 1143, 1144,
+                  1145} = numPoints8;
+
+Transfinite Line {1101, 1102, 1103, 1104,
+                  1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112,
+                  1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128} = numPoints1;
+
+Transfinite Line {1113, 1114, 1115, 1116, 1117, 1118, 1119, 1120} = numPoints1;
+
+// ------------- //
+// Extra layer 6 //
+// ------------- //
+
+Point(1209) = {domainRadius * Cos(Pi), domainRadius * Sin(Pi), domainLength, 1.0};
+Point(1210) = {domainRadius * Cos(5/4*Pi), domainRadius * Sin(5/4*Pi), domainLength, 1.0};
+Point(1211) = {domainRadius * Cos(3/2*Pi), domainRadius * Sin(3/2*Pi), domainLength, 1.0};
+Point(1212) = {domainRadius * Cos(7/4*Pi), domainRadius * Sin(7/4*Pi), domainLength, 1.0};
+Point(1213) = {domainRadius * Cos(2*Pi), domainRadius * Sin(2*Pi), domainLength, 1.0};
+Point(1214) = {domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), domainLength, 1.0};
+Point(1215) = {domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), domainLength, 1.0};
+Point(1216) = {domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), domainLength, 1.0};
+
+Line(1217) = {1102, 1209};
+Line(1218) = {1103, 1210};
+Line(1219) = {1104, 1211};
+Line(1220) = {1105, 1212};
+Line(1221) = {1106, 1213};
+Line(1222) = {1107, 1214};
+Line(1223) = {1108, 1215};
+Line(1224) = {1109, 1216};
+
+Circle(1225) = {1209, 1101, 1210};
+Circle(1226) = {1210, 1101, 1211};
+Circle(1227) = {1211, 1101, 1212};
+Circle(1228) = {1212, 1101, 1213};
+Circle(1229) = {1213, 1101, 1214};
+Circle(1230) = {1214, 1101, 1215};
+Circle(1231) = {1215, 1101, 1216};
+Circle(1232) = {1216, 1101, 1209};
+
+Line(1233) = {1009, 1209};
+Line(1234) = {1010, 1210};
+Line(1235) = {1011, 1211};
+Line(1236) = {1012, 1212};
+Line(1237) = {1013, 1213};
+Line(1238) = {1014, 1214};
+Line(1239) = {1015, 1215};
+Line(1240) = {1016, 1216};
+
+Line Loop(1417) = {1121, 1218, -1225, -1217};
+Ruled Surface(1418) = {1417};
+Line Loop(1419) = {1122, 1219, -1226, -1218};
+Ruled Surface(1420) = {1419};
+Line Loop(1421) = {1123, 1220, -1227, -1219};
+Ruled Surface(1422) = {1421};
+Line Loop(1423) = {1124, 1221, -1228, -1220};
+Ruled Surface(1424) = {1423};
+Line Loop(1425) = {1125, 1222, -1229, -1221};
+Ruled Surface(1426) = {1425};
+Line Loop(1427) = {1126, 1223, -1230, -1222};
+Ruled Surface(1428) = {1427};
+Line Loop(1429) = {1127, 1224, -1231, -1223};
+Ruled Surface(1430) = {1429};
+Line Loop(1431) = {1128, 1217, -1232, -1224};
+Ruled Surface(1432) = {1431};
+
+Line Loop(1433) = {1025, 1234, -1225, -1233};
+Ruled Surface(1434) = {1433};
+Line Loop(1435) = {1026, 1235, -1226, -1234};
+Ruled Surface(1436) = {1435};
+Line Loop(1437) = {1027, 1236, -1227, -1235};
+Ruled Surface(1438) = {1437};
+Line Loop(1439) = {1028, 1237, -1228, -1236};
+Ruled Surface(1440) = {1439};
+Line Loop(1441) = {1029, 1238, -1229, -1237};
+Ruled Surface(1442) = {1441};
+Line Loop(1443) = {1030, 1239, -1230, -1238};
+Ruled Surface(1444) = {1443};
+Line Loop(1445) = {1031, 1240, -1231, -1239};
+Ruled Surface(1446) = {1445};
+Line Loop(1447) = {1032, 1233, -1232, -1240};
+Ruled Surface(1448) = {1447};
+
+Line Loop(1449) = {1017, 1233, -1217, -1137};
+Ruled Surface(1450) = {1449};
+Line Loop(1451) = {1018, 1234, -1218, -1138};
+Ruled Surface(1452) = {1451};
+Line Loop(1453) = {1019, 1235, -1219, -1139};
+Ruled Surface(1454) = {1453};
+Line Loop(1455) = {1020, 1236, -1220, -1140};
+Ruled Surface(1456) = {1455};
+Line Loop(1457) = {1021, 1237, -1221, -1141};
+Ruled Surface(1458) = {1457};
+Line Loop(1459) = {1022, 1238, -1222, -1142};
+Ruled Surface(1460) = {1459};
+Line Loop(1461) = {1023, 1239, -1223, -1143};
+Ruled Surface(1462) = {1461};
+Line Loop(1463) = {1024, 1240, -1224, -1144};
+Ruled Surface(1464) = {1463};
+
+Surface Loop(13001) = {1218, 1418, 1358, 1434, 1450, 1452};
+Volume(13002) = {13001};
+Surface Loop(13003) = {1220, 1420, 1360, 1436, 1452, 1454};
+Volume(13004) = {13003};
+Surface Loop(13005) = {1222, 1422, 1362, 1438, 1454, 1456};
+Volume(13006) = {13005};
+Surface Loop(13007) = {1224, 1424, 1364, 1440, 1456, 1458};
+Volume(13008) = {13007};
+Surface Loop(13009) = {1226, 1426, 1366, 1442, 1458, 1460};
+Volume(13010) = {13009};
+Surface Loop(13011) = {1228, 1428, 1368, 1444, 1460, 1462};
+Volume(13012) = {13011};
+Surface Loop(13013) = {1230, 1430, 1370, 1446, 1462, 1464};
+Volume(13014) = {13013};
+Surface Loop(13015) = {1232, 1432, 1372, 1448, 1464, 1450};
+Volume(13016) = {13015};
+
+// ===================================== //
+// Set transfinite lines (extra layer 5) //
+// ===================================== //
+
+Transfinite Line {1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224} = numPoints3;
+Transfinite Line {1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240} = numPoints8;
+Transfinite Line {1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232} = numPoints1;
+
+// ------------------------ //
+// Tag surfaces and volumes //
+// ------------------------ //
+
+Physical Surface(1) = {214, 216, 218, 220,
+                       190, 192, 194, 196, 198, 200, 202, 204};
+Physical Surface(2) = {434, 436, 438, 440, 442, 444, 446, 448,
+                       634, 636, 638, 640, 642, 644, 646, 648,
+                       834, 836, 838, 840, 842, 844, 846, 848,
+                       1034, 1036, 1038, 1040, 1042, 1044, 1046, 1048,
+                       1234, 1236, 1238, 1240, 1242, 1244, 1246, 1248,
+                       1434, 1436, 1438, 1440, 1442, 1444, 1446, 1448,
+                       1302, 1304, 1306, 1308,
+                       1310, 1312, 1314, 1316, 1318, 1320, 1322, 1324,
+                       1418, 1420, 1422, 1424, 1426, 1428, 1430, 1432
+                       };
+Physical Surface(3) = {402, 404, 406, 408, 410, 412, 414, 416};
+
+Physical Volume(1) = {1002, 1004, 1006, 1008,
+                      1010, 1012, 1014, 1016, 1018, 1020, 1022, 1024,
+                      1026, 1028, 1030, 1032,
+                      2002, 2004, 2006, 2008,
+                      2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024,
+                      3002, 3004, 3006, 3008, 3010, 3012, 3014, 3016};
+Physical Volume(2) = {4002, 4004, 4006, 4008,
+                      4010, 4012, 4014, 4016, 4018, 4020, 4022, 4024,
+                      5002, 5004, 5006, 5008, 5010, 5012, 5014, 5016};
+Physical Volume(3) = {6002, 6004, 6006, 6008,
+                      6010, 6012, 6014, 6016, 6018, 6020, 6022, 6024,
+                      7002, 7004, 7006, 7008, 7010, 7012, 7014, 7016};
+Physical Volume(4) = {8002, 8004, 8006, 8008,
+                      8010, 8012, 8014, 8016, 8018, 8020, 8022, 8024,
+                      9002, 9004, 9006, 9008, 9010, 9012, 9014, 9016};
+Physical Volume(5) = {10002, 10004, 10006, 10008,
+                      10010, 10012, 10014, 10016, 10018, 10020, 10022, 10024,
+                      11002, 11004, 11006, 11008, 11010, 11012, 11014, 11016};
+Physical Volume(6) = {12002, 12004, 12006, 12008,
+                      12010, 12012, 12014, 12016, 12018, 12020, 12022, 12024,
+                      13002, 13004, 13006, 13008, 13010, 13012, 13014, 13016};
+                      
 // ==================================== //
 // Set transfinite surfaces and volumes //
 // ==================================== //
