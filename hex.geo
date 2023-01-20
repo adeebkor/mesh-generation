@@ -72,5 +72,10 @@ Transfinite Line {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12} = 8;
 
 // Set algorithm
 
-Mesh.Algorithm3D = 1;
-Mesh.SubdivisionAlgorithm = 2;
+// Mesh.Algorithm3D = 1;
+// Mesh.SubdivisionAlgorithm = 2;
+
+Transfinite Surface "*";
+Recombine Surface "*";
+
+Transfinite Volume "*";
