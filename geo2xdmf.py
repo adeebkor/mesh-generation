@@ -13,11 +13,14 @@ mesh_comm = MPI.COMM_WORLD
 model_rank = 0
 
 geom_dim = int(sys.argv[2])
+geom_ord = int(sys.argv[3])
 
 if mesh_comm.rank == model_rank:
     gmsh.model.mesh.generate(geom_dim)
-    # gmsh.model.mesh.setOrder(1)
-    # gmsh.model.mesh.optimize("HighOrder")
+    
+    if geom_ord > 1:
+        gmsh.model.mesh.setOrder(geom_ord)
+        gmsh.model.mesh.optimize("HighOrder")
 
 msh, ct, ft = gmshio.model_to_mesh(
     gmsh.model, mesh_comm, model_rank, gdim=geom_dim)

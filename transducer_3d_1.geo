@@ -17,10 +17,10 @@ speedOfSound = 1500;
 sourceFrequency = 0.5e6;
 
 wavelength = speedOfSound / sourceFrequency;
-domainLength = 0.15;
+domainLength = 0.12;
 domainRadius = 0.05;
 
-numElementPerWavelength = 1;
+numElementPerWavelength = 3;
 
 sourceRadius = 0.032;
 focalLength = 0.064;
