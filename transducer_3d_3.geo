@@ -14,19 +14,19 @@
 // ------------------------------------------------------------------------- //
 
 speedOfSound = 1500;
-sourceFrequency = 0.5e6;
+sourceFrequency = 500000;
 
 wavelength = speedOfSound / sourceFrequency;
-domainLength = 0.15;
-domainRadius = 0.06;
+numExtraWavelength = 2;
+domainLength = 0.12 + numExtraWavelength*wavelength;
+domainRadius = 0.04 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 1;
+numElementPerWavelength = 2.5;
 
 sourceRadius = 0.032;
 focalLength = 0.064;
 
 alpha = Asin(sourceRadius / focalLength);
-
 
 // ------------------------------------------------------------------------- //
 // Spherical cap                                                             //
@@ -327,7 +327,6 @@ Transfinite Line {74, 75, 76, 77} = numPoints1;
 
 Transfinite Line {49, 56, 16, 57, 15, 50, 8, 51} = numPoints1;
 Transfinite Line {4, 52, 3, 53, 5, 54, 19, 55, 20} = numPoints1;
-
 
 // ------------------------------------------------------------------------- //
 // Cylinder                                                                  //
