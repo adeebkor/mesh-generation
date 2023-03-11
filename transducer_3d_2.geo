@@ -22,10 +22,10 @@ numExtraWavelength = 2;
 domainLength = 0.12 + numExtraWavelength*wavelength;
 domainRadius = 0.035 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 2.39;
+numElementPerWavelength = 2.4;
 
 sourceRadius = 0.032;
-focalLength = 0.064;
+focalLength = 0.064 + 4.0e-4;
 
 alpha = Asin(sourceRadius / focalLength);
 
@@ -686,8 +686,8 @@ Physical Surface(1) = {192, 194, 196, 198, 168, 170, 172, 174,
 Physical Surface(2) = {318, 320, 322, 324, 326, 328, 330, 332,
                        334, 336, 338, 340, 342, 344, 346, 348,
                        208, 210, 212, 214, 216, 218, 220, 222,
-                       200, 202, 204, 206};
-Physical Surface(3) = {302, 304, 306, 308, 310, 312, 314, 316};
+                       200, 202, 204, 206,
+                       302, 304, 306, 308, 310, 312, 314, 316};
 Physical Volume(1) = {200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220,
                       222, 224, 226, 228, 230, 280, 282, 284, 286, 288,
                       290, 292, 294, 296, 298, 300, 302, 402, 404, 406,

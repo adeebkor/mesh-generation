@@ -19,13 +19,13 @@ sourceFrequency = 500000;
 
 wavelength = speedOfSound / sourceFrequency;
 numExtraWavelength = 2;
-domainRadius = 0.035 + numExtraWavelength*wavelength;
 domainLength = 0.12 + numExtraWavelength*wavelength;
+domainRadius = 0.035 + numExtraWavelength*wavelength;
 
 numElementPerWavelength = 2.5;
 
 sourceRadius = 0.032;
-focalLength = 0.064;
+focalLength = 0.064 + 4.0e-4;
 
 alpha = Asin(sourceRadius / focalLength);
 
