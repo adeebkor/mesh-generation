@@ -1,3 +1,10 @@
+#
+# .. _geo2xdmf:
+#
+# A script to generate the XDMF mesh file from gmsh GEO file
+# ==========================================================
+# Copyright (C) 2023 Adeeb Arif Kor
+
 import sys
 import gmsh
 
@@ -17,7 +24,7 @@ geom_ord = int(sys.argv[3])
 
 if mesh_comm.rank == model_rank:
     gmsh.model.mesh.generate(geom_dim)
-    
+
     if geom_ord > 1:
         gmsh.model.mesh.setOrder(geom_ord)
         gmsh.model.mesh.optimize("HighOrder")
@@ -32,7 +39,7 @@ ft.name = f"{msh.name}_facets"
 with XDMFFile(msh.comm, "mesh.xdmf", "w") as file:
     file.write_mesh(msh)
     msh.topology.create_connectivity(geom_dim-1, geom_dim)
-    file.write_meshtags(ct, 
-        geometry_xpath=f"/Xdmf/Domain/Grid[@Name='{msh.name}']/Geometry")
-    file.write_meshtags(ft, 
-        geometry_xpath=f"/Xdmf/Domain/Grid[@Name='{msh.name}']/Geometry")
+    file.write_meshtags(
+        ct, geometry_xpath=f"/Xdmf/Domain/Grid[@Name='{msh.name}']/Geometry")
+    file.write_meshtags(
+        ft, geometry_xpath=f"/Xdmf/Domain/Grid[@Name='{msh.name}']/Geometry")
