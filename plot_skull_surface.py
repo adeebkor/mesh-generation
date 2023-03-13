@@ -27,8 +27,10 @@ p_skull_volume = np.hstack((x_skull[:, np.newaxis],
 skull_volume_df = pd.DataFrame(p_skull_volume, columns=["X", "Y", "Z"])
 
 # Get minimum and maximum at each (Y, Z) points
-skull_surface_inner_df = skull_volume_df.groupby(["Y", "Z"]).min().reset_index()
-skull_surface_outer_df = skull_volume_df.groupby(["Y", "Z"]).max().reset_index()
+skull_surface_inner_df = skull_volume_df.groupby(
+    ["Y", "Z"]).min().reset_index()
+skull_surface_outer_df = skull_volume_df.groupby(
+    ["Y", "Z"]).max().reset_index()
 
 # Rearrange columns
 skull_surface_inner_df = skull_surface_inner_df[["X", "Y", "Z"]]
@@ -73,26 +75,26 @@ for cell in cells:
         [skull_surface_inner[cell[1], 1], skull_surface_inner[cell[2], 1]],
         [skull_surface_inner[cell[1], 2], skull_surface_inner[cell[2], 2]],
         "C0")
-    
+
     ax.plot(
         [skull_surface_inner[cell[2], 0], skull_surface_inner[cell[3], 0]],
         [skull_surface_inner[cell[2], 1], skull_surface_inner[cell[3], 1]],
         [skull_surface_inner[cell[2], 2], skull_surface_inner[cell[3], 2]],
         "C0")
-    
+
     ax.plot(
         [skull_surface_inner[cell[3], 0], skull_surface_inner[cell[0], 0]],
         [skull_surface_inner[cell[3], 1], skull_surface_inner[cell[0], 1]],
         [skull_surface_inner[cell[3], 2], skull_surface_inner[cell[0], 2]],
         "C0")
-    
-    # Outer surface  
+
+    # Outer surface
     ax.plot(
         [skull_surface_outer[cell[0], 0], skull_surface_outer[cell[1], 0]],
         [skull_surface_outer[cell[0], 1], skull_surface_outer[cell[1], 1]],
         [skull_surface_outer[cell[0], 2], skull_surface_outer[cell[1], 2]],
         "C1")
-    
+
     ax.plot(
         [skull_surface_outer[cell[1], 0], skull_surface_outer[cell[2], 0]],
         [skull_surface_outer[cell[1], 1], skull_surface_outer[cell[2], 1]],
@@ -104,7 +106,7 @@ for cell in cells:
         [skull_surface_outer[cell[2], 1], skull_surface_outer[cell[3], 1]],
         [skull_surface_outer[cell[2], 2], skull_surface_outer[cell[3], 2]],
         "C1")
-    
+
     ax.plot(
         [skull_surface_outer[cell[3], 0], skull_surface_outer[cell[0], 0]],
         [skull_surface_outer[cell[3], 1], skull_surface_outer[cell[0], 1]],
