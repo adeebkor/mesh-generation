@@ -40,6 +40,9 @@ skull_surface_outer_df = skull_surface_outer_df[["X", "Y", "Z"]]
 skull_surface_inner = skull_surface_inner_df.to_numpy()
 skull_surface_outer = skull_surface_outer_df.to_numpy()
 
+print(skull_surface_inner)
+exit()
+
 npoints = skull_surface_inner.shape[0]
 Ny = yi.shape[0]
 Nz = zi.shape[0]
