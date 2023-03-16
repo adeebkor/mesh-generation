@@ -404,7 +404,7 @@ for s in range(Nz-1):
 
 # Create points
 for p in range(npoints):
-    xp_i = skull_surface_outer[p, 0] - 0.01 # Remember to remove 0.01
+    xp_i = skull_surface_outer[p, 0]
     yp_i = skull_surface_outer[p, 1]
     zp_i = skull_surface_outer[p, 2]
 
