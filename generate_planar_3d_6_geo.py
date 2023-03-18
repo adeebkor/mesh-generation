@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import mat73
 
+from smoothen_surface import smoothen
+
 # Parameters
 speed_of_sound = 1500
 source_frequency = 500000
@@ -9,7 +11,7 @@ source_frequency = 500000
 wavelength = speed_of_sound / source_frequency
 number_of_extra_wavelength = 11
 number_of_element_per_wavelength = 2.4
-mesh_size_mm = wavelength / number_of_element_per_wavelength * 1000
+mesh_size_mm = 1.25
 domain_radius = 0.035 + number_of_extra_wavelength*wavelength
 domain_length = 0.12 + number_of_extra_wavelength*wavelength
 
@@ -57,6 +59,19 @@ npoints = skull_surface_inner.shape[0]
 Ny = yi.shape[0]
 Nz = zi.shape[0]
 
+# ---------------- #
+# Smoothen surface #
+# ---------------- #
+
+X_inner = skull_surface_inner[:, 0].reshape(Ny, Nz)
+X_outer = skull_surface_outer[:, 0].reshape(Ny, Nz)
+
+X_inner_smooth = smoothen(X_inner, 2)
+X_outer_smooth = smoothen(X_outer, 3)
+
+skull_surface_inner[:, 0] = X_inner_smooth.flatten()
+skull_surface_outer[:, 0] = X_outer_smooth.flatten()
+
 # ----------------- #
 # Write to geo file #
 # ----------------- #
@@ -87,7 +102,6 @@ file_object.write("\n\n")
 # Create lines along the y-axis
 for zl in range(Nz):
     for yl in range(Ny-1):
-        # print(yl + zl*(Ny-1), yl*Nz + zl, yl*Nz + zl + Nz)
         line_number = yl + zl*(Ny-1) + 1300000
         point_1 = yl*Nz + zl + 500000
         point_2 = yl*Nz + zl + Nz + 500000
@@ -102,7 +116,6 @@ file_object.write("\n\n")
 # Create lines along the z-axis
 for yl in range(Ny):
     for zl in range(Nz - 1):
-        # print(zl + yl*(Nz-1), zl + yl*Nz, zl + yl*Nz + 1)
         line_number = zl + yl*(Nz-1) + 1400000
         point_1 = zl + yl*Nz + 500000
         point_2 = zl + yl*Nz + 500001
@@ -416,7 +429,6 @@ file_object.write("\n\n")
 # Create lines along the y-axis
 for zl in range(Nz):
     for yl in range(Ny-1):
-        # print(yl + zl*(Ny-1), yl*Nz + zl, yl*Nz + zl + Nz)
         line_number = yl + zl*(Ny-1) + 700000
         point_1 = yl*Nz + zl + 300000
         point_2 = yl*Nz + zl + Nz + 300000
@@ -431,7 +443,6 @@ file_object.write("\n\n")
 # Create lines along the z-axis
 for yl in range(Ny):
     for zl in range(Nz - 1):
-        # print(zl + yl*(Nz-1), zl + yl*Nz, zl + yl*Nz + 1)
         line_number = zl + yl*(Nz-1) + 800000
         point_1 = zl + yl*Nz + 300000
         point_2 = zl + yl*Nz + 300001
@@ -450,7 +461,7 @@ for p in range(Ny):
     zp_i = skull_surface_outer[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp = skull_surface_outer.max() + 0.005
+    xp = skull_surface_outer.max() + 0.001
     yp = domain_radius * np.cos(angle)
     zp = domain_radius * np.sin(angle)
 
@@ -465,7 +476,7 @@ for p in range(Ny*Nz - Ny, Ny*Nz):
     zp_i = skull_surface_outer[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp = skull_surface_outer.max() + 0.005
+    xp = skull_surface_outer.max() + 0.001
     yp = domain_radius * np.cos(angle)
     zp = domain_radius * np.sin(angle)
 
@@ -480,7 +491,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
     zp_i = skull_surface_outer[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp = skull_surface_outer.max() + 0.005
+    xp = skull_surface_outer.max() + 0.001
     yp = domain_radius * np.cos(angle)
     zp = domain_radius * np.sin(angle)
 
@@ -495,7 +506,7 @@ for p in range(2*Nz-1, Ny*(Nz-1), Nz):
     zp_i = skull_surface_outer[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp = skull_surface_outer.max() + 0.005
+    xp = skull_surface_outer.max() + 0.001
     yp = domain_radius * np.cos(angle)
     zp = domain_radius * np.sin(angle)
 
@@ -736,7 +747,6 @@ file_object.write("\n\n")
 # Create lines along the y-axis
 for zl in range(Nz):
     for yl in range(Ny-1):
-        # print(yl + zl*(Ny-1), yl*Nz + zl, yl*Nz + zl + Nz)
         line_number = yl + zl*(Ny-1) + 100000
         point_1 = yl*Nz + zl + 100000
         point_2 = yl*Nz + zl + Nz + 100000
@@ -751,7 +761,6 @@ file_object.write("\n\n")
 # Create lines along the z-axis
 for yl in range(Ny):
     for zl in range(Nz - 1):
-        # print(zl + yl*(Nz-1), zl + yl*Nz, zl + yl*Nz + 1)
         line_number = zl + yl*(Nz-1) + 200000
         point_1 = zl + yl*Nz + 100000
         point_2 = zl + yl*Nz + 100001
@@ -770,7 +779,7 @@ for p in range(Ny):
     zp_i = skull_surface_inner[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp = skull_surface_inner.max() + 0.005
+    xp = skull_surface_inner.max() + 0.001
     yp = domain_radius * np.cos(angle)
     zp = domain_radius * np.sin(angle)
 
@@ -785,7 +794,7 @@ for p in range(Ny*Nz - Ny, Ny*Nz):
     zp_i = skull_surface_inner[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp = skull_surface_inner.max() + 0.005
+    xp = skull_surface_inner.max() + 0.001
     yp = domain_radius * np.cos(angle)
     zp = domain_radius * np.sin(angle)
 
@@ -800,7 +809,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
     zp_i = skull_surface_inner[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp = skull_surface_inner.max() + 0.005
+    xp = skull_surface_inner.max() + 0.001
     yp = domain_radius * np.cos(angle)
     zp = domain_radius * np.sin(angle)
 
@@ -815,7 +824,7 @@ for p in range(2*Nz-1, Ny*(Nz-1), Nz):
     zp_i = skull_surface_inner[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp = skull_surface_inner.max() + 0.005
+    xp = skull_surface_inner.max() + 0.001
     yp = domain_radius * np.cos(angle)
     zp = domain_radius * np.sin(angle)
 
@@ -1056,7 +1065,6 @@ file_object.write("\n\n")
 # Create lines along the y-axis
 for zl in range(Nz):
     for yl in range(Ny-1):
-        # print(yl + zl*(Ny-1), yl*Nz + zl, yl*Nz + zl + Nz)
         line_number = yl + zl*(Ny-1) + 1900000
         point_1 = yl*Nz + zl + 700000
         point_2 = yl*Nz + zl + Nz + 700000
@@ -1071,7 +1079,6 @@ file_object.write("\n\n")
 # Create lines along the z-axis
 for yl in range(Ny):
     for zl in range(Nz - 1):
-        # print(zl + yl*(Nz-1), zl + yl*Nz, zl + yl*Nz + 1)
         line_number = zl + yl*(Nz-1) + 2000000
         point_1 = zl + yl*Nz + 700000
         point_2 = zl + yl*Nz + 700001
