@@ -5,13 +5,11 @@
 # ================================================================
 # Copyright (C) 2023 Adeeb Arif Kor
 
-import numpy as np
-
 
 def smoothen(surface, num_iteration):
     smooth_surface = surface.copy()
     num_points_1 = smooth_surface.shape[0]
-    num_points_2 = smooth_surface.shape[1]    
+    num_points_2 = smooth_surface.shape[1]
 
     smooth_surface_boundary_1 = smooth_surface[0, :]
     smooth_surface_boundary_2 = smooth_surface[-1, :]
@@ -29,17 +27,21 @@ def smoothen(surface, num_iteration):
                     smooth_surface[i+1, j+1]) / 9.0
 
     for _ in range(num_iteration):
-        smooth_surface_boundary_1[1:-1:] = (smooth_surface_boundary_1[:-2:] +
-                                     smooth_surface_boundary_1[1:-1:] + 
-                                     smooth_surface_boundary_1[2::]) / 3.0
-        smooth_surface_boundary_2[1:-1:] = (smooth_surface_boundary_2[:-2:] +
-                                     smooth_surface_boundary_2[1:-1:] +
-                                     smooth_surface_boundary_2[2::]) / 3.0
-        smooth_surface_boundary_3[1:-1:] = (smooth_surface_boundary_3[:-2:] +
-                                     smooth_surface_boundary_3[1:-1:] +
-                                     smooth_surface_boundary_3[2::]) / 3.0
-        smooth_surface_boundary_4[1:-1:] = (smooth_surface_boundary_4[:-2:] +
-                                     smooth_surface_boundary_4[1:-1:] +
-                                     smooth_surface_boundary_4[2::]) / 3.0
-    
+        smooth_surface_boundary_1[1:-1:] = (
+            smooth_surface_boundary_1[:-2:] +
+            smooth_surface_boundary_1[1:-1:] +
+            smooth_surface_boundary_1[2::]) / 3.0
+        smooth_surface_boundary_2[1:-1:] = (
+            smooth_surface_boundary_2[:-2:] +
+            smooth_surface_boundary_2[1:-1:] +
+            smooth_surface_boundary_2[2::]) / 3.0
+        smooth_surface_boundary_3[1:-1:] = (
+            smooth_surface_boundary_3[:-2:] +
+            smooth_surface_boundary_3[1:-1:] +
+            smooth_surface_boundary_3[2::]) / 3.0
+        smooth_surface_boundary_4[1:-1:] = (
+            smooth_surface_boundary_4[:-2:] +
+            smooth_surface_boundary_4[1:-1:] +
+            smooth_surface_boundary_4[2::]) / 3.0
+
     return smooth_surface

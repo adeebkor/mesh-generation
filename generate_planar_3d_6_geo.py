@@ -96,7 +96,7 @@ for p in range(npoints):
 
     file_object.write(
         f"Point({p + 500000}) = {{{xp_i}, {yp_i}, {zp_i}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 # Create lines along the y-axis
@@ -108,7 +108,7 @@ for zl in range(Nz):
 
         file_object.write(
             f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-        
+
         transfinite_line1.append(str(line_number))
 
 file_object.write("\n\n")
@@ -122,7 +122,7 @@ for yl in range(Ny):
 
         file_object.write(
             f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-        
+
         transfinite_line1.append(str(line_number))
 
 file_object.write("\n\n")
@@ -140,7 +140,7 @@ for p in range(Ny):
 
     file_object.write(
         f"Point({p + 600000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(Ny*Nz - Ny, Ny*Nz):
@@ -155,7 +155,7 @@ for p in range(Ny*Nz - Ny, Ny*Nz):
 
     file_object.write(
         f"Point({p + 600000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(Nz, Ny*(Nz-2)+1, Nz):
@@ -170,7 +170,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
 
     file_object.write(
         f"Point({p + 600000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(2*Nz-1, Ny*(Nz-1), Nz):
@@ -185,7 +185,7 @@ for p in range(2*Nz-1, Ny*(Nz-1), Nz):
 
     file_object.write(
         f"Point({p + 600000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 # Create lines for extra layers (4 layers)
@@ -195,7 +195,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     point_2 = p + 600000 + Nz
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line1.append(str(line_number))
 
 file_object.write("\n\n")
@@ -239,7 +239,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     point_2 = p + 600000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line2.append(str(line_number))
 
 file_object.write("\n\n")
@@ -293,7 +293,7 @@ for zc in range(Nz-1):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
         file_object.write(
             f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-        
+
         yp = yi[yc] + dy/2
         zp = zi[zc] + dz/2
 
@@ -301,7 +301,7 @@ for zc in range(Nz-1):
 
         if R < 0.01:
             source_tag.append(str(surface))
-        
+
 for s in range(Nz-2):
     line_loop_number = 2 * s + 11000000
     surface = 2 * s + 11000001
@@ -423,7 +423,7 @@ for p in range(npoints):
 
     file_object.write(
         f"Point({p + 300000}) = {{{xp_i}, {yp_i}, {zp_i}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 # Create lines along the y-axis
@@ -467,7 +467,7 @@ for p in range(Ny):
 
     file_object.write(
         f"Point({p + 400000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(Ny*Nz - Ny, Ny*Nz):
@@ -482,7 +482,7 @@ for p in range(Ny*Nz - Ny, Ny*Nz):
 
     file_object.write(
         f"Point({p + 400000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(Nz, Ny*(Nz-2)+1, Nz):
@@ -497,7 +497,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
 
     file_object.write(
         f"Point({p + 400000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(2*Nz-1, Ny*(Nz-1), Nz):
@@ -512,7 +512,7 @@ for p in range(2*Nz-1, Ny*(Nz-1), Nz):
 
     file_object.write(
         f"Point({p + 400000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 # Create lines for extra layers (4 layers)
@@ -741,7 +741,7 @@ for p in range(npoints):
 
     file_object.write(
         f"Point({p + 100000}) = {{{xp_i}, {yp_i}, {zp_i}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 # Create lines along the y-axis
@@ -785,7 +785,7 @@ for p in range(Ny):
 
     file_object.write(
         f"Point({p + 200000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(Ny*Nz - Ny, Ny*Nz):
@@ -800,7 +800,7 @@ for p in range(Ny*Nz - Ny, Ny*Nz):
 
     file_object.write(
         f"Point({p + 200000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(Nz, Ny*(Nz-2)+1, Nz):
@@ -815,7 +815,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
 
     file_object.write(
         f"Point({p + 200000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(2*Nz-1, Ny*(Nz-1), Nz):
@@ -830,7 +830,7 @@ for p in range(2*Nz-1, Ny*(Nz-1), Nz):
 
     file_object.write(
         f"Point({p + 200000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 # Create lines for extra layers (4 layers)
@@ -979,7 +979,7 @@ for s in range(Nz-2):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 line_loop_number += 2
 surface += 2
 line_1 += 1
@@ -1059,7 +1059,7 @@ for p in range(npoints):
 
     file_object.write(
         f"Point({p + 700000}) = {{{xp_i}, {yp_i}, {zp_i}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 # Create lines along the y-axis
@@ -1103,7 +1103,7 @@ for p in range(Ny):
 
     file_object.write(
         f"Point({p + 800000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(Ny*Nz - Ny, Ny*Nz):
@@ -1118,7 +1118,7 @@ for p in range(Ny*Nz - Ny, Ny*Nz):
 
     file_object.write(
         f"Point({p + 800000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(Nz, Ny*(Nz-2)+1, Nz):
@@ -1133,7 +1133,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
 
     file_object.write(
         f"Point({p + 800000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 for p in range(2*Nz-1, Ny*(Nz-1), Nz):
@@ -1148,7 +1148,7 @@ for p in range(2*Nz-1, Ny*(Nz-1), Nz):
 
     file_object.write(
         f"Point({p + 800000}) = {{{xp}, {yp}, {zp}, 1.0}};\n")
-    
+
 file_object.write("\n\n")
 
 # Create lines for extra layers (4 layers)
@@ -1255,7 +1255,7 @@ for zc in range(Nz-1):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
         file_object.write(
             f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-        
+
 for s in range(Nz-2):
     line_loop_number = 2 * s + 41000000
     surface = 2 * s + 41000001
@@ -1376,7 +1376,7 @@ for p in range(Ny*Nz):
     point_2 = p + 300000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line3.append(str(line_number))
 
 file_object.write("\n\n")
@@ -1387,7 +1387,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     point_2 = p + 400000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line3.append(str(line_number))
 
 file_object.write("\n\n")
@@ -1398,7 +1398,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     point_2 = p + 400000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line3.append(str(line_number))
 
 file_object.write("\n\n")
@@ -1409,7 +1409,7 @@ for i, p in enumerate(range(Nz-1)):
     point_2 = p + 400000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line3.append(str(line_number))
 
 file_object.write("\n\n")
@@ -1420,9 +1420,9 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     point_2 = p + 400000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line3.append(str(line_number))
-    
+
 # Make surfaces
 for zc in range(Nz):
     for yc in range(Ny-1):
@@ -1437,7 +1437,7 @@ for zc in range(Nz):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
         file_object.write(
             f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-        
+
 file_object.write("\n\n")
 
 for yc in range(Ny):
@@ -1559,7 +1559,7 @@ for s in range(Nz-1):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 for s in range(Ny-1):
     line_loop_number = 80000000 + 2*s
     surface = 80000001 + 2*s
@@ -1633,9 +1633,9 @@ for zc in range(Nz-1):
             f" {surface_5}, {surface_6}}};\n")
         file_object.write(
             f"Volume({volume}) = {{{surface_loop_number}}};\n")
-        
+
         volume_tag1.append(str(volume))
-        
+
 for v in range(Ny-2):
     surface_loop_number += 2
     volume += 2
@@ -1653,9 +1653,9 @@ for v in range(Ny-2):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag1.append(str(volume))
-        
+
 surface_loop_number += 2
 volume += 2
 surface_1 += 2
@@ -1674,7 +1674,7 @@ file_object.write(
     f"Volume({volume}) = {{{surface_loop_number}}};\n")
 
 volume_tag1.append(str(volume))
-        
+
 for v in range(Ny-2):
     surface_loop_number += 2
     volume += 2
@@ -1692,7 +1692,7 @@ for v in range(Ny-2):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag1.append(str(volume))
 
 surface_loop_number += 2
@@ -1749,7 +1749,7 @@ for v in range(Nz-3):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag1.append(str(volume))
 
 surface_loop_number += 2
@@ -1775,7 +1775,7 @@ for v in range(Nz-1):
     surface_loop_number += 2
     volume += 2
     surface_1 = 60000001 + 2*Nz*(Ny-1) - 2*(Ny-1) + 2*v
-    surface_2 += 2 
+    surface_2 += 2
     surface_3 += 2
     surface_4 += 2
     surface_5 += 2
@@ -1788,7 +1788,7 @@ for v in range(Nz-1):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag1.append(str(volume))
 
 # -------- #
@@ -1802,7 +1802,7 @@ for p in range(Ny*Nz):
     point_2 = p + 100000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
@@ -1813,7 +1813,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     point_2 = p + 200000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
@@ -1824,7 +1824,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     point_2 = p + 200000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
@@ -1835,7 +1835,7 @@ for i, p in enumerate(range(Nz-1)):
     point_2 = p + 200000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
@@ -1846,7 +1846,7 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     point_2 = p + 200000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line4.append(str(line_number))
 
 # Make surfaces
@@ -1863,7 +1863,7 @@ for zc in range(Nz):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
         file_object.write(
             f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-        
+
 file_object.write("\n\n")
 
 for yc in range(Ny):
@@ -1881,7 +1881,7 @@ for yc in range(Ny):
             f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
 
 file_object.write("\n\n")
-    
+
 for s in range(Ny-2):
     line_loop_number = 2 * s + 110000000
     surface = 2 * s + 110000001
@@ -1894,7 +1894,7 @@ for s in range(Ny-2):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 line_loop_number += 2
 surface += 2
 line_1 += 1
@@ -1920,7 +1920,7 @@ for s in range(Ny-2):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 line_loop_number += 2
 surface += 2
 line_1 += 1
@@ -2037,7 +2037,7 @@ for s in range(Nz):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 # Make volume
 volume_tag2 = []
 
@@ -2059,7 +2059,7 @@ for zc in range(Nz-1):
             f" {surface_5}, {surface_6}}};\n")
         file_object.write(
             f"Volume({volume}) = {{{surface_loop_number}}};\n")
-        
+
         volume_tag2.append(str(volume))
 
 for v in range(Ny-2):
@@ -2079,9 +2079,9 @@ for v in range(Ny-2):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag2.append(str(volume))
-    
+
 surface_loop_number += 2
 volume += 2
 surface_1 += 2
@@ -2117,9 +2117,9 @@ for v in range(Ny-2):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag2.append(str(volume))
-    
+
 surface_loop_number += 2
 volume += 2
 surface_1 += 2
@@ -2174,7 +2174,7 @@ for v in range(Nz-3):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag2.append(str(volume))
 
 surface_loop_number += 2
@@ -2200,7 +2200,7 @@ for v in range(Nz-1):
     surface_loop_number += 2
     volume += 2
     surface_1 = 100000001 + 2*Nz*(Ny-1) - 2*(Ny-1) + 2*v
-    surface_2 += 2 
+    surface_2 += 2
     surface_3 += 2
     surface_4 += 2
     surface_5 += 2
@@ -2213,7 +2213,7 @@ for v in range(Nz-1):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag2.append(str(volume))
 
 # -------- #
@@ -2227,7 +2227,7 @@ for p in range(Ny*Nz):
     point_2 = p + 700000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
@@ -2238,7 +2238,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     point_2 = p + 800000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
@@ -2249,7 +2249,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     point_2 = p + 800000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
@@ -2260,7 +2260,7 @@ for i, p in enumerate(range(Nz-1)):
     point_2 = p + 800000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
@@ -2271,9 +2271,9 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     point_2 = p + 800000
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
-    
+
     transfinite_line5.append(str(line_number))
-    
+
 # Make surfaces
 for zc in range(Nz):
     for yc in range(Ny-1):
@@ -2288,7 +2288,7 @@ for zc in range(Nz):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
         file_object.write(
             f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-        
+
 file_object.write("\n\n")
 
 for yc in range(Ny):
@@ -2345,7 +2345,7 @@ for s in range(Ny-2):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 line_loop_number += 2
 surface += 2
 line_1 += 1
@@ -2384,7 +2384,7 @@ for s in range(Nz-3):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 line_loop_number += 2
 surface += 2
 line_1 += 1
@@ -2410,7 +2410,7 @@ for s in range(Nz-1):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 for s in range(Ny-1):
     line_loop_number = 160000000 + 2*s
     surface = 160000001 + 2*s
@@ -2423,7 +2423,7 @@ for s in range(Ny-1):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 for s in range(Ny-1):
     line_loop_number += 2
     surface += 2
@@ -2436,7 +2436,7 @@ for s in range(Ny-1):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 for s in range(Nz-2):
     line_loop_number += 2
     surface += 2
@@ -2449,7 +2449,7 @@ for s in range(Nz-2):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 for s in range(Nz):
     line_loop_number += 2
     surface += 2
@@ -2462,7 +2462,7 @@ for s in range(Nz):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 # Make volume
 for zc in range(Nz-1):
     for yc in range(Ny-1):
@@ -2482,9 +2482,9 @@ for zc in range(Nz-1):
             f" {surface_5}, {surface_6}}};\n")
         file_object.write(
             f"Volume({volume}) = {{{surface_loop_number}}};\n")
-        
+
         volume_tag1.append(str(volume))
-        
+
 for v in range(Ny-2):
     surface_loop_number += 2
     volume += 2
@@ -2502,9 +2502,9 @@ for v in range(Ny-2):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag1.append(str(volume))
-    
+
 surface_loop_number += 2
 volume += 2
 surface_1 += 2
@@ -2540,9 +2540,9 @@ for v in range(Ny-2):
         f" {surface_5}, {surface_6}}};\n")
     file_object.write(
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
-    
+
     volume_tag1.append(str(volume))
-    
+
 surface_loop_number += 2
 volume += 2
 surface_1 += 2
@@ -2599,7 +2599,7 @@ for v in range(Nz-3):
         f"Volume({volume}) = {{{surface_loop_number}}};\n")
 
     volume_tag1.append(str(volume))
-    
+
 surface_loop_number += 2
 volume += 2
 surface_1 += 2
@@ -2623,7 +2623,7 @@ for v in range(Nz-1):
     surface_loop_number += 2
     volume += 2
     surface_1 = 140000001 + 2*Nz*(Ny-1) - 2*(Ny-1) + 2*v
-    surface_2 += 2 
+    surface_2 += 2
     surface_3 += 2
     surface_4 += 2
     surface_5 += 2
