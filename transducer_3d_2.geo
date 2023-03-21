@@ -14,18 +14,18 @@
 // Geometry and mesh parameters
 // ------------------------------------------------------------------------- //
 
-speedOfSound = 1500;
-sourceFrequency = 500000;
+speedOfSound = 1480;
+sourceFrequency = 1100000;
 
 wavelength = speedOfSound / sourceFrequency;
-numExtraWavelength = 2;
-domainLength = 0.12 + numExtraWavelength*wavelength;
-domainRadius = 0.035 + numExtraWavelength*wavelength;
+numExtraWavelength = -2.0;
+domainLength = 0.08 - numExtraWavelength*wavelength;
+domainRadius = 0.02 - numExtraWavelength*wavelength;
 
 numElementPerWavelength = 2.4;
 
-sourceRadius = 0.032;
-focalLength = 0.064 + 4.0e-4;
+sourceRadius = 0.0165;
+focalLength = 0.035;
 
 alpha = Asin(sourceRadius / focalLength);
 
