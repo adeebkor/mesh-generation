@@ -1,6 +1,7 @@
 *.ipynb_checkpoints
 *.xdmf
 *.h5
+*.npz
 
 *SKULL-MAPS
 *__pycache__

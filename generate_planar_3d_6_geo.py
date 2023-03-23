@@ -1,8 +1,5 @@
 import numpy as np
-import pandas as pd
-import mat73
 
-from smoothen_surface import smoothen
 
 # Parameters
 speed_of_sound = 1500
@@ -11,66 +8,27 @@ source_frequency = 500000
 wavelength = speed_of_sound / source_frequency
 number_of_extra_wavelength = 11
 number_of_element_per_wavelength = 2.4
-mesh_size_mm = 1.25
+mesh_size_mm = 0.1
 domain_radius = 0.035 + number_of_extra_wavelength*wavelength
 domain_length = 0.12 + number_of_extra_wavelength*wavelength
 
-# Read data
-data = mat73.loadmat(f"SKULL-MAPS/skull_mask_bm7_dx_{mesh_size_mm}mm.mat")
+# --------- #
+# Read data #
+# --------- #
 
-xi = data["xi"] / 1000
-yi = data["yi"] / 1000
-zi = data["zi"] / 1000
+data = np.load("mesh.npz")
+
+skull_surface_outer = data["skull_surface_outer"]
+skull_surface_inner = data["skull_surface_inner"]
+
+npoints = skull_surface_inner.shape[0]
+Ny = 71
+Nz = 71
+yi = np.linspace(-0.035, 0.035, Ny)
+zi = np.linspace(-0.035, 0.035, Nz)
 
 dy = yi[1] - yi[0]
 dz = zi[1] - zi[0]
-
-skull_mask = data["skull_mask"]
-brain_mask = data["brain_mask"]
-
-# Get skull points
-X, Y, Z = np.meshgrid(xi, yi, zi, indexing="ij")
-
-x_skull = X[skull_mask]
-y_skull = Y[skull_mask]
-z_skull = Z[skull_mask]
-
-# Create a dataframe
-p_skull_volume = np.hstack((x_skull[:, np.newaxis],
-                            y_skull[:, np.newaxis],
-                            z_skull[:, np.newaxis]))
-skull_volume_df = pd.DataFrame(p_skull_volume, columns=["X", "Y", "Z"])
-
-# Get minimum and maximum at each (Y, Z) points
-skull_surface_inner_df = skull_volume_df.groupby(
-    ["Y", "Z"]).max().reset_index()
-skull_surface_outer_df = skull_volume_df.groupby(
-    ["Y", "Z"]).min().reset_index()
-
-# Rearrange columns
-skull_surface_inner_df = skull_surface_inner_df[["X", "Y", "Z"]]
-skull_surface_outer_df = skull_surface_outer_df[["X", "Y", "Z"]]
-
-# Convert to numpy array
-skull_surface_inner = skull_surface_inner_df.to_numpy()
-skull_surface_outer = skull_surface_outer_df.to_numpy()
-
-npoints = skull_surface_inner.shape[0]
-Ny = yi.shape[0]
-Nz = zi.shape[0]
-
-# ---------------- #
-# Smoothen surface #
-# ---------------- #
-
-X_inner = skull_surface_inner[:, 0].reshape(Ny, Nz)
-X_outer = skull_surface_outer[:, 0].reshape(Ny, Nz)
-
-X_inner_smooth = smoothen(X_inner, 2)
-X_outer_smooth = smoothen(X_outer, 3)
-
-skull_surface_inner[:, 0] = X_inner_smooth.flatten()
-skull_surface_outer[:, 0] = X_outer_smooth.flatten()
 
 # ----------------- #
 # Write to geo file #
