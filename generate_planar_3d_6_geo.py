@@ -1,6 +1,5 @@
 import numpy as np
 
-
 # Parameters
 speed_of_sound = 1500
 source_frequency = 500000
