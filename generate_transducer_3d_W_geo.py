@@ -6,7 +6,7 @@ source_frequency = 1.1E6
 
 wavelength = speed_of_sound / source_frequency
 number_of_extra_wavelength = 7
-number_of_element_per_wavelength = 1
+number_of_element_per_wavelength1 = 4
 transducer_radius = 0.0165 
 domain_radius = 0.02 + number_of_extra_wavelength*wavelength
 domain_length = 0.08 + number_of_extra_wavelength*wavelength
@@ -15,10 +15,10 @@ domain_length = 0.08 + number_of_extra_wavelength*wavelength
 # Generate points at the focal region #
 # ----------------------------------- #
 
-yz_a, yz_b = -0.004, 0.004
+yz_a, yz_b = -0.002, 0.002
 yz_radius = yz_b - yz_a
 number_of_elements = int(np.ceil(
-    number_of_element_per_wavelength * yz_radius / wavelength))
+    number_of_element_per_wavelength1 * yz_radius / wavelength))
 
 y0 = np.linspace(yz_a, yz_b, number_of_elements)
 z0 = np.linspace(yz_a, yz_b, number_of_elements)
@@ -52,7 +52,6 @@ transfinite_line4 = []
 transfinite_line5 = []
 transfinite_line6 = []
 
-"""
 # ------------------ #
 # Transducer surface #
 # ------------------ #
@@ -1241,7 +1240,6 @@ for s in range(Nz-1):
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
 
-"""
 # --------- #
 # Surface 2 #
 # --------- #
@@ -2134,7 +2132,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line2.append(str(line_number))
+    transfinite_line3.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2145,7 +2143,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line2.append(str(line_number))
+    transfinite_line3.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2156,7 +2154,7 @@ for i, p in enumerate(range(1, Nz-1)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line2.append(str(line_number))
+    transfinite_line3.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2167,7 +2165,7 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line2.append(str(line_number))
+    transfinite_line3.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2405,7 +2403,6 @@ for s in range(Nz-1):
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
 
-"""
 # -------- #
 # Volume 1 #
 # -------- #
@@ -2418,7 +2415,7 @@ for p in range(Ny*Nz):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2429,7 +2426,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2440,7 +2437,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2451,7 +2448,7 @@ for i, p in enumerate(range(Nz-1)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2462,7 +2459,7 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     line_number = i + 13000000
@@ -2471,7 +2468,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2482,7 +2479,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2493,7 +2490,7 @@ for i, p in enumerate(range(Nz-1)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -2504,7 +2501,7 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line4.append(str(line_number))
 
 # Make surfaces
 for zc in range(Nz):
@@ -3197,7 +3194,7 @@ for p in range(Ny*Nz):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -3208,7 +3205,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -3219,7 +3216,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -3230,7 +3227,7 @@ for i, p in enumerate(range(Nz-1)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -3241,7 +3238,7 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     line_number = i + 23000000
@@ -3250,7 +3247,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -3261,7 +3258,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -3272,7 +3269,7 @@ for i, p in enumerate(range(Nz-1)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -3283,7 +3280,7 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line5.append(str(line_number))
 
 # Make surfaces
 for zc in range(Nz):
@@ -3977,7 +3974,7 @@ for p in range(Ny*Nz):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -3988,7 +3985,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -4000,7 +3997,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -4011,7 +4008,7 @@ for i, p in enumerate(range(Nz-1)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     line_number = i + (Nz-1)*Ny - Nz + 1 + 32000000
@@ -4020,7 +4017,7 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -4031,7 +4028,7 @@ for i, p in enumerate(range(0, Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -4042,7 +4039,7 @@ for i, p in enumerate(range(Ny-1, Ny-1 + Nz*(Ny-1), Nz)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -4053,7 +4050,7 @@ for i, p in enumerate(range(Nz-1)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 file_object.write("\n\n")
 
@@ -4064,7 +4061,7 @@ for i, p in enumerate(range(Nz*Ny-Nz, Nz*Ny)):
     file_object.write(
         f"Line({line_number}) = {{{point_1}, {point_2}}};\n")
 
-    transfinite_line3.append(str(line_number))
+    transfinite_line6.append(str(line_number))
 
 # Make surfaces
 for zc in range(Nz):
@@ -4268,7 +4265,6 @@ for s in range(Ny-2):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-
 
 line_loop_number += 2
 surface += 2
@@ -4747,6 +4743,58 @@ for v in range(Nz-1):
 
     volume_tag3.append(str(volume))
 
+# -------------------- #
+# Set transfinite line #
+# -------------------- #
+
+number_of_element_per_wavelength2 = 3
+
+file_object.write("Transfinite Line {")
+file_object.write(", ".join(transfinite_line1))
+file_object.write("} = 1;\n\n")
+
+number_of_element_line2 = int((transducer_radius - yz_b) / wavelength \
+    * number_of_element_per_wavelength2) + 1
+
+file_object.write("Transfinite Line {")
+file_object.write(", ".join(transfinite_line2))
+file_object.write("} = ")
+file_object.write(f"{number_of_element_line2};\n\n")
+
+number_of_element_line3 = int(
+    (domain_radius - transducer_radius) / wavelength 
+    * number_of_element_per_wavelength2) + 1
+
+file_object.write("Transfinite Line {")
+file_object.write(", ".join(transfinite_line3))
+file_object.write("} = ")
+file_object.write(f"{number_of_element_line3};\n\n")
+
+number_of_element_line4 = int(0.03 / wavelength 
+    * number_of_element_per_wavelength2) + 1
+
+file_object.write("Transfinite Line {")
+file_object.write(", ".join(transfinite_line4))
+file_object.write("} = ")
+file_object.write(f"{number_of_element_line4};\n\n")
+
+number_of_element_line5 = int(0.015 / wavelength 
+    * number_of_element_per_wavelength1) + 1
+
+file_object.write("Transfinite Line {")
+file_object.write(", ".join(transfinite_line5))
+file_object.write("} = ")
+file_object.write(f"{number_of_element_line5};\n\n")
+
+number_of_element_line6 = int(
+    (domain_length - 0.03) / wavelength 
+    * number_of_element_per_wavelength2) + 1
+
+file_object.write("Transfinite Line {")
+file_object.write(", ".join(transfinite_line6))
+file_object.write("} = ")
+file_object.write(f"{number_of_element_line6};\n\n")
+
 # ---------- #
 # Write tags #
 # ---------- #
@@ -4766,5 +4814,14 @@ file_object.write("};\n\n")
 file_object.write("Physical Volume (3) = {")
 file_object.write(", ".join(volume_tag3))
 file_object.write("};\n\n")
-"""
+
+# ------------ #
+# Create hexes #
+# ------------ #
+
+file_object.write("Transfinite Surface \"*\";\n")
+file_object.write("Recombine Surface \"*\";\n")
+
+file_object.write("Transfinite Volume \"*\";\n")
+
 file_object.close()
