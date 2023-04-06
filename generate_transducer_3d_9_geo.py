@@ -2650,6 +2650,7 @@ file_object.write(f"{number_of_element_line5};\n\n")
 # ---------- #
 # Write tags #
 # ---------- #
+
 file_object.write("Physical Surface(1) = {")
 file_object.write(", ".join(source_tag))
 file_object.write("};\n\n")
