@@ -6,8 +6,8 @@ source_frequency = 1.1E6
 
 wavelength = speed_of_sound / source_frequency
 number_of_extra_wavelength = 7
-number_of_element_per_wavelength1 = 4
-transducer_radius = 0.0165 
+number_of_element_per_wavelength1 = 16
+transducer_radius = 0.0165
 domain_radius = 0.02 + number_of_extra_wavelength*wavelength
 domain_length = 0.08 + number_of_extra_wavelength*wavelength
 
@@ -15,21 +15,22 @@ domain_length = 0.08 + number_of_extra_wavelength*wavelength
 # Generate points at the focal region #
 # ----------------------------------- #
 
-yz_a, yz_b = -0.002, 0.002
+x_a, x_b = 0.025, 0.060
+yz_a, yz_b = -0.001, 0.001
 yz_radius = yz_b - yz_a
 number_of_elements = int(np.ceil(
     number_of_element_per_wavelength1 * yz_radius / wavelength))
 
 y0 = np.linspace(yz_a, yz_b, number_of_elements)
 z0 = np.linspace(yz_a, yz_b, number_of_elements)
-x0 = np.full(y0.shape[0], 0.03)
+x0 = np.full(y0.shape[0], x_a)
 
 X0, Y0, Z0 = np.meshgrid(x0, y0, z0, indexing="ij")
 points_0 = np.hstack((X0.reshape(-1, 1),
                       Y0.reshape(-1, 1),
                       Z0.reshape(-1, 1)))
 
-x1 = np.full(y0.shape[0], 0.045)
+x1 = np.full(y0.shape[0], x_b)
 X1, Y1, Z1 = np.meshgrid(x1, y0, z0, indexing="ij")
 points_1 = np.hstack((X1.reshape(-1, 1),
                       Y1.reshape(-1, 1),
@@ -423,7 +424,7 @@ for zc in range(Nz-1):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
         file_object.write(
             f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-        
+
         source_tag.append(str(surface))
 
 for s in range(Nz-2):
@@ -439,7 +440,7 @@ for s in range(Nz-2):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
     source_tag.append(str(surface))
 
 line_loop_number += 2
@@ -470,7 +471,7 @@ for s in range(Nz-2):
             f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
     source_tag.append(str(surface))
 
 line_loop_number += 2
@@ -500,7 +501,7 @@ file_object.write(
     f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
 file_object.write(
     f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 source_tag.append(str(surface))
 
 for s in range(Nz-3):
@@ -739,7 +740,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
     zp_i = points_0[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp =  xp_i
+    xp = xp_i
     yp = transducer_radius * np.cos(angle)
     zp = transducer_radius * np.sin(angle)
 
@@ -1320,7 +1321,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
     zp_i = points_1[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp =  xp_i
+    xp = xp_i
     yp = transducer_radius * np.cos(angle)
     zp = transducer_radius * np.sin(angle)
 
@@ -1902,7 +1903,7 @@ for p in range(Nz, Ny*(Nz-2)+1, Nz):
     zp_i = points_1[p, 2]
 
     angle = np.arctan2(zp_i, yp_i)
-    xp =  xp_i
+    xp = xp_i
     yp = transducer_radius * np.cos(angle)
     zp = transducer_radius * np.sin(angle)
 
@@ -2795,7 +2796,7 @@ for s in range(Nz-1):
         f"{{{line_1}, {line_2}, {-line_3}, {-line_4}}};\n")
     file_object.write(
         f"Ruled Surface({surface}) = {{{line_loop_number}}};\n")
-    
+
 for s in range(Ny-1):
     line_loop_number = 600000000 + 2*s
     surface = 600000001 + 2*s
@@ -4753,8 +4754,8 @@ file_object.write("Transfinite Line {")
 file_object.write(", ".join(transfinite_line1))
 file_object.write("} = 1;\n\n")
 
-number_of_element_line2 = int((transducer_radius - yz_b) / wavelength \
-    * number_of_element_per_wavelength2) + 1
+number_of_element_line2 = int((transducer_radius - yz_b) / wavelength
+                              * number_of_element_per_wavelength2) + 1
 
 file_object.write("Transfinite Line {")
 file_object.write(", ".join(transfinite_line2))
@@ -4762,7 +4763,7 @@ file_object.write("} = ")
 file_object.write(f"{number_of_element_line2};\n\n")
 
 number_of_element_line3 = int(
-    (domain_radius - transducer_radius) / wavelength 
+    (domain_radius - transducer_radius) / wavelength
     * number_of_element_per_wavelength2) + 1
 
 file_object.write("Transfinite Line {")
@@ -4770,25 +4771,24 @@ file_object.write(", ".join(transfinite_line3))
 file_object.write("} = ")
 file_object.write(f"{number_of_element_line3};\n\n")
 
-number_of_element_line4 = int(0.03 / wavelength 
-    * number_of_element_per_wavelength2) + 1
+number_of_element_line4 = int(x_a / wavelength
+                              * number_of_element_per_wavelength2) + 1
 
 file_object.write("Transfinite Line {")
 file_object.write(", ".join(transfinite_line4))
 file_object.write("} = ")
 file_object.write(f"{number_of_element_line4};\n\n")
 
-number_of_element_line5 = int(0.015 / wavelength 
-    * number_of_element_per_wavelength1) + 1
+number_of_element_line5 = int((x_b - x_a) / wavelength
+                              * number_of_element_per_wavelength1) + 1
 
 file_object.write("Transfinite Line {")
 file_object.write(", ".join(transfinite_line5))
 file_object.write("} = ")
 file_object.write(f"{number_of_element_line5};\n\n")
 
-number_of_element_line6 = int(
-    (domain_length - 0.03) / wavelength 
-    * number_of_element_per_wavelength2) + 1
+number_of_element_line6 = int((domain_length - x_b) / wavelength
+                              * number_of_element_per_wavelength2) + 1
 
 file_object.write("Transfinite Line {")
 file_object.write(", ".join(transfinite_line6))
