@@ -40,6 +40,8 @@ with XDMFFile(msh.comm, "mesh.xdmf", "w") as file:
     file.write_mesh(msh)
     msh.topology.create_connectivity(geom_dim-1, geom_dim)
     file.write_meshtags(
-        ct, geometry_xpath=f"/Xdmf/Domain/Grid[@Name='{msh.name}']/Geometry")
+        ct, msh.geometry, 
+        geometry_xpath=f"/Xdmf/Domain/Grid[@Name='{msh.name}']/Geometry")
     file.write_meshtags(
-        ft, geometry_xpath=f"/Xdmf/Domain/Grid[@Name='{msh.name}']/Geometry")
+        ft, msh.geometry,
+        geometry_xpath=f"/Xdmf/Domain/Grid[@Name='{msh.name}']/Geometry")
