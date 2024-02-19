@@ -21,7 +21,7 @@ numExtraWavelength = 15;
 domainLength = 0.12 + numExtraWavelength*wavelength;
 domainRadius = 0.035 + numExtraWavelength*wavelength;
 
-numElementPerWavelength = 2.39;
+numElementPerWavelength = 2.4;
 numPoints = numElementPerWavelength * domainLength / wavelength + 1;
 
 sourceRadius = 0.01;
