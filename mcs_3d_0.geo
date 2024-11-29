@@ -23,6 +23,8 @@ numElementPerWavelength = 1;
 sourceRadius = 1.0;
 sphereRadius = sourceRadius;
 
+cp0 = 3/4;
+
 // -------- //
 // Volume 1 //
 // -------- //
@@ -46,14 +48,14 @@ Point(16) = {-4, domainRadius * Cos(1/4*Pi), domainRadius * Sin(1/4*Pi), 1.0};
 Point(17) = {-4, domainRadius * Cos(1/2*Pi), domainRadius * Sin(1/2*Pi), 1.0};
 Point(18) = {-4, domainRadius * Cos(3/4*Pi), domainRadius * Sin(3/4*Pi), 1.0};
 
-Point(19) = {-4, sourceRadius / 2 * Cos(Pi), sourceRadius / 2 * Sin(Pi),  1.0};
-Point(20) = {-4, sourceRadius / 2 * Cos(5/4*Pi), sourceRadius / 2 * Sin(5/4*Pi), 1.0};
-Point(21) = {-4, sourceRadius / 2 * Cos(3/2*Pi), sourceRadius / 2 * Sin(3/2*Pi), 1.0};
-Point(22) = {-4, sourceRadius / 2 * Cos(7/4*Pi), sourceRadius / 2 * Sin(7/4*Pi), 1.0};
-Point(23) = {-4, sourceRadius / 2, 0., 1.0};
-Point(24) = {-4, sourceRadius / 2 * Cos(1/4*Pi), sourceRadius / 2 * Sin(1/4*Pi), 1.0};
-Point(25) = {-4, sourceRadius / 2 * Cos(1/2*Pi), sourceRadius / 2 * Sin(1/2*Pi), 1.0};
-Point(26) = {-4, sourceRadius / 2 * Cos(3/4*Pi), sourceRadius / 2 * Sin(3/4*Pi), 1.0};
+Point(19) = {-4, sourceRadius * cp0 * Cos(Pi), sourceRadius * cp0 * Sin(Pi),  1.0};
+Point(20) = {-4, sourceRadius * cp0 * Cos(5/4*Pi), sourceRadius * cp0 * Sin(5/4*Pi), 1.0};
+Point(21) = {-4, sourceRadius * cp0 * Cos(3/2*Pi), sourceRadius * cp0 * Sin(3/2*Pi), 1.0};
+Point(22) = {-4, sourceRadius * cp0 * Cos(7/4*Pi), sourceRadius * cp0 * Sin(7/4*Pi), 1.0};
+Point(23) = {-4, sourceRadius * cp0, 0., 1.0};
+Point(24) = {-4, sourceRadius * cp0 * Cos(1/4*Pi), sourceRadius * cp0 * Sin(1/4*Pi), 1.0};
+Point(25) = {-4, sourceRadius * cp0 * Cos(1/2*Pi), sourceRadius * cp0 * Sin(1/2*Pi), 1.0};
+Point(26) = {-4, sourceRadius * cp0 * Cos(3/4*Pi), sourceRadius * cp0 * Sin(3/4*Pi), 1.0};
 
 Line(1) = {1, 19};
 Line(2) = {1, 21};
@@ -124,14 +126,14 @@ Point(41) = {0, domainRadius * Cos (1/4*Pi), domainRadius * Sin (1/4*Pi), 1.0};
 Point(42) = {0, domainRadius * Cos (1/2*Pi), domainRadius * Sin (1/2*Pi), 1.0};
 Point(43) = {0, domainRadius * Cos (3/4*Pi), domainRadius * Sin (3/4*Pi), 1.0};
 
-Point(44) = {- Sqrt(sphereRadius*sphereRadius - sphereRadius/4 * Cos (Pi) * Cos (Pi) - sphereRadius/4 * Sin (Pi) * Sin (Pi)), sphereRadius/2 * Cos (Pi), sphereRadius/2 * Sin(Pi), 1.0};
-Point(45) = {- Sqrt(sphereRadius*sphereRadius - sphereRadius/4 * Cos (5/4*Pi) * Cos (5/4*Pi) - sphereRadius/4 * Sin (5/4*Pi) * Sin (5/4*Pi)), sphereRadius/2 * Cos (5/4*Pi), sphereRadius/2 * Sin(5/4*Pi), 1.0};
-Point(46) = {- Sqrt(sphereRadius*sphereRadius - sphereRadius/4 * Cos (3/2*Pi) * Cos (3/2*Pi) - sphereRadius/4 * Sin (3/2*Pi) * Sin (3/2*Pi)), sphereRadius/2 * Cos (3/2*Pi), sphereRadius/2 * Sin(3/2*Pi), 1.0};
-Point(47) = {- Sqrt(sphereRadius*sphereRadius - sphereRadius/4 * Cos (7/4*Pi) * Cos (7/4*Pi) - sphereRadius/4 * Sin (7/4*Pi) * Sin (7/4*Pi)), sphereRadius/2 * Cos (7/4*Pi), sphereRadius/2 * Sin(7/4*Pi), 1.0};
-Point(48) = {- Sqrt(sphereRadius*sphereRadius - sphereRadius/4 * Cos (2*Pi) * Cos (2*Pi) - sphereRadius/4 * Sin (2*Pi) * Sin (2*Pi)), sphereRadius/2 * Cos (2*Pi), sphereRadius/2 * Sin(2*Pi), 1.0};
-Point(49) = {- Sqrt(sphereRadius*sphereRadius - sphereRadius/4 * Cos (1/4*Pi) * Cos (1/4*Pi) - sphereRadius/4 * Sin (1/4*Pi) * Sin (1/4*Pi)), sphereRadius/2 * Cos (1/4*Pi), sphereRadius/2 * Sin(1/4*Pi), 1.0};
-Point(50) = {- Sqrt(sphereRadius*sphereRadius - sphereRadius/4 * Cos (1/2*Pi) * Cos (1/2*Pi) - sphereRadius/4 * Sin (1/2*Pi) * Sin (1/2*Pi)), sphereRadius/2 * Cos (1/2*Pi), sphereRadius/2 * Sin(1/2*Pi), 1.0};
-Point(51) = {- Sqrt(sphereRadius*sphereRadius - sphereRadius/4 * Cos (3/4*Pi) * Cos (3/4*Pi) - sphereRadius/4 * Sin (3/4*Pi) * Sin (3/4*Pi)), sphereRadius/2 * Cos (3/4*Pi), sphereRadius/2 * Sin(3/4*Pi), 1.0};
+Point(44) = {- Sqrt(sphereRadius*sphereRadius - (sphereRadius*sphereRadius*cp0*cp0) * Cos (Pi) * Cos (Pi) - (sphereRadius*sphereRadius*cp0*cp0) * Sin (Pi) * Sin (Pi)), sphereRadius * cp0 * Cos (Pi), sphereRadius * cp0 * Sin(Pi), 1.0};
+Point(45) = {- Sqrt(sphereRadius*sphereRadius - (sphereRadius*sphereRadius*cp0*cp0) * Cos (5/4*Pi) * Cos (5/4*Pi) - (sphereRadius*sphereRadius*cp0*cp0) * Sin (5/4*Pi) * Sin (5/4*Pi)), sphereRadius * cp0 * Cos (5/4*Pi), sphereRadius * cp0 * Sin(5/4*Pi), 1.0};
+Point(46) = {- Sqrt(sphereRadius*sphereRadius - (sphereRadius*sphereRadius*cp0*cp0) * Cos (3/2*Pi) * Cos (3/2*Pi) - (sphereRadius*sphereRadius*cp0*cp0) * Sin (3/2*Pi) * Sin (3/2*Pi)), sphereRadius * cp0 * Cos (3/2*Pi), sphereRadius * cp0 * Sin(3/2*Pi), 1.0};
+Point(47) = {- Sqrt(sphereRadius*sphereRadius - (sphereRadius*sphereRadius*cp0*cp0) * Cos (7/4*Pi) * Cos (7/4*Pi) - (sphereRadius*sphereRadius*cp0*cp0) * Sin (7/4*Pi) * Sin (7/4*Pi)), sphereRadius * cp0 * Cos (7/4*Pi), sphereRadius * cp0 * Sin(7/4*Pi), 1.0};
+Point(48) = {- Sqrt(sphereRadius*sphereRadius - (sphereRadius*sphereRadius*cp0*cp0) * Cos (2*Pi) * Cos (2*Pi) - (sphereRadius*sphereRadius*cp0*cp0) * Sin (2*Pi) * Sin (2*Pi)), sphereRadius * cp0 * Cos (2*Pi), sphereRadius * cp0 * Sin(2*Pi), 1.0};
+Point(49) = {- Sqrt(sphereRadius*sphereRadius - (sphereRadius*sphereRadius*cp0*cp0) * Cos (1/4*Pi) * Cos (1/4*Pi) - (sphereRadius*sphereRadius*cp0*cp0) * Sin (1/4*Pi) * Sin (1/4*Pi)), sphereRadius * cp0 * Cos (1/4*Pi), sphereRadius * cp0 * Sin(1/4*Pi), 1.0};
+Point(50) = {- Sqrt(sphereRadius*sphereRadius - (sphereRadius*sphereRadius*cp0*cp0) * Cos (1/2*Pi) * Cos (1/2*Pi) - (sphereRadius*sphereRadius*cp0*cp0) * Sin (1/2*Pi) * Sin (1/2*Pi)), sphereRadius * cp0 * Cos (1/2*Pi), sphereRadius * cp0 * Sin(1/2*Pi), 1.0};
+Point(51) = {- Sqrt(sphereRadius*sphereRadius - (sphereRadius*sphereRadius*cp0*cp0) * Cos (3/4*Pi) * Cos (3/4*Pi) - (sphereRadius*sphereRadius*cp0*cp0) * Sin (3/4*Pi) * Sin (3/4*Pi)), sphereRadius * cp0 * Cos (3/4*Pi), sphereRadius * cp0 * Sin(3/4*Pi), 1.0};
 
 Point(1000) = {0., 0., 0., 1.0};
 
@@ -298,3 +300,140 @@ Line Loop(177) = {79, 87, -80, -71};
 Ruled Surface(178) = {177};
 Line Loop(179) = {80, 88, -73, -72};
 Ruled Surface(180) = {179};
+
+Line Loop(181) = {89, 45, -106, -1};
+Ruled Surface(182) = {181};
+Line Loop(183) = {89, 46, -108, -2};
+Ruled Surface(184) = {183};
+Line Loop(185) = {89, 47, -110, -3};
+Ruled Surface(186) = {185};
+Line Loop(187) = {89, 48, -112, -4};
+Ruled Surface(188) = {187};
+
+Line Loop(189) = {5, 107, -49, -106};
+Ruled Surface(190) = {189};
+Line Loop(191) = {6, 108, -50, -107};
+Ruled Surface(192) = {191};
+Line Loop(193) = {7, 109, -51, -108};
+Ruled Surface(194) = {193};
+Line Loop(195) = {8, 110, -52, -109};
+Ruled Surface(196) = {195};
+Line Loop(197) = {9, 111, -53, -110};
+Ruled Surface(198) = {197};
+Line Loop(199) = {10, 112, -54, -111};
+Ruled Surface(200) = {199};
+Line Loop(201) = {11, 113, -55, -112};
+Ruled Surface(202) = {201};
+Line Loop(203) = {12, 106, -56, -113};
+Ruled Surface(204) = {203};
+
+Line Loop(205) = {13, 90, -57, -106};
+Ruled Surface(206) = {205};
+Line Loop(207) = {14, 91, -58, -107};
+Ruled Surface(208) = {207};
+Line Loop(209) = {15, 92, -59, -108};
+Ruled Surface(210) = {209};
+Line Loop(211) = {16, 93, -60, -109};
+Ruled Surface(212) = {211};
+Line Loop(213) = {17, 94, -61, -110};
+Ruled Surface(214) = {213};
+Line Loop(215) = {18, 95, -62, -111};
+Ruled Surface(216) = {215};
+Line Loop(217) = {19, 96, -63, -112};
+Ruled Surface(218) = {217};
+Line Loop(219) = {20, 97, -64, -113};
+Ruled Surface(220) = {219};
+
+Line Loop(221) = {21, 91, -65, -90};
+Ruled Surface(222) = {221};
+Line Loop(223) = {22, 92, -66, -91};
+Ruled Surface(224) = {223};
+Line Loop(225) = {23, 93, -67, -92};
+Ruled Surface(226) = {225};
+Line Loop(227) = {24, 94, -68, -93};
+Ruled Surface(228) = {227};
+Line Loop(229) = {25, 95, -69, -94};
+Ruled Surface(230) = {229};
+Line Loop(231) = {26, 96, -70, -95};
+Ruled Surface(232) = {231};
+Line Loop(233) = {27, 97, -71, -96};
+Ruled Surface(234) = {233};
+Line Loop(235) = {28, 90, -72, -97};
+Ruled Surface(236) = {235};
+
+Line Loop(237) = {29, 98, -73, -90};
+Ruled Surface(238) = {237};
+Line Loop(239) = {30, 99, -74, -91};
+Ruled Surface(240) = {239};
+Line Loop(241) = {31, 100, -75, -92};
+Ruled Surface(242) = {241};
+Line Loop(243) = {32, 101, -76, -93};
+Ruled Surface(244) = {243};
+Line Loop(245) = {33, 102, -77, -94};
+Ruled Surface(246) = {245};
+Line Loop(247) = {34, 103, -78, -95};
+Ruled Surface(248) = {247};
+Line Loop(249) = {35, 104, -79, -96};
+Ruled Surface(250) = {249};
+Line Loop(251) = {36, 105, -80, -97};
+Ruled Surface(252) = {251};
+
+Line Loop(253) = {37, 99, -81, -98};
+Ruled Surface(254) = {253};
+Line Loop(255) = {38, 100, -82, -99};
+Ruled Surface(256) = {255};
+Line Loop(257) = {39, 101, -83, -100};
+Ruled Surface(258) = {257};
+Line Loop(259) = {40, 102, -84, -101};
+Ruled Surface(260) = {259};
+Line Loop(261) = {41, 103, -85, -102};
+Ruled Surface(262) = {261};
+Line Loop(263) = {42, 104, -86, -103};
+Ruled Surface(264) = {263};
+Line Loop(265) = {43, 105, -87, -104};
+Ruled Surface(266) = {265};
+Line Loop(267) = {44, 98, -88, -105};
+Ruled Surface(268) = {267};
+
+Surface Loop(1001) = {102, 142, 190, 192, 184, 182};
+Volume(1002) = {1001};
+Surface Loop(1003) = {104, 144, 194, 196, 186, 184};
+Volume(1004) = {1003};
+Surface Loop(1005) = {106, 146, 198, 200, 188, 186};
+Volume(1006) = {1005};
+Surface Loop(1007) = {108, 148, 202, 204, 182, 188};
+Volume(1008) = {1007};
+
+Surface Loop(1009) = {110, 150, 222, 208, 190, 206};
+Volume(1010) = {1009};
+Surface Loop(1011) = {112, 152, 224, 210, 192, 208};
+Volume(1012) = {1011};
+Surface Loop(1013) = {114, 154, 226, 212, 194, 210};
+Volume(1014) = {1013};
+Surface Loop(1015) = {116, 156, 228, 214, 196, 212};
+Volume(1016) = {1015};
+Surface Loop(1017) = {118, 158, 230, 216, 198, 214};
+Volume(1018) = {1017};
+Surface Loop(1019) = {120, 160, 232, 218, 200, 216};
+Volume(1020) = {1019};
+Surface Loop(1021) = {122, 162, 234, 220, 202, 218};
+Volume(1022) = {1021};
+Surface Loop(1023) = {124, 164, 236, 206, 204, 220};
+Volume(1024) = {1023};
+
+Surface Loop(1025) = {126, 166, 254, 240, 222, 238};
+Volume(1026) = {1025};
+Surface Loop(1027) = {128, 168, 256, 242, 224, 240};
+Volume(1028) = {1027};
+Surface Loop(1029) = {130, 170, 258, 244, 226, 242};
+Volume(1030) = {1029};
+Surface Loop(1031) = {132, 172, 260, 246, 228, 244};
+Volume(1032) = {1031};
+Surface Loop(1033) = {134, 174, 262, 248, 230, 246};
+Volume(1034) = {1033};
+Surface Loop(1035) = {136, 176, 264, 250, 232, 248};
+Volume(1036) = {1035};
+Surface Loop(1037) = {138, 178, 266, 252, 234, 250};
+Volume(1038) = {1037};
+Surface Loop(1039) = {140, 180, 268, 238, 236, 252};
+Volume(1040) = {1039};
