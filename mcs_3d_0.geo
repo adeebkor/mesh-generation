@@ -20,7 +20,7 @@ numExtraWavelength = 5;
 domainRadius = 3.0 + numExtraWavelength*wavelength;
 
 numElementPerWavelength1 = 3;
-numElementPerWavelength2 = 4 * numElementPerWavelength1 - 1;
+numElementPerWavelength2 = 2 * numElementPerWavelength1 + 1;
 sourceRadius = 1.0;
 sphereRadius = sourceRadius;
 domainLength = 8.0;
@@ -1214,10 +1214,10 @@ Physical Volume(2) = {2002, 2004, 2006, 2008,
 // Set transfinite //
 // --------------- //
 
-numPoints1 = numElementPerWavelength1 * (sourceRadius * cp0) / wavelength;
-numPoints2 = numElementPerWavelength2 * (sourceRadius - sourceRadius * cp0) / wavelength;
-numPoints3 = numElementPerWavelength1 * (domainRadius - sourceRadius) / wavelength;
-numPoints4 = numElementPerWavelength1 * (- sphereRadius - xa) / wavelength;
+numPoints1 = Ceil(numElementPerWavelength1 * (sourceRadius * cp0) / wavelength);
+numPoints2 = Ceil(numElementPerWavelength2 * (sourceRadius - sourceRadius * cp0) / wavelength);
+numPoints3 = Ceil(numElementPerWavelength1 * (domainRadius - sourceRadius) / wavelength);
+numPoints4 = Ceil(numElementPerWavelength1 * (- sphereRadius - xa) / wavelength);
 
 Transfinite Line {1, 2, 3, 4,
                   5, 6, 7, 8, 9, 10, 11, 12,
@@ -1271,3 +1271,13 @@ Transfinite Surface "*";
 Recombine Surface "*";
 
 Transfinite Volume "*";
+
+// ---------------- //
+// Print parameters //
+// ---------------- //
+
+Printf("The wavelength is %g meter", wavelength);
+Printf("Number of points 1 is %g", numPoints1);
+Printf("Number of points 2 is %g", numPoints2);
+Printf("Number of points 3 is %g", numPoints3);
+Printf("Number of points 4 is %g", numPoints4);
