@@ -16,14 +16,14 @@ speedOfSound = 1500;
 sourceFrequency = 2000;
 
 wavelength = speedOfSound / sourceFrequency;
-numExtraWavelength = 5;
+numExtraWavelength = 3;
 domainRadius = 3.0 + numExtraWavelength*wavelength;
 
 numElementPerWavelength1 = 3;
 numElementPerWavelength2 = 2 * numElementPerWavelength1 + 1;
 sourceRadius = 1.0;
 sphereRadius = sourceRadius;
-domainLength = 8.0;
+domainLength = 9.0 + numExtraWavelength*wavelength;
 xa = -4.0;
 xb = xa + domainLength;
 
@@ -1218,6 +1218,7 @@ numPoints1 = Ceil(numElementPerWavelength1 * (sourceRadius * cp0) / wavelength);
 numPoints2 = Ceil(numElementPerWavelength2 * (sourceRadius - sourceRadius * cp0) / wavelength);
 numPoints3 = Ceil(numElementPerWavelength1 * (domainRadius - sourceRadius) / wavelength);
 numPoints4 = Ceil(numElementPerWavelength1 * (- sphereRadius - xa) / wavelength);
+numPoints5 = Ceil(numElementPerWavelength1 * (xb - sphereRadius) / wavelength);
 
 Transfinite Line {1, 2, 3, 4,
                   5, 6, 7, 8, 9, 10, 11, 12,
@@ -1261,11 +1262,12 @@ Transfinite Line {29, 30, 31, 32, 33, 34, 35, 36,
 Transfinite Line {89,
                   90, 91, 92, 93, 94, 95, 96, 97,
                   98, 99, 100, 101, 102, 103, 104, 105,
-                  106, 107, 108, 109, 110, 111, 112, 113,
-                  258,
+                  106, 107, 108, 109, 110, 111, 112, 113} = numPoints4;
+
+Transfinite Line {258,
                   259, 260, 261, 262, 263, 264, 265, 266,
                   267, 268, 269, 270, 271, 272, 273, 274,
-                  275, 276, 277, 278, 279, 280, 281, 282} = numPoints4;
+                  275, 276, 277, 278, 279, 280, 281, 282} = numPoints5;
 
 Transfinite Surface "*";
 Recombine Surface "*";
