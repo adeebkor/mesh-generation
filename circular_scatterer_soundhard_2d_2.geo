@@ -26,7 +26,7 @@ scattererRadius = 0.5 * wavelength;
 // Domain                                                                    //
 // ------------------------------------------------------------------------- //
 
-scale_x = 8;
+scale_x = 10;
 scale_y = 12;
 
 Point(1) = {- scale_y * wavelength, - scale_y * wavelength, 0., 1.0};
