@@ -2,9 +2,9 @@
 //
 // Gmsh GEO file
 //
-// Homogenous domain with a circular scatterer
+// Plane wave scattering due to a circular scatterer
 // - structured quadrilateral mesh
-// - if wavelength > scatterer radius
+// - if wavelength < scatterer radius
 //
 // ----------------------------------------------------------------------------
 // Copyright (C) 2024 Adeeb Arif Kor
@@ -20,7 +20,7 @@ wavelength = speedOfSound / sourceFrequency;
 
 numElementPerWavelength = 6;
 
-scattererRadius = 0.5 * wavelength;
+scattererRadius = 1.0 * wavelength;
 
 // ------------------------------------------------------------------------- //
 // Domain                                                                    //
@@ -29,10 +29,10 @@ scattererRadius = 0.5 * wavelength;
 scale_x = 8;
 scale_y = 12;
 
-Point(1) = {- scale_y * wavelength, - scale_y * wavelength, 0., 1.0};
-Point(2) = {scale_x * wavelength, - scale_y * wavelength, 0., 1.0};
-Point(3) = {scale_x * wavelength, scale_y * wavelength, 0., 1.0};
-Point(4) = {- scale_y * wavelength, scale_y * wavelength, 0., 1.0};
+Point(1) = {- scale_y * scattererRadius, - scale_y * scattererRadius, 0., 1.0};
+Point(2) = {scale_x * scattererRadius, - scale_y * scattererRadius, 0., 1.0};
+Point(3) = {scale_x * scattererRadius, scale_y * scattererRadius, 0., 1.0};
+Point(4) = {- scale_y * scattererRadius, scale_y * scattererRadius, 0., 1.0};
 Point(5) = {0., 0., 0., 1.0};
 Point(6) = {scattererRadius * Cos(Pi), scattererRadius * Sin(Pi), 0., 1.0};
 Point(7) = {scattererRadius * Cos(5/4*Pi), scattererRadius * Sin(5/4*Pi), 0., 1.0};
@@ -42,18 +42,18 @@ Point(10) = {scattererRadius, 0.0, 0., 1.0};
 Point(11) = {scattererRadius * Cos(1/4*Pi), scattererRadius * Sin(1/4*Pi), 0., 1.0};
 Point(12) = {scattererRadius * Cos(1/2*Pi), scattererRadius * Sin(1/2*Pi), 0., 1.0};
 Point(13) = {scattererRadius * Cos(3/4*Pi), scattererRadius * Sin(3/4*Pi), 0., 1.0};
-Point(14) = {0., - scale_y * wavelength, 0., 1.0};
-Point(15) = {scale_x * wavelength, 0., 0., 1.0};
-Point(16) = {0., scale_y * wavelength, 0., 1.0};
-Point(17) = {- scale_y * wavelength, 0., 0., 1.0};
-Point(18) = {scattererRadius * Cos(5/4*Pi), - scale_y * wavelength, 0., 1.0};
-Point(19) = {scattererRadius * Cos(7/4*Pi), - scale_y * wavelength, 0., 1.0};
-Point(20) = {scale_x * wavelength, scattererRadius * Sin(7/4*Pi), 0., 1.0};
-Point(21) = {scale_x * wavelength, scattererRadius * Sin(1/4*Pi), 0., 1.0};
-Point(22) = {scattererRadius * Cos(7/4*Pi), scale_y * wavelength, 0., 1.0};
-Point(23) = {scattererRadius * Cos(5/4*Pi), scale_y * wavelength, 0., 1.0};
-Point(24) = {- scale_y * wavelength, scattererRadius * Sin(3/4*Pi), 0., 1.0};
-Point(25) = {- scale_y * wavelength, scattererRadius * Sin(5/4*Pi), 0., 1.0};
+Point(14) = {0., - scale_y * scattererRadius, 0., 1.0};
+Point(15) = {scale_x * scattererRadius, 0., 0., 1.0};
+Point(16) = {0., scale_y * scattererRadius, 0., 1.0};
+Point(17) = {- scale_y * scattererRadius, 0., 0., 1.0};
+Point(18) = {scattererRadius * Cos(5/4*Pi), - scale_y * scattererRadius, 0., 1.0};
+Point(19) = {scattererRadius * Cos(7/4*Pi), - scale_y * scattererRadius, 0., 1.0};
+Point(20) = {scale_x * scattererRadius, scattererRadius * Sin(7/4*Pi), 0., 1.0};
+Point(21) = {scale_x * scattererRadius, scattererRadius * Sin(1/4*Pi), 0., 1.0};
+Point(22) = {scattererRadius * Cos(7/4*Pi), scale_y * scattererRadius, 0., 1.0};
+Point(23) = {scattererRadius * Cos(5/4*Pi), scale_y * scattererRadius, 0., 1.0};
+Point(24) = {- scale_y * scattererRadius, scattererRadius * Sin(3/4*Pi), 0., 1.0};
+Point(25) = {- scale_y * scattererRadius, scattererRadius * Sin(5/4*Pi), 0., 1.0};
 
 Line(1) = {1, 18};
 Line(2) = {18, 14};
@@ -140,8 +140,8 @@ Physical Surface(1) = {2, 4, 6, 8,
 // Set transfinite //
 // =============== //
 
-numPoints1 = ( scale_x * wavelength - scattererRadius * Cos(7/4*Pi)) * numElementPerWavelength / wavelength + 1;
-numPoints2 = ( scattererRadius * Cos(5/4*Pi) - (- scale_y * wavelength) ) * numElementPerWavelength / wavelength + 1;
+numPoints1 = ( scattererRadius * Cos(5/4*Pi) - (- scale_x * scattererRadius) ) * numElementPerWavelength / wavelength + 1;
+numPoints2 = ( scattererRadius * Sin(5/4*Pi) - (- scale_y * scattererRadius) ) * numElementPerWavelength / wavelength + 1;
 numPoints3 = ( - scattererRadius * Cos(5/4*Pi) ) * numElementPerWavelength / wavelength + 1;
 numPoints4 = ( - scattererRadius * Sin(5/4*Pi) ) * numElementPerWavelength / wavelength + 1;
 
