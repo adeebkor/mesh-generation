@@ -18,7 +18,7 @@ sourceFrequency = 2000.0;
 
 wavelength = speedOfSound / sourceFrequency;
 
-numElementPerWavelength = 4;
+numElementPerWavelength = 6;
 
 scattererRadius = 1.0 * wavelength;
 scattererHalfRadius = scattererRadius / 2.0;
