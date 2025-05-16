@@ -18,7 +18,7 @@ sourceFrequency = 2000.0;
 
 wavelength = speedOfSound / sourceFrequency;
 
-numElementPerWavelength = 10;
+numElementPerWavelength = 6;
 
 scattererRadius = 1.0 * wavelength;
 
@@ -52,9 +52,11 @@ Plane Surface(1) = {1, 3};
 
 // Set number of points on circle
 
-numPoints = 2 * Pi * scattererRadius * numElementPerWavelength / wavelength + 1;
+numPoints1 = (xscale * scattererRadius + xscale * scattererRadius) * 2 / wavelength + 1;
+numPoints2 = Pi * scattererRadius * numElementPerWavelength / wavelength + 1;
 
-// Transfinite Curve {5, 6} = numPoints;
+Transfinite Curve {1, 2, 3, 4} = numPoints1;
+Transfinite Curve {5, 6} = numPoints2;
 
 // ----------------------- //
 // Tag curves and surfaces //
@@ -66,7 +68,7 @@ Physical Curve(3) = {1, 3};
 
 Physical Surface(1) = {1};
 
-Mesh.MinimumCirclePoints = numPoints;
+// Mesh.MinimumCirclePoints = numPoints;
 
 Recombine Surface "*";
 
@@ -77,4 +79,5 @@ Recombine Surface "*";
 //Mesh.RecombinationAlgorithm = 3; // or 3
 
 Printf("The wavelength is %g meter", wavelength);
-Printf("Number of points is %g", numPoints);
+Printf("Number of points is %g", numPoints1);
+Printf("Number of points is %g", numPoints2);
