@@ -13,13 +13,13 @@
 // ---------------------------- //
 
 speedOfSound = 1500;
-sourceFrequency = 1000;
+sourceFrequency = 2000;
 
 wavelength = speedOfSound / sourceFrequency;
 numExtraWavelength = 3;
 domainRadius = 3.0 + numExtraWavelength*wavelength;
 
-numElementPerWavelength1 = 6;
+numElementPerWavelength1 = 16;
 numElementPerWavelength2 = 2 * numElementPerWavelength1 + 1;
 sourceRadius = 1.0;
 sphereRadius = sourceRadius;
