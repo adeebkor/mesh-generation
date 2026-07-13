@@ -4,7 +4,7 @@
 //
 // Plane wave with spherical scatterer problem
 // - structured mesh
-//
+// - wavelength > scatterer radius
 // ----------------------------------------------------------------------------
 // Copyright (C) 2024 Adeeb Arif Kor
 
@@ -12,20 +12,21 @@
 // Geometry and mesh parameters //
 // ---------------------------- //
 
-speedOfSound = 1500;
-sourceFrequency = 2000;
+speedOfSound = 1500;  // m/s
+sourceFrequency = 120;  // Hz
 
-wavelength = speedOfSound / sourceFrequency;
-numExtraWavelength = 3;
-domainRadius = 3.0 + numExtraWavelength*wavelength;
+sourceRadius = 1.0;  // m
+sphereRadius = sourceRadius;  // m
 
-numElementPerWavelength1 = 11;
+wavelength = speedOfSound / sourceFrequency;  // m
+numExtraWavelength = 0.0;
+domainRadius = 8.0 + numExtraWavelength*sphereRadius;
+
+numElementPerWavelength1 = 1;
 numElementPerWavelength2 = 2 * numElementPerWavelength1 + 1;
-sourceRadius = 1.0;
-sphereRadius = sourceRadius;
-domainLength = 9.0 + numExtraWavelength*wavelength;
-xa = -4.0;
-xb = xa + domainLength;
+domainLength = 15.0 + numExtraWavelength*sphereRadius;  // m
+xa = - 15.0 - numExtraWavelength*sphereRadius;  // m
+xb = domainLength;
 
 // -------- //
 // Volume 1 //
@@ -1214,11 +1215,11 @@ Physical Volume(2) = {2002, 2004, 2006, 2008,
 // Set transfinite //
 // --------------- //
 
-numPoints1 = Ceil(numElementPerWavelength1 * (sourceRadius * cp0) / wavelength);
-numPoints2 = Ceil(numElementPerWavelength2 * (sourceRadius - sourceRadius * cp0) / wavelength);
-numPoints3 = Ceil(numElementPerWavelength1 * (domainRadius - sourceRadius) / wavelength);
-numPoints4 = Ceil(numElementPerWavelength1 * (- sphereRadius - xa) / wavelength);
-numPoints5 = Ceil(numElementPerWavelength1 * (xb - sphereRadius) / wavelength);
+numPoints1 = Ceil(numElementPerWavelength1 * (sourceRadius * cp0) / sphereRadius);
+numPoints2 = Ceil(numElementPerWavelength2 * (sourceRadius - sourceRadius * cp0) / sphereRadius);
+numPoints3 = Ceil(numElementPerWavelength1 * (domainRadius - sourceRadius) / sphereRadius);
+numPoints4 = Ceil(numElementPerWavelength1 * (- sphereRadius - xa) / sphereRadius);
+numPoints5 = Ceil(numElementPerWavelength1 * (xb - sphereRadius) / sphereRadius);
 
 Transfinite Line {1, 2, 3, 4,
                   5, 6, 7, 8, 9, 10, 11, 12,
@@ -1283,4 +1284,4 @@ Printf("Number of points 1 is %g", numPoints1);
 Printf("Number of points 2 is %g", numPoints2);
 Printf("Number of points 3 is %g", numPoints3);
 Printf("Number of points 4 is %g", numPoints4);
-
+Printf("ka = %g", 2 * Pi * sphereRadius / wavelength);
