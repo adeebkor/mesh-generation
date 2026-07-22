@@ -13,19 +13,19 @@
 // ---------------------------- //
 
 speedOfSound = 1500;  // m/s
-sourceFrequency = 120;  // Hz
+sourceFrequency = 240;  // Hz
 
 sourceRadius = 1.0;  // m
 sphereRadius = sourceRadius;  // m
 
 wavelength = speedOfSound / sourceFrequency;  // m
 numExtraWavelength = 0.0;
-domainRadius = 8.0 + numExtraWavelength*sphereRadius;
+domainRadius = 30 + numExtraWavelength*sphereRadius;
 
-numElementPerWavelength1 = 1;
+numElementPerWavelength1 = 2;
 numElementPerWavelength2 = 2 * numElementPerWavelength1 + 1;
-domainLength = 15.0 + numExtraWavelength*sphereRadius;  // m
-xa = - 15.0 - numExtraWavelength*sphereRadius;  // m
+domainLength = 10.0 + numExtraWavelength*sphereRadius;  // m
+xa = - 10.0 - numExtraWavelength*sphereRadius;  // m
 xb = domainLength;
 
 // -------- //
